@@ -100,16 +100,23 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.language),
-            tooltip: 'Choose language for your Keyboard',
+            tooltip: 'Choose your Keyboard language',
             onPressed: () {
-              // TODO: handle the press (language toggle)
+              // TODO: handle the press (language selection)
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.keyboard),
+            tooltip: 'Choose your Keyboard layout',
+            onPressed: () {
+              // TODO: handle the press (layout selection)
             },
           ),
           IconButton(
             icon: const Icon(Icons.auto_fix_high),
             tooltip: 'Choose your Next Word Prediction model',
             onPressed: () {
-              // TODO: handle the press (language toggle)
+              // TODO: handle the press (NWP model)
             },
           ),
           IconButton(
