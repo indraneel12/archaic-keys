@@ -13,10 +13,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appName,
-      theme: ThemeData.dark(
-        useMaterial3: true,
-      ),
+      theme: ThemeData.dark(useMaterial3: true),
       home: const HomePage(title: appName),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -45,6 +44,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: 'Choose language for your keyboard',
+            onPressed: () {
+              // TODO: handle the press (language toggle)
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
