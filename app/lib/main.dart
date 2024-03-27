@@ -64,6 +64,11 @@ class _HomePageState extends State<HomePage> {
             tooltip: 'About your App',
             onPressed: () {
               // TODO: handle the press (help/about menu)
+              showAboutDialog(
+                context: context,
+                applicationName: appName,
+                applicationVersion: appVersion,
+              );
             },
           ),
         ],
