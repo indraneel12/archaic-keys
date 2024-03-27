@@ -1,6 +1,6 @@
 // Copyright (c) 2024, Indraneel Rajeevan
 // Copyright (c) 2024, Deepen Shrestha
-// 
+//
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
@@ -53,11 +53,31 @@ class _HomePageState extends State<HomePage> {
           tooltip: 'About your App',
           onPressed: () {
             // TODO: handle the press (help/about menu)
+            final aboutText = Text(
+              copyright,
+              softWrap: false,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontFamily: 'ChivoMono',
+                    // fontFeatures: const <FontFeature>[
+                    //   FontFeature.tabularFigures(),
+                    // ],
+                    // fontSize: 10.0,
+                  ),
+            );
             showAboutDialog(
               context: context,
               applicationIcon: const Icon(appIcon),
               applicationName: appName,
               applicationVersion: appVersion,
+              children: <Widget>[
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: aboutText,
+                  ),
+                )
+              ],
             );
           },
         ),
