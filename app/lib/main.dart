@@ -120,6 +120,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           IconButton(
+            icon: const Icon(Icons.keyboard_voice),
+            tooltip: 'Enable voice typing',
+            onPressed: () {
+              // TODO: handle the press (voice typing)
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Customize your App',
             onPressed: () {
