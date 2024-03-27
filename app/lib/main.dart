@@ -4,10 +4,16 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 import 'src/constants.dart';
 
 void main() {
+  LicenseRegistry.addLicense(() async* {
+    final chivoLicense = await rootBundle.loadString(LicensePaths.chivoMono);
+    yield LicenseEntryWithLineBreaks(['google_fonts'], chivoLicense);
+  });
   runApp(const App());
 }
 
@@ -58,10 +64,6 @@ class _HomePageState extends State<HomePage> {
               softWrap: false,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     fontFamily: 'ChivoMono',
-                    // fontFeatures: const <FontFeature>[
-                    //   FontFeature.tabularFigures(),
-                    // ],
-                    // fontSize: 10.0,
                   ),
             );
             showAboutDialog(
