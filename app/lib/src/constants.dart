@@ -1,6 +1,6 @@
 // Copyright (c) 2024, Indraneel Rajeevan
 // Copyright (c) 2024, Deepen Shrestha
-// 
+//
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart' show Icons;
@@ -40,3 +40,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ''';
+
+class LicensePaths {
+  static const chivoMono = 'fonts/Chivo_Mono/OFL.txt';
+}
