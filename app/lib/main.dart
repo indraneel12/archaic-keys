@@ -59,6 +59,13 @@ class _HomePageState extends State<HomePage> {
               // TODO: handle the press (settings menu)
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.help),
+            tooltip: 'About your app',
+            onPressed: () {
+              // TODO: handle the press (help/about menu)
+            },
+          ),
         ],
       ),
       body: Center(
