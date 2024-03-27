@@ -83,11 +83,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(height: 32.0),
-                SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
+                Center(
                   child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: aboutText,
+                    scrollDirection: Axis.vertical,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: aboutText,
+                    ),
                   ),
                 )
               ],
