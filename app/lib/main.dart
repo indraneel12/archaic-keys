@@ -43,6 +43,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        leading: IconButton(
+          icon: const Icon(appIcon),
+          tooltip: 'About your App',
+          onPressed: () {
+            // TODO: handle the press (help/about menu)
+            showAboutDialog(
+              context: context,
+              applicationIcon: const Icon(appIcon),
+              applicationName: appName,
+              applicationVersion: appVersion,
+            );
+          },
+        ),
         title: Text(widget.title),
         actions: <Widget>[
           IconButton(
@@ -57,18 +70,6 @@ class _HomePageState extends State<HomePage> {
             tooltip: 'Customize your App',
             onPressed: () {
               // TODO: handle the press (settings menu)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.help),
-            tooltip: 'About your App',
-            onPressed: () {
-              // TODO: handle the press (help/about menu)
-              showAboutDialog(
-                context: context,
-                applicationName: appName,
-                applicationVersion: appVersion,
-              );
             },
           ),
         ],
