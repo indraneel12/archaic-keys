@@ -1,2 +1,5 @@
 # Archaic Keys
-IIT Kanpur CS689 (Computational Linguistics For Indian Languages) Project.
+
+CS689 Project (2023-24 Semester-2),<br>
+Computational Linguistics For Indian Languages,<br>
+IIT Kanpur<br>
