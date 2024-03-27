@@ -47,21 +47,21 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.language),
-            tooltip: 'Choose language for your keyboard',
+            tooltip: 'Choose language for your Keyboard',
             onPressed: () {
               // TODO: handle the press (language toggle)
             },
           ),
           IconButton(
             icon: const Icon(Icons.settings),
-            tooltip: 'Customize your app',
+            tooltip: 'Customize your App',
             onPressed: () {
               // TODO: handle the press (settings menu)
             },
           ),
           IconButton(
             icon: const Icon(Icons.help),
-            tooltip: 'About your app',
+            tooltip: 'About your App',
             onPressed: () {
               // TODO: handle the press (help/about menu)
             },
