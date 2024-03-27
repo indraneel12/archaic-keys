@@ -127,6 +127,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           IconButton(
+            icon: const Icon(Icons.translate),
+            tooltip: 'Transliterate current text',
+            onPressed: () {
+              // TODO: handle the press (transliteration)
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Customize your App',
             onPressed: () {
