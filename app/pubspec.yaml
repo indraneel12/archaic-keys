@@ -90,3 +90,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: ChivoMono
+      fonts:
+        - asset: fonts/Chivo_Mono/static/ChivoMono-Regular.ttf
