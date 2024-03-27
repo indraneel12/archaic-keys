@@ -69,6 +69,7 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
   assets:
+    - assets/images/authors.jpg
     - assets/fonts/Chivo_Mono/OFL.txt
 
   # To add custom fonts to your application, add a fonts section here,

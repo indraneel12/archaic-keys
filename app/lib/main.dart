@@ -72,6 +72,17 @@ class _HomePageState extends State<HomePage> {
               applicationName: appName,
               applicationVersion: appVersion,
               children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(128.0),
+                    child: Image.asset(
+                      appAuthorsImagePath,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 32.0),
                 SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: SingleChildScrollView(
