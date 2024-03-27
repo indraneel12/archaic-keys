@@ -106,6 +106,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           IconButton(
+            icon: const Icon(Icons.auto_fix_high),
+            tooltip: 'Choose your Next Word Prediction model',
+            onPressed: () {
+              // TODO: handle the press (language toggle)
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Customize your App',
             onPressed: () {
