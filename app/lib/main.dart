@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               copyright,
               softWrap: false,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontFamily: 'ChivoMono',
+                    fontFamily: CustomFonts.chivoMono,
                   ),
             );
             showAboutDialog(
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(
           widget.title,
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                fontFamily: 'Sixtyfour',
+                fontFamily: CustomFonts.sixtyfour,
               ),
         ),
         actions: <Widget>[
