@@ -44,4 +44,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class LicensePaths {
   static const chivoMono = 'fonts/Chivo_Mono/OFL.txt';
+  static const sixtyfour = 'fonts/Sixtyfour/OFL.txt';
 }

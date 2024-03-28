@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/images/authors.jpg
     - assets/fonts/Chivo_Mono/OFL.txt
+    - assets/fonts/Sixtyfour/OFL.txt
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -95,3 +96,6 @@ flutter:
     - family: ChivoMono
       fonts:
         - asset: assets/fonts/Chivo_Mono/static/ChivoMono-Regular.ttf
+    - family: Sixtyfour
+      fonts:
+        - asset: assets/fonts/Sixtyfour/static/Sixtyfour-Regular.ttf

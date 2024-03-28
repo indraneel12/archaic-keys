@@ -11,8 +11,12 @@ import 'src/constants.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
-    final chivoLicense = await rootBundle.loadString(LicensePaths.chivoMono);
-    yield LicenseEntryWithLineBreaks(['google_fonts'], chivoLicense);
+    final license = await rootBundle.loadString(LicensePaths.chivoMono);
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString(LicensePaths.sixtyfour);
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
   runApp(const App());
 }
@@ -54,6 +58,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(appIcon),
           tooltip: 'About your App',
@@ -96,7 +101,12 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                fontFamily: 'Sixtyfour',
+              ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.language),
