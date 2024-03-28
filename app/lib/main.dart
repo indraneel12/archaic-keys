@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'src/constants.dart';
+import 'package:app/src/constants.dart';
+import 'package:app/src/widgets/app_bar/app_bar_widgets.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -58,97 +59,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-          widget.title,
-          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                fontFamily: CustomFonts.sixtyfour,
-              ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.language),
-            tooltip: 'Choose your Keyboard language',
-            onPressed: () {
-              // TODO: handle the press (language selection)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.keyboard),
-            tooltip: 'Choose your Keyboard layout',
-            onPressed: () {
-              // TODO: handle the press (layout selection)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.auto_fix_high),
-            tooltip: 'Choose your Next Word Prediction model',
-            onPressed: () {
-              // TODO: handle the press (NWP model)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.keyboard_voice),
-            tooltip: 'Enable voice typing',
-            onPressed: () {
-              // TODO: handle the press (voice typing)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.translate),
-            tooltip: 'Transliterate current text',
-            onPressed: () {
-              // TODO: handle the press (transliteration)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Customize your App',
-            onPressed: () {
-              // TODO: handle the press (settings menu)
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.help),
-            tooltip: 'About your App',
-            onPressed: () {
-              // TODO: handle the press (help/about menu)
-              final aboutText = Text(
-                copyright,
-                softWrap: false,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontFamily: CustomFonts.chivoMono,
-                    ),
-              );
-              showAboutDialog(
-                context: context,
-                applicationIcon: const Icon(appIcon),
-                applicationName: appName,
-                applicationVersion: appVersion,
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.center,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(128.0),
-                      child: Image.asset(
-                        appAuthorsImagePath,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 32.0),
-                  Center(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: aboutText,
-                      ),
-                    ),
-                  )
-                ],
-              );
-            },
-          )
+        title: const AppTitle(),
+        actions: const <Widget>[
+          KeyboardLanguagePicker(),
+          KeyboardLayoutPicker(),
+          NwpModelPicker(),
+          VoiceTypingButton(),
+          TransliterateButton(),
+          SettingsButton(),
+          AboutAppButton()
         ],
       ),
       body: Center(
