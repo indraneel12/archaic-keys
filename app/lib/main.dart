@@ -58,49 +58,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(appIcon),
-          tooltip: 'About your App',
-          onPressed: () {
-            // TODO: handle the press (help/about menu)
-            final aboutText = Text(
-              copyright,
-              softWrap: false,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontFamily: CustomFonts.chivoMono,
-                  ),
-            );
-            showAboutDialog(
-              context: context,
-              applicationIcon: const Icon(appIcon),
-              applicationName: appName,
-              applicationVersion: appVersion,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(128.0),
-                    child: Image.asset(
-                      appAuthorsImagePath,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 32.0),
-                Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: aboutText,
-                    ),
-                  ),
-                )
-              ],
-            );
-          },
-        ),
         title: Text(
           widget.title,
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -150,6 +107,48 @@ class _HomePageState extends State<HomePage> {
               // TODO: handle the press (settings menu)
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.help),
+            tooltip: 'About your App',
+            onPressed: () {
+              // TODO: handle the press (help/about menu)
+              final aboutText = Text(
+                copyright,
+                softWrap: false,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontFamily: CustomFonts.chivoMono,
+                    ),
+              );
+              showAboutDialog(
+                context: context,
+                applicationIcon: const Icon(appIcon),
+                applicationName: appName,
+                applicationVersion: appVersion,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(128.0),
+                      child: Image.asset(
+                        appAuthorsImagePath,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32.0),
+                  Center(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: aboutText,
+                      ),
+                    ),
+                  )
+                ],
+              );
+            },
+          )
         ],
       ),
       body: Center(
