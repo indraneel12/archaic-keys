@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:app/src/constants.dart';
-import 'package:app/src/widgets/app_bar/app_bar_widgets.dart';
+import 'package:app/src/widgets/all_widgets.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
