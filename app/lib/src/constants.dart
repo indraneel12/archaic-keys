@@ -48,6 +48,6 @@ class CustomFonts {
 }
 
 class LicensePaths {
-  static const chivoMono = 'fonts/Chivo_Mono/OFL.txt';
-  static const sixtyfour = 'fonts/Sixtyfour/OFL.txt';
+  static const chivoMono = 'assets/fonts/Chivo_Mono/OFL.txt';
+  static const sixtyfour = 'assets/fonts/Sixtyfour/OFL.txt';
 }
