@@ -1,3 +1,9 @@
+# Personal Dev scripts (efficiency boosting)
+/app/build.bat
+/app/run.bat
+
+# <Dart-and-Flutter>
+
 # See https://www.dartlang.org/guides/libraries/private-files
 
 # Files and directories created by pub
