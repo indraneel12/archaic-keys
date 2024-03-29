@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -23,8 +21,8 @@ class AppHeader extends StatelessWidget {
   static const controls = [
     KeyboardLanguagePicker(),
     KeyboardLayoutPicker(),
-    NwpModelPicker(),
     VoiceTypingButton(),
+    NwpModelPicker(),
     TransliterateButton(),
     SettingsButton(),
   ];
