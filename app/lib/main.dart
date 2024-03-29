@@ -10,6 +10,8 @@ import 'package:flutter/services.dart';
 import 'package:app/src/constants.dart';
 import 'package:app/src/app.dart';
 
+export 'package:app/src/app.dart';
+
 void main() {
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString(LicensePaths.chivoMono);
