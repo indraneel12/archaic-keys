@@ -42,12 +42,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ''';
 
-class CustomFonts {
+abstract class AppDimensions {
+  static const minWidth = 400.0;
+  static const minHeight = 400.0;
+  static const maxWidth = 1500.0;
+  static const maxHeight = 700.0;
+}
+
+abstract class CustomFonts {
   static const chivoMono = 'ChivoMono';
   static const sixtyfour = 'Sixtyfour';
 }
 
-class LicensePaths {
+abstract class LicensePaths {
   static const chivoMono = 'assets/fonts/Chivo_Mono/OFL.txt';
   static const sixtyfour = 'assets/fonts/Sixtyfour/OFL.txt';
 }

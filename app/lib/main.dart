@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/utilities/layout_decider.dart';
 import 'package:app/src/widgets/all_widgets.dart';
 
 void main() {
@@ -28,18 +29,39 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: appName,
-      theme: ThemeData.dark(useMaterial3: true),
-      home: const HomePage(title: appName),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(useMaterial3: true),
+      title: appName,
+      home: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          minimum: const EdgeInsets.all(8.0),
+          child: Center(
+            child: SizedBox(
+              width: AppDimensions.maxWidth,
+              height: AppDimensions.maxHeight,
+              child: OverflowBox(
+                minWidth: AppDimensions.minWidth,
+                minHeight: AppDimensions.minHeight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+                  child: const HomePage(),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -56,39 +78,64 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const AppTitle(),
-        actions: const <Widget>[
-          KeyboardLanguagePicker(),
-          KeyboardLayoutPicker(),
-          NwpModelPicker(),
-          VoiceTypingButton(),
-          TransliterateButton(),
-          SettingsButton(),
-          AboutAppButton()
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+    if (LayoutDecider.from(context) == LayoutDecider.desktop) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          toolbarHeight: 64.0,
+          title: const AppTitle(),
+          actions: const <Widget>[
+            KeyboardLanguagePicker(),
+            KeyboardLayoutPicker(),
+            NwpModelPicker(),
+            VoiceTypingButton(),
+            TransliterateButton(),
+            SettingsButton(),
+            AboutAppButton()
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
+      );
+    } else {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
+      );
+    }
   }
 }
