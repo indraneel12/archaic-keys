@@ -5,7 +5,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/utilities/layout_decider.dart';
 import 'package:app/src/widgets/all_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,35 +17,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    if (LayoutDecider.from(context) == LayoutDecider.desktop) {
-      return Column(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Theme.of(context).colorScheme.inversePrimary,
-              child: const AppHeader(),
-            ),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Container(
+            color: Theme.of(context).colorScheme.inversePrimary,
+            child: const AppHeader(),
           ),
-          Expanded(
-            flex: 9,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'w=${MediaQuery.sizeOf(context).width}',
-                ),
-                Text(
-                  'h=${MediaQuery.sizeOf(context).height}',
-                ),
-              ],
-            ),
-          )
-        ],
-      );
-    } else {
-      return const Placeholder();
-    }
+        ),
+        Expanded(
+          flex: 9,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'w=${MediaQuery.sizeOf(context).width}',
+              ),
+              Text(
+                'h=${MediaQuery.sizeOf(context).height}',
+              ),
+            ],
+          ),
+        )
+      ],
+    );
   }
 }
