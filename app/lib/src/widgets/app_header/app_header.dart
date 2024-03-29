@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'app_title.dart';
+import 'app_sticker.dart';
 import 'keyboard_language_picker.dart';
 import 'keyboard_layout_picker.dart';
 import 'nwp_model_picker.dart';
@@ -45,7 +45,7 @@ class AppHeader extends StatelessWidget {
               ),
               child: const FittedBox(
                 fit: BoxFit.scaleDown,
-                child: AppTitle(),
+                child: AppSticker(),
               ),
             ),
             const Spacer(),
