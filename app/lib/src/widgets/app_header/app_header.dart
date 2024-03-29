@@ -36,13 +36,7 @@ class AppHeader extends StatelessWidget {
         return Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(
-                [
-                  8.0,
-                  constraints.maxWidth * 0.20,
-                  constraints.maxHeight * 0.20,
-                ].reduce(min),
-              ),
+              padding: EdgeInsets.all(constraints.maxHeight * 0.20),
               child: const FittedBox(
                 fit: BoxFit.scaleDown,
                 child: AppSticker(),
