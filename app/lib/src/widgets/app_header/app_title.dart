@@ -7,17 +7,15 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
 
-class AboutAppButton extends StatelessWidget {
-  const AboutAppButton({
+class AppTitle extends StatelessWidget {
+  const AppTitle({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.help),
-      tooltip: 'About your App',
-      onPressed: () {
+    return InkWell(
+      onTap: () {
         // TODO: handle the press (help/about menu)
         final aboutText = Text(
           copyright,
@@ -55,6 +53,13 @@ class AboutAppButton extends StatelessWidget {
           ],
         );
       },
+      child: Text(
+        AppMeta.name,
+        style: Theme.of(context)
+            .textTheme
+            .headlineLarge
+            ?.copyWith(fontFamily: CustomFonts.sixtyfour),
+      ),
     );
   }
 }
