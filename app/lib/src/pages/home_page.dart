@@ -16,74 +16,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     if (LayoutDecider.from(context) == LayoutDecider.desktop) {
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          toolbarHeight: 64.0,
-          title: const AppTitle(),
-          actions: const <Widget>[
-            KeyboardLanguagePicker(),
-            KeyboardLayoutPicker(),
-            NwpModelPicker(),
-            VoiceTypingButton(),
-            TransliterateButton(),
-            SettingsButton(),
-            AboutAppButton()
-          ],
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
+      return Column(
+        children: <Widget>[
+          const AppHeader(),
+          Text(
+            'w=${MediaQuery.sizeOf(context).width}',
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
+          Text(
+            'h=${MediaQuery.sizeOf(context).height}',
+          ),
+        ],
       );
     } else {
-      return Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-      );
+      return const Placeholder();
     }
   }
 }
