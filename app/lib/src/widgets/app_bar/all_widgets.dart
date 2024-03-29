@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 export 'about_app_button.dart';
+export 'app_header.dart';
 export 'app_title.dart';
 export 'keyboard_language_picker.dart';
 export 'keyboard_layout_picker.dart';
