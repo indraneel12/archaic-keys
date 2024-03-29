@@ -28,16 +28,16 @@ class AboutAppButton extends StatelessWidget {
         );
         showAboutDialog(
           context: context,
-          applicationIcon: const Icon(appIcon),
-          applicationName: appName,
-          applicationVersion: appVersion,
+          applicationIcon: const Icon(AppMeta.icon),
+          applicationName: AppMeta.name,
+          applicationVersion: AppMeta.version,
           children: <Widget>[
             Container(
               alignment: Alignment.center,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(128.0),
                 child: Image.asset(
-                  appAuthorsImagePath,
+                  AppMeta.authorsImagePath,
                   fit: BoxFit.contain,
                 ),
               ),

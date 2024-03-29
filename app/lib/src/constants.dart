@@ -5,11 +5,6 @@
 
 import 'package:flutter/material.dart' show Icons;
 
-const appName = 'Archaic Keys';
-const appVersion = '1.0.0+1';
-const appIcon = Icons.diversity_2;
-const appAuthorsImagePath = 'assets/images/authors.jpg';
-
 const copyright = '''BSD 3-Clause License
 
 Copyright (c) 2024, Indraneel Rajeevan
@@ -41,6 +36,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ''';
+
+abstract class AppMeta {
+  static const name = 'Archaic Keys';
+  static const version = '1.0.0+1';
+  static const icon = Icons.diversity_2;
+  static const authorsImagePath = 'assets/images/authors.jpg';
+}
 
 abstract class AppDimensions {
   static const minWidth = 400.0;

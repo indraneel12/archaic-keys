@@ -31,7 +31,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
-      title: appName,
+      title: AppMeta.name,
       home: Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(

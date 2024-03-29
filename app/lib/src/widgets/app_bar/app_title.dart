@@ -15,7 +15,7 @@ class AppTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      appName,
+      AppMeta.name,
       style: Theme.of(context)
           .textTheme
           .headlineLarge
