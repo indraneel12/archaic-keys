@@ -9,9 +9,9 @@ class LayoutDecider {
   static const phone = LayoutDecider(1);
   static const desktop = LayoutDecider(2);
 
-  final int value;
+  final int id;
 
-  const LayoutDecider(this.value);
+  const LayoutDecider(this.id);
 
   factory LayoutDecider.from(BuildContext context) {
     return (MediaQuery.sizeOf(context).width < 750.0) ? phone : desktop;

@@ -21,13 +21,28 @@ class _HomePageState extends State<HomePage> {
     if (LayoutDecider.from(context) == LayoutDecider.desktop) {
       return Column(
         children: <Widget>[
-          const AppHeader(),
-          Text(
-            'w=${MediaQuery.sizeOf(context).width}',
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Theme.of(context).colorScheme.inversePrimary,
+              child: const AppHeader(),
+            ),
           ),
-          Text(
-            'h=${MediaQuery.sizeOf(context).height}',
-          ),
+          Expanded(
+            flex: 9,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'w=${MediaQuery.sizeOf(context).width}',
+                ),
+                Text(
+                  'h=${MediaQuery.sizeOf(context).height}',
+                ),
+              ],
+            ),
+          )
         ],
       );
     } else {

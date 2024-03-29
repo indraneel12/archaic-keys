@@ -21,5 +21,5 @@ void main() {
     final license = await rootBundle.loadString(LicensePaths.sixtyfour);
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
-  runApp(const App());
+  runApp(App());
 }

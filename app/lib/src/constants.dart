@@ -45,8 +45,8 @@ abstract class AppMeta {
 }
 
 abstract class AppDimensions {
-  static const minWidth = 400.0;
-  static const minHeight = 400.0;
+  static const minWidth = 300.0;
+  static const minHeight = 300.0;
   static const maxWidth = 1500.0;
   static const maxHeight = 700.0;
 }
