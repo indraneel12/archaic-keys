@@ -13,10 +13,10 @@ class CustomKeyboard extends StatefulWidget {
 
   final double padding;
 
-  double get minWidth => AppDimensions.minWidth * 0.99;
-  double get minHeight => AppDimensions.minHeight * 0.55;
-  double get maxWidth => AppDimensions.maxWidth * 0.99;
-  double get maxHeight => AppDimensions.maxHeight * 0.55;
+  double get minWidth => AppDimensions.minWidth * 0.90;
+  double get minHeight => AppDimensions.minHeight * 0.45;
+  double get maxWidth => AppDimensions.maxWidth * 1.00;
+  double get maxHeight => AppDimensions.maxHeight * 1.00;
 
   @override
   State<CustomKeyboard> createState() => _CustomKeyboardState();
@@ -31,7 +31,32 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
       maxWidth: widget.maxWidth,
       maxHeight: widget.maxHeight,
       padding: widget.padding,
-      body: const Placeholder(),
+      body: Placeholder(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                '<unimplemented-keyboard>',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Global Width = ${MediaQuery.sizeOf(context).width}',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Global Height = ${MediaQuery.sizeOf(context).height}',
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
