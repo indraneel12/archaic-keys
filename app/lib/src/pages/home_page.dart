@@ -35,11 +35,11 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                flex: 1,
+                flex: 3,
                 child: TextEditor(),
               ),
               Expanded(
-                flex: 1,
+                flex: 4,
                 child: CustomKeyboard(padding: 8.0),
               ),
             ],

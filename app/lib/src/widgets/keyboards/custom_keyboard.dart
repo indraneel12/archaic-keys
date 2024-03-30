@@ -84,8 +84,9 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
             flex: 1,
             child: KeyboardControlBar(),
           ),
+          const SizedBox(height: 8.0),
           Expanded(
-            flex: 7,
+            flex: 11,
             child: widget.renderBody(context),
           ),
         ],

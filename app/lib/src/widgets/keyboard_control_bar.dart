@@ -10,8 +10,8 @@ import 'package:app/src/utilities/double_scrollview.dart';
 import 'package:app/src/widgets/key_button.dart';
 
 class KeyboardControlBar extends StatelessWidget {
-  static const minWidth = AppDimensions.minWidth * 0.80;
-  static const minHeight = AppDimensions.minHeight * 0.05;
+  static const minWidth = AppDimensions.maxWidth * 0.60;
+  static const minHeight = AppDimensions.minHeight * 0.03;
   static const maxWidth = AppDimensions.maxWidth * 1.00;
   static const maxHeight = AppDimensions.maxHeight * 1.00;
 
@@ -27,28 +27,20 @@ class KeyboardControlBar extends StatelessWidget {
       body: Row(
         children: <Widget>[
           Expanded(
+            flex: 1,
             child: Padding(
               padding: const EdgeInsets.only(right: 4.0),
               child: KeyButton(
-                label: 'Space',
-                fontFamily: CustomFonts.chivoMono,
-                onPressed: () => {},
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: KeyButton(
-                label: 'Ctrl',
+                label: 'Ctrl ',
                 fontFamily: CustomFonts.chivoMono,
                 isToggle: true,
                 activeColor: Colors.blue,
-                onPressed: () => {},
+                onPressed: () => {}, // TODO: Ctrl action (Key)
               ),
             ),
           ),
           Expanded(
+            flex: 1,
             child: Padding(
               padding: const EdgeInsets.only(right: 4.0),
               child: KeyButton(
@@ -56,24 +48,25 @@ class KeyboardControlBar extends StatelessWidget {
                 fontFamily: CustomFonts.chivoMono,
                 isToggle: true,
                 activeColor: Colors.blue,
-                onPressed: () => {},
+                onPressed: () => {}, // TODO: Shift action (Key)
               ),
             ),
           ),
           Expanded(
+            flex: 1,
             child: Padding(
               padding: const EdgeInsets.only(right: 4.0),
               child: KeyButton(
-                label: 'Alt',
+                label: ' Alt ',
                 fontFamily: CustomFonts.chivoMono,
                 isToggle: true,
                 activeColor: Colors.blue,
-                onPressed: () => {},
+                onPressed: () => {}, // TODO: Alt action (Key)
               ),
             ),
           ),
           const Expanded(
-            flex: 8,
+            flex: 10,
             child: Center(),
           ),
         ],
