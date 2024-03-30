@@ -21,21 +21,30 @@ class _TextEditorState extends State<TextEditor> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        QuillToolbar.simple(
-          configurations: QuillSimpleToolbarConfigurations(
-            controller: _controller,
-            sharedConfigurations: const QuillSharedConfigurations(
-              locale: Locale('en'),
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: QuillToolbar.simple(
+            configurations: QuillSimpleToolbarConfigurations(
+              controller: _controller,
+              multiRowsDisplay: true,
             ),
           ),
         ),
         Expanded(
-          child: QuillEditor.basic(
-            configurations: QuillEditorConfigurations(
-              controller: _controller,
-              readOnly: false,
-              sharedConfigurations: const QuillSharedConfigurations(
-                locale: Locale('en'),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            child: QuillEditor.basic(
+              configurations: QuillEditorConfigurations(
+                controller: _controller,
+                readOnly: false,
+                autoFocus: true,
+                scrollable: true,
               ),
             ),
           ),
