@@ -15,8 +15,8 @@ class AppHeader extends StatelessWidget {
 
   static bool isSpacious({required double width, required double height}) {
     // TODO: implement accurate App Header responsiveness
-    return (width > 600.0 && (width / height) > 1.7) ||
-        ((width / height) > 1.2 &&
+    return (width > 600.0 && (width / height) > 2.0) ||
+        ((width / height) > 1.25 &&
             width > AppDimensions.minWidth &&
             height > AppDimensions.minHeight);
   }
@@ -31,6 +31,7 @@ class AppHeader extends StatelessWidget {
           NwpModelMenu(context),
           TransliterateFeature(context),
           SettingsMenu(context),
+          AboutAppMenu(context),
         ];
         final spacious = AppHeader.isSpacious(
           width: MediaQuery.sizeOf(context).width,

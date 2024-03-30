@@ -11,6 +11,7 @@ import 'voice_typing_feature.dart';
 import 'nwp_model_menu.dart';
 import 'transliterate_feature.dart';
 import 'settings_menu.dart';
+import 'about_app_menu.dart';
 
 export 'menu.dart';
 export 'keyboard_menu.dart';
@@ -18,6 +19,7 @@ export 'voice_typing_feature.dart';
 export 'nwp_model_menu.dart';
 export 'transliterate_feature.dart';
 export 'settings_menu.dart';
+export 'about_app_menu.dart';
 
 class ControlMenu extends Menu {
   const ControlMenu(BuildContext context)
@@ -37,6 +39,7 @@ class ControlMenu extends Menu {
         final nwpModelMenu = NwpModelMenu(context);
         final transliterateFeature = TransliterateFeature(context);
         final settingsMenu = SettingsMenu(context);
+        final aboutAppMenu = AboutAppMenu(context);
         return AlertDialog(
           content: SingleChildScrollView(
             child: ListBody(
@@ -79,6 +82,14 @@ class ControlMenu extends Menu {
                   onTap: () {
                     Navigator.of(context).pop();
                     settingsMenu.action();
+                  },
+                ),
+                ListTile(
+                  leading: aboutAppMenu.thumbnail,
+                  title: Text(aboutAppMenu.description),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    aboutAppMenu.action();
                   },
                 ),
               ],

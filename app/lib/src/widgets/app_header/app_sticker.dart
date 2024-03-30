@@ -5,9 +5,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:url_launcher/url_launcher.dart';
-
 import 'package:app/src/constants.dart';
+import 'package:app/src/control_menu/about_app_menu.dart';
 
 class AppSticker extends StatelessWidget {
   const AppSticker({
@@ -17,7 +16,7 @@ class AppSticker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => showAboutApp(context),
+      onTap: () => AppSticker.showAboutApp(context),
       child: Text(
         AppMeta.name,
         style: Theme.of(context)
@@ -28,45 +27,13 @@ class AppSticker extends StatelessWidget {
     );
   }
 
-  void showAboutApp(BuildContext context) {
+  static void showAboutApp(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           icon: const Icon(AppMeta.icon),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                InkWell(
-                  onTap: () => launchUrl(Uri.parse(AppMeta.repositoryURL)),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(128.0),
-                      child: Image.asset(
-                        AppMeta.authorsImagePath,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 32.0),
-                Center(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Text(
-                      copyright,
-                      softWrap: false,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(fontFamily: CustomFonts.chivoMono),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+          content: AboutAppMenu.render(context),
         );
       },
     );
