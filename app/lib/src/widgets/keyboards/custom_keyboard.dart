@@ -6,8 +6,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
-import 'package:app/src/utilities/key_button.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
+import 'package:app/src/widgets/key_button.dart';
 
 class CustomKeyboard extends StatefulWidget {
   const CustomKeyboard({super.key, this.padding = 0.0});
@@ -58,6 +58,7 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
             KeyButton(
               character: 'Ctrl',
               isToggle: true,
+              activeColor: Colors.blue,
               onPressed: () => {},
             ),
             KeyButton(

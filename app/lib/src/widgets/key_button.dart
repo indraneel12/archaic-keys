@@ -14,12 +14,14 @@ class KeyButton extends StatefulWidget {
     required this.character,
     this.fontFamily,
     this.isToggle = false,
+    this.activeColor,
     required this.onPressed,
   });
 
   final String character;
   final String? fontFamily;
   final bool isToggle;
+  final Color? activeColor;
   final void Function() onPressed;
 
   @override
@@ -48,7 +50,7 @@ class _KeyButtonState extends State<KeyButton> {
             fit: BoxFit.fill,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              color: _isPressed ? Colors.blue : null,
+              color: _isPressed ? widget.activeColor : null,
               child: Text(
                 widget.character,
                 style: TextStyle(fontFamily: widget.fontFamily),
