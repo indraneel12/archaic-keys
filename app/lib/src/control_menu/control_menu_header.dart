@@ -28,17 +28,8 @@ class ControlMenuHeader extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
         );
-        final controlMenu = spacious ? null : ControlMenu(context);
         return Row(
           children: <Widget>[
-            if (!spacious)
-              FittedBox(
-                child: IconButton(
-                  icon: controlMenu!.thumbnail,
-                  tooltip: controlMenu.description,
-                  onPressed: controlMenu.action,
-                ),
-              ),
             Padding(
               padding: EdgeInsets.all(constraints.maxHeight * 0.20),
               child: const FittedBox(child: AppSticker()),

@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
-import 'package:app/src/control_menu/about_app_menu.dart';
+import 'package:app/src/control_menu/control_menu.dart';
 
 class AppSticker extends StatelessWidget {
   const AppSticker({
@@ -16,7 +16,7 @@ class AppSticker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => AppSticker.showAboutApp(context),
+      onTap: () => ControlMenu(context).show(),
       child: Text(
         AppMeta.name,
         style: Theme.of(context)
@@ -24,18 +24,6 @@ class AppSticker extends StatelessWidget {
             .headlineLarge
             ?.copyWith(fontFamily: CustomFonts.sixtyfour),
       ),
-    );
-  }
-
-  static void showAboutApp(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          icon: const Icon(AppMeta.icon),
-          content: AboutAppMenu.render(context),
-        );
-      },
     );
   }
 }
