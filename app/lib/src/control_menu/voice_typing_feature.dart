@@ -7,18 +7,17 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/app_feature.dart';
 
-final voiceTypingFeature = VoiceTypingFeature();
-
 class VoiceTypingFeature extends AppFeature {
-  static const _singleton = VoiceTypingFeature._internal();
-
-  factory VoiceTypingFeature() {
-    return _singleton;
-  }
-
-  const VoiceTypingFeature._internal()
+  const VoiceTypingFeature(BuildContext context)
       : super(
+          context: context,
           description: 'Enable voice typing',
           thumbnail: const Icon(Icons.keyboard_voice),
         );
+
+  @override
+  void Function() get action {
+    // TODO: implement action (VoiceTypingFeature)
+    return () => {};
+  }
 }

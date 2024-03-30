@@ -20,17 +20,23 @@ export 'transliterate_feature.dart';
 export 'settings_menu.dart';
 
 class ControlMenu extends Menu {
-  const ControlMenu()
+  const ControlMenu(BuildContext context)
       : super(
+          context: context,
           description: 'Open the Control Menu',
           thumbnail: const Icon(Icons.menu),
         );
 
   @override
-  void show({required BuildContext using}) {
+  void show() {
     showDialog(
-      context: using,
+      context: context,
       builder: (BuildContext context) {
+        final keyboardMenu = KeyboardMenu(context);
+        final voiceTypingFeature = VoiceTypingFeature(context);
+        final nwpModelMenu = NwpModelMenu(context);
+        final transliterateFeature = TransliterateFeature(context);
+        final settingsMenu = SettingsMenu(context);
         return AlertDialog(
           content: SingleChildScrollView(
             child: ListBody(
@@ -38,27 +44,42 @@ class ControlMenu extends Menu {
                 ListTile(
                   leading: keyboardMenu.thumbnail,
                   title: Text(keyboardMenu.description),
-                  onTap: () => {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    keyboardMenu.action();
+                  },
                 ),
                 ListTile(
                   leading: voiceTypingFeature.thumbnail,
                   title: Text(voiceTypingFeature.description),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    voiceTypingFeature.action();
+                  },
                 ),
                 ListTile(
                   leading: nwpModelMenu.thumbnail,
                   title: Text(nwpModelMenu.description),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    nwpModelMenu.action();
+                  },
                 ),
                 ListTile(
                   leading: transliterateFeature.thumbnail,
                   title: Text(transliterateFeature.description),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    transliterateFeature.action();
+                  },
                 ),
                 ListTile(
                   leading: settingsMenu.thumbnail,
                   title: Text(settingsMenu.description),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    settingsMenu.action();
+                  },
                 ),
               ],
             ),

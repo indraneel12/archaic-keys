@@ -7,54 +7,47 @@ import 'package:flutter/material.dart';
 
 import 'menu.dart';
 
-final nwpModelMenu = NwpModelMenu();
-
 class NwpModelMenu extends Menu {
-  static const _singleton = NwpModelMenu._internal();
-
-  factory NwpModelMenu() {
-    return _singleton;
-  }
-
-  const NwpModelMenu._internal()
+  const NwpModelMenu(BuildContext context)
       : super(
+          context: context,
           description: 'Choose your NWP model',
           thumbnail: const Icon(Icons.auto_fix_high),
         );
 
   @override
-  void show({required BuildContext using}) {
+  void show() {
     // TODO: implement NwpModelMenu->show
     showDialog(
-      context: using,
+      context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 ListTile(
-                  leading: Icon(Icons.input),
-                  title: Text('Option 1'),
+                  leading: const Icon(Icons.input),
+                  title: const Text('Option 1'),
                   onTap: () => {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.verified_user),
-                  title: Text('Option 2'),
+                  leading: const Icon(Icons.verified_user),
+                  title: const Text('Option 2'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
                 ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Option 3'),
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Option 3'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
                 ListTile(
-                  leading: Icon(Icons.border_color),
-                  title: Text('Option 4'),
+                  leading: const Icon(Icons.border_color),
+                  title: const Text('Option 4'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
                 ListTile(
-                  leading: Icon(Icons.exit_to_app),
-                  title: Text('Option 5'),
+                  leading: const Icon(Icons.exit_to_app),
+                  title: const Text('Option 5'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
               ],

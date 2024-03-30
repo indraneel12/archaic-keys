@@ -13,16 +13,6 @@ import 'app_sticker.dart';
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
 
-  static const controlMenu = ControlMenu();
-
-  static final controls = [
-    keyboardMenu,
-    voiceTypingFeature,
-    nwpModelMenu,
-    transliterateFeature,
-    settingsMenu,
-  ];
-
   static bool isSpacious({required double width, required double height}) {
     // TODO: implement accurate App Header responsiveness
     return (width > 600.0 && (width / height) > 1.7) ||
@@ -35,18 +25,26 @@ class AppHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        final controls = [
+          KeyboardMenu(context),
+          VoiceTypingFeature(context),
+          NwpModelMenu(context),
+          TransliterateFeature(context),
+          SettingsMenu(context),
+        ];
         final spacious = AppHeader.isSpacious(
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
         );
+        final controlMenu = spacious ? null : ControlMenu(context);
         return Row(
           children: <Widget>[
             if (!spacious)
               FittedBox(
                 child: IconButton(
-                  icon: controlMenu.thumbnail,
+                  icon: controlMenu!.thumbnail,
                   tooltip: controlMenu.description,
-                  onPressed: () => controlMenu.show(using: context),
+                  onPressed: controlMenu.action,
                 ),
               ),
             Padding(
@@ -60,9 +58,7 @@ class AppHeader extends StatelessWidget {
                   child: IconButton(
                     icon: feature.thumbnail,
                     tooltip: feature.description,
-                    onPressed: () {
-                      // TODO: handle icon presses (App Header)
-                    },
+                    onPressed: feature.action,
                   ),
                 ),
           ],
