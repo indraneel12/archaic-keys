@@ -10,5 +10,5 @@ import 'package:app/src/app.dart';
 export 'package:app/src/app.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
