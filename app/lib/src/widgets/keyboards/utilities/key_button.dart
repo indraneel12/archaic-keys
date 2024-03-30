@@ -31,7 +31,7 @@ class KeyButton extends StatefulWidget {
 }
 
 class _KeyButtonState extends State<KeyButton> {
-  bool _isPressed = false;
+  var _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
