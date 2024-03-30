@@ -100,4 +100,4 @@ flutter:
         - asset: assets/fonts/Sixtyfour/static/Sixtyfour-Regular.ttf
     - family: NotoSerifMalayalam
       fonts:
-        - asset: assets/fonts/Noto_Serif_Malayalam/static/NotoSerifMalayalam-Regular.tff
+        - asset: assets/fonts/Noto_Serif_Malayalam/static/NotoSerifMalayalam-Regular.ttf
