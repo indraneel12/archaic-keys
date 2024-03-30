@@ -14,8 +14,8 @@ class DoubleScrollview extends StatelessWidget {
     required this.minHeight,
     required this.maxWidth,
     required this.maxHeight,
-    required this.padding,
     required this.body,
+    this.padding = 0.0,
     this.decoration,
   });
 
@@ -32,43 +32,47 @@ class DoubleScrollview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentWidth = MediaQuery.sizeOf(context).width;
-    final currentHeight = MediaQuery.sizeOf(context).height;
-    final layoutWidth = max(minWidth, min(currentWidth, maxWidth));
-    final layoutHeight = max(minHeight, min(currentHeight, maxHeight));
-    final horizontalLayoutPadding =
-        ((currentWidth - layoutWidth) >= padding * 2.0)
-            ? 0.0
-            : padding - max(0, ((currentWidth - layoutWidth) / 2.0));
-    final verticalLayoutPadding =
-        ((currentHeight - layoutHeight) >= padding * 2.0)
-            ? 0.0
-            : padding - max(0, ((currentHeight - layoutHeight) / 2.0));
-    return SizedBox(
-      width: maxWidth,
-      height: maxHeight,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        controller: _verticalScrollController,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: _horizontalScrollController,
-          child: SizedBox(
-            width: layoutWidth,
-            height: layoutHeight,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: horizontalLayoutPadding,
-                vertical: verticalLayoutPadding,
-              ),
-              child: Container(
-                decoration: decoration,
-                child: body,
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final currentWidth = constraints.maxWidth;
+        final currentHeight = constraints.maxHeight;
+        final layoutWidth = max(minWidth, min(currentWidth, maxWidth));
+        final layoutHeight = max(minHeight, min(currentHeight, maxHeight));
+        final horizontalLayoutPadding =
+            ((currentWidth - layoutWidth) >= padding * 2.0)
+                ? 0.0
+                : padding - max(0, ((currentWidth - layoutWidth) / 2.0));
+        final verticalLayoutPadding =
+            ((currentHeight - layoutHeight) >= padding * 2.0)
+                ? 0.0
+                : padding - max(0, ((currentHeight - layoutHeight) / 2.0));
+        return SizedBox(
+          width: maxWidth,
+          height: maxHeight,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            controller: _verticalScrollController,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              controller: _horizontalScrollController,
+              child: SizedBox(
+                width: layoutWidth,
+                height: layoutHeight,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: horizontalLayoutPadding,
+                    vertical: verticalLayoutPadding,
+                  ),
+                  child: Container(
+                    decoration: decoration,
+                    child: body,
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

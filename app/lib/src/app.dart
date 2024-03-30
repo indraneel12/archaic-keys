@@ -23,7 +23,6 @@ class App extends StatelessWidget {
         body: SafeArea(
           child: Center(
             child: DoubleScrollview(
-              body: const HomePage(),
               minWidth: AppDimensions.minWidth,
               minHeight: AppDimensions.minHeight,
               maxWidth: AppDimensions.maxWidth,
@@ -35,6 +34,7 @@ class App extends StatelessWidget {
                   width: 1.5,
                 ),
               ),
+              body: const HomePage(),
             ),
           ),
         ),
