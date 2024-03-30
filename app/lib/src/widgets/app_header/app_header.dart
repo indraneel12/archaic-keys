@@ -5,43 +5,48 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:app/src/constants.dart';
+import 'package:app/src/control_menu/control_menu.dart';
+
 import 'app_sticker.dart';
-import 'keyboard_language_picker.dart';
-import 'keyboard_layout_picker.dart';
-import 'nwp_model_picker.dart';
-import 'settings_button.dart';
-import 'transliterate_button.dart';
-import 'voice_typing_button.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({super.key});
 
-  static const controls = [
-    KeyboardLanguagePicker(),
-    KeyboardLayoutPicker(),
-    VoiceTypingButton(),
-    NwpModelPicker(),
-    TransliterateButton(),
-    SettingsButton(),
+  static const controlMenu = ControlMenu();
+
+  static final controls = [
+    keyboardMenu,
+    voiceTypingFeature,
+    nwpModelMenu,
+    transliterateFeature,
+    settingsMenu,
   ];
+
+  static bool isSpacious({required double width, required double height}) {
+    // TODO: implement accurate App Header responsiveness
+    return (width > 600.0 && (width / height) > 1.7) ||
+        ((width / height) > 1.2 &&
+            width > AppDimensions.minWidth &&
+            height > AppDimensions.minHeight);
+  }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final currentWidth = MediaQuery.sizeOf(context).width;
-        final currentHeight = MediaQuery.sizeOf(context).height;
-        final hasMoreSpace = (currentWidth / currentHeight) > 1.25;
+        final spacious = AppHeader.isSpacious(
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height,
+        );
         return Row(
           children: <Widget>[
-            if (!hasMoreSpace)
+            if (!spacious)
               FittedBox(
                 child: IconButton(
-                  icon: const Icon(Icons.menu),
-                  tooltip: 'Open the Control Menu',
-                  onPressed: () {
-                    // TODO: handle the press (Control Menu)
-                  },
+                  icon: controlMenu.thumbnail,
+                  tooltip: controlMenu.description,
+                  onPressed: () => controlMenu.show(using: context),
                 ),
               ),
             Padding(
@@ -49,8 +54,17 @@ class AppHeader extends StatelessWidget {
               child: const FittedBox(child: AppSticker()),
             ),
             const Spacer(),
-            if (hasMoreSpace)
-              for (final widget in controls) FittedBox(child: widget),
+            if (spacious)
+              for (final feature in controls)
+                FittedBox(
+                  child: IconButton(
+                    icon: feature.thumbnail,
+                    tooltip: feature.description,
+                    onPressed: () {
+                      // TODO: handle icon presses (App Header)
+                    },
+                  ),
+                ),
           ],
         );
       },
