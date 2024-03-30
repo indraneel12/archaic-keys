@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/widgets/app_header/app_header.dart';
+import 'package:app/src/control_menu/control_menu_header.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
           flex: 1,
           child: Container(
             color: Theme.of(context).colorScheme.inversePrimary,
-            child: const AppHeader(),
+            child: const ControlMenuHeader(),
           ),
         ),
         Expanded(

@@ -6,12 +6,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/widgets/app_sticker.dart';
 import 'package:app/src/control_menu/control_menu.dart';
 
-import 'app_sticker.dart';
-
-class AppHeader extends StatelessWidget {
-  const AppHeader({super.key});
+class ControlMenuHeader extends StatelessWidget {
+  const ControlMenuHeader({super.key});
 
   static bool isSpacious({required double width, required double height}) {
     // TODO: implement accurate App Header responsiveness
@@ -33,7 +32,7 @@ class AppHeader extends StatelessWidget {
           SettingsMenu(context),
           AboutAppMenu(context),
         ];
-        final spacious = AppHeader.isSpacious(
+        final spacious = ControlMenuHeader.isSpacious(
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
         );
