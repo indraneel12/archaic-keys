@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'menu.dart';
+import 'package:app/src/utilities/menu.dart';
 
 class KeyboardMenu extends Menu {
   const KeyboardMenu(BuildContext context)

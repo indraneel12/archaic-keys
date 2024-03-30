@@ -37,6 +37,7 @@ class _TextEditorState extends State<TextEditor> {
             decoration: BoxDecoration(
               border: Border.all(
                 color: Theme.of(context).colorScheme.secondary,
+                width: 0.5,
               ),
             ),
             child: QuillEditor.basic(

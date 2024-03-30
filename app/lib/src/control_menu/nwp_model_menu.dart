@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'menu.dart';
+import 'package:app/src/utilities/menu.dart';
 
 class NwpModelMenu extends Menu {
   const NwpModelMenu(BuildContext context)

@@ -6,8 +6,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/utilities/menu.dart';
 
-import 'menu.dart';
 import 'view_project_feature.dart';
 
 class AboutAppMenu extends Menu {

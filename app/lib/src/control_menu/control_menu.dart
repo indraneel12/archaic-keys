@@ -5,7 +5,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'menu.dart';
+import 'package:app/src/utilities/menu.dart';
+
 import 'keyboard_menu.dart';
 import 'voice_typing_feature.dart';
 import 'nwp_model_menu.dart';
@@ -14,7 +15,8 @@ import 'settings_menu.dart';
 import 'about_app_menu.dart';
 import 'view_project_feature.dart';
 
-export 'menu.dart';
+export 'package:app/src/utilities/menu.dart';
+
 export 'keyboard_menu.dart';
 export 'voice_typing_feature.dart';
 export 'nwp_model_menu.dart';
