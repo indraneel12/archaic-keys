@@ -9,7 +9,7 @@ import 'menu.dart';
 import 'keyboard_menu.dart';
 import 'voice_typing_feature.dart';
 import 'nwp_model_menu.dart';
-import 'transliterate_feature.dart';
+import 'translation_menu.dart';
 import 'settings_menu.dart';
 import 'about_app_menu.dart';
 import 'view_project_feature.dart';
@@ -18,7 +18,7 @@ export 'menu.dart';
 export 'keyboard_menu.dart';
 export 'voice_typing_feature.dart';
 export 'nwp_model_menu.dart';
-export 'transliterate_feature.dart';
+export 'translation_menu.dart';
 export 'settings_menu.dart';
 export 'about_app_menu.dart';
 export 'view_project_feature.dart';
@@ -36,7 +36,7 @@ class ControlMenu extends Menu {
         KeyboardMenu(context),
         VoiceTypingFeature(context),
         NwpModelMenu(context),
-        TransliterateFeature(context),
+        TranslationMenu(context),
         AboutAppMenu(context),
         ViewProjectFeature(context),
       ];
