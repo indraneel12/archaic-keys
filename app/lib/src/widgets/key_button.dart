@@ -14,6 +14,7 @@ class KeyButton extends StatefulWidget {
     required this.label,
     this.fontFamily,
     this.isToggle = false,
+    this.backgroundColor,
     this.activeColor,
     required this.onPressed,
   });
@@ -21,6 +22,7 @@ class KeyButton extends StatefulWidget {
   final String label;
   final String? fontFamily;
   final bool isToggle;
+  final Color? backgroundColor;
   final Color? activeColor;
   final void Function() onPressed;
 
@@ -50,7 +52,7 @@ class _KeyButtonState extends State<KeyButton> {
             fit: BoxFit.fill,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              color: _isPressed ? widget.activeColor : null,
+              color: _isPressed ? widget.activeColor : widget.backgroundColor,
               child: Text(
                 widget.label,
                 style: TextStyle(fontFamily: widget.fontFamily),
