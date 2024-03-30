@@ -11,14 +11,14 @@ class KeyButton extends StatefulWidget {
 
   const KeyButton({
     super.key,
-    required this.character,
+    required this.label,
     this.fontFamily,
     this.isToggle = false,
     this.activeColor,
     required this.onPressed,
   });
 
-  final String character;
+  final String label;
   final String? fontFamily;
   final bool isToggle;
   final Color? activeColor;
@@ -52,7 +52,7 @@ class _KeyButtonState extends State<KeyButton> {
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
               color: _isPressed ? widget.activeColor : null,
               child: Text(
-                widget.character,
+                widget.label,
                 style: TextStyle(fontFamily: widget.fontFamily),
               ),
             ),
