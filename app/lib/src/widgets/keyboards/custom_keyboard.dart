@@ -8,8 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:app/src/constants.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
 import 'package:app/src/widgets/key_button.dart';
-import 'package:app/src/widgets/keyboard_top_bar.dart';
-import 'package:app/src/widgets/keyboard_bottom_bar.dart';
+import 'package:app/src/widgets/keyboard_control_bar.dart';
 
 class CustomKeyboard extends StatefulWidget {
   const CustomKeyboard({super.key, this.padding = 0.0});
@@ -49,13 +48,13 @@ class CustomKeyboard extends StatefulWidget {
                 ),
               ),
               KeyButton(
-                character: 'Ctrl',
+                label: 'Ctrl',
                 isToggle: true,
                 activeColor: Colors.blue,
                 onPressed: () => {},
               ),
               KeyButton(
-                character: 'അ',
+                label: 'അ',
                 fontFamily: MalayalamFonts.notoSerifMalayalam,
                 onPressed: () => {},
               ),
@@ -83,15 +82,11 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
         children: [
           const Expanded(
             flex: 1,
-            child: KeyboardTopBar(),
+            child: KeyboardControlBar(),
           ),
           Expanded(
-            flex: 8,
+            flex: 7,
             child: widget.renderBody(context),
-          ),
-          const Expanded(
-            flex: 1,
-            child: KeyboardBottomBar(),
           ),
         ],
       ),
