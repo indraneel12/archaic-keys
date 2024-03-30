@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/utilities/key_button.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
 
 class CustomKeyboard extends StatefulWidget {
@@ -53,6 +54,16 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
               child: Text(
                 'Global Height = ${MediaQuery.sizeOf(context).height}',
               ),
+            ),
+            KeyButton(
+              character: 'Ctrl',
+              isToggle: true,
+              onPressed: () => {},
+            ),
+            KeyButton(
+              character: 'അ',
+              fontFamily: MalayalamFonts.notoSerifMalayalam,
+              onPressed: () => {},
             ),
           ],
         ),
