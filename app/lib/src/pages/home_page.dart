@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/control_menu/control_menu_header.dart';
+import 'package:app/src/widgets/keyboards/custom_keyboard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,12 +33,20 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'w=${MediaQuery.sizeOf(context).width}',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'w=${MediaQuery.sizeOf(context).width}',
+                ),
               ),
-              Text(
-                'h=${MediaQuery.sizeOf(context).height}',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'h=${MediaQuery.sizeOf(context).height}',
+                ),
               ),
+              const Spacer(),
+              const Expanded(child: CustomKeyboard(padding: 8.0)),
             ],
           ),
         )
