@@ -57,6 +57,10 @@ abstract class CustomFonts {
   static const sixtyfour = 'Sixtyfour';
 }
 
+abstract class MalayalamFonts {
+  static const notoSerifMalayalam = 'NotoSerifMalayalam';
+}
+
 abstract class LicensePaths {
   static const chivoMono = 'assets/fonts/Chivo_Mono/OFL.txt';
   static const sixtyfour = 'assets/fonts/Sixtyfour/OFL.txt';
