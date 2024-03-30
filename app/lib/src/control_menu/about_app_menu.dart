@@ -5,11 +5,10 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:url_launcher/url_launcher.dart';
-
 import 'package:app/src/constants.dart';
 
 import 'menu.dart';
+import 'view_project_feature.dart';
 
 class AboutAppMenu extends Menu {
   const AboutAppMenu(BuildContext context)
@@ -24,7 +23,7 @@ class AboutAppMenu extends Menu {
       child: ListBody(
         children: <Widget>[
           InkWell(
-            onTap: () => launchUrl(Uri.parse(AppMeta.repositoryURL)),
+            onTap: () => ViewProjectFeature.openAppRepository(),
             child: Container(
               alignment: Alignment.center,
               child: ClipRRect(

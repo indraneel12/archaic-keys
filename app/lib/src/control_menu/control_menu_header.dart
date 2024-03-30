@@ -14,8 +14,8 @@ class ControlMenuHeader extends StatelessWidget {
 
   static bool isSpacious({required double width, required double height}) {
     // TODO: implement accurate App Header responsiveness
-    return (width > 600.0 && (width / height) > 2.0) ||
-        ((width / height) > 1.25 &&
+    return (width > 650.0 && (width / height) > 2.0) ||
+        ((width / height) > 1.35 &&
             width > AppDimensions.minWidth &&
             height > AppDimensions.minHeight);
   }
@@ -24,14 +24,6 @@ class ControlMenuHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final controls = [
-          KeyboardMenu(context),
-          VoiceTypingFeature(context),
-          NwpModelMenu(context),
-          TransliterateFeature(context),
-          SettingsMenu(context),
-          AboutAppMenu(context),
-        ];
         final spacious = ControlMenuHeader.isSpacious(
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
@@ -53,7 +45,7 @@ class ControlMenuHeader extends StatelessWidget {
             ),
             const Spacer(),
             if (spacious)
-              for (final feature in controls)
+              for (final feature in ControlMenu.buildControls(context))
                 FittedBox(
                   child: IconButton(
                     icon: feature.thumbnail,

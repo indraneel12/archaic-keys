@@ -5,6 +5,8 @@
 
 import 'package:app/src/app_feature.dart';
 
+export 'package:app/src/app_feature.dart';
+
 abstract class Menu extends AppFeature {
   const Menu({
     required super.context,
