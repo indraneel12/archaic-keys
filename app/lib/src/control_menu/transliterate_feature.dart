@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/app_feature.dart';
+import 'package:app/src/utilities/app_feature.dart';
 
 class TransliterateFeature extends AppFeature {
   const TransliterateFeature(BuildContext context)

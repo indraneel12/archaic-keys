@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:app/src/app_feature.dart';
+import 'package:app/src/utilities/app_feature.dart';
 
-export 'package:app/src/app_feature.dart';
+export 'package:app/src/utilities/app_feature.dart';
 
 abstract class Menu extends AppFeature {
   const Menu({
