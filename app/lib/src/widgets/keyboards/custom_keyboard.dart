@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
-import 'package:app/src/widgets/key_button.dart';
-import 'package:app/src/widgets/keyboard_control_bar.dart';
+
+import 'utilities/key_button.dart';
+import 'utilities/keyboard_control_bar.dart';
 
 class CustomKeyboard extends StatefulWidget {
   const CustomKeyboard({super.key, this.padding = 0.0});

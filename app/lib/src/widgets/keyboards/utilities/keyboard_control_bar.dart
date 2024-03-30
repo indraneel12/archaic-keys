@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
-import 'package:app/src/widgets/key_button.dart';
+
+import 'key_button.dart';
 
 class KeyboardControlBar extends StatelessWidget {
   static const minWidth = AppDimensions.maxWidth * 0.60;
