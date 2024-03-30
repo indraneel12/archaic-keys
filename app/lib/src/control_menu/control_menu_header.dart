@@ -13,11 +13,13 @@ class ControlMenuHeader extends StatelessWidget {
   const ControlMenuHeader({super.key});
 
   static bool isSpacious({required double width, required double height}) {
+    // debugPrint([width, height, width / height].toString());
     // TODO: implement accurate App Header responsiveness
-    return (width > 650.0 && (width / height) > 2.0) ||
-        ((width / height) > 1.35 &&
-            width > AppDimensions.minWidth &&
-            height > AppDimensions.minHeight);
+    // return (width > 650.0 && (width / height) > 2.0) ||
+    //     ((width / height) > 1.35 &&
+    //         width > AppDimensions.minWidth &&
+    //         height > AppDimensions.minHeight);
+    return (width / height) > 1.33;
   }
 
   @override
