@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/control_menu/control_menu_header.dart';
+import 'package:app/src/widgets/text_editor.dart';
 import 'package:app/src/widgets/keyboards/custom_keyboard.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,26 +28,20 @@ class _HomePageState extends State<HomePage> {
             child: const ControlMenuHeader(),
           ),
         ),
-        Expanded(
+        const Expanded(
           flex: 9,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'w=${MediaQuery.sizeOf(context).width}',
-                ),
+              Expanded(
+                flex: 1,
+                child: TextEditor(),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'h=${MediaQuery.sizeOf(context).height}',
-                ),
+              Expanded(
+                flex: 1,
+                child: CustomKeyboard(padding: 8.0),
               ),
-              const Spacer(),
-              const Expanded(child: CustomKeyboard(padding: 8.0)),
             ],
           ),
         )
