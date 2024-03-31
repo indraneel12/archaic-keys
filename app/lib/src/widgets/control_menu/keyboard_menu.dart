@@ -28,37 +28,33 @@ class KeyboardMenu extends Menu {
       builder: (BuildContext context) {
         return AlertDialog(
           content: SingleChildScrollView(
-            child: Consumer<KeyboardModel>(builder: (context, model, child) {
-              return ListBody(
-                children: <Widget>[
-                  Menu.buildHeader(context, title: 'Keyboard Menu'),
-                  const Divider(),
-                  ListTile(
-                    leading: CustomIcons.malayalam,
-                    minLeadingWidth: KeyboardMenu.iconSpace,
-                    title: const Text('Malayalam'),
-                    onTap: () {
-                      model.chooseKeyboard(
-                        keyboardId: CustomKeyboardId.malayalam,
-                      );
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  ListTile(
-                    leading: CustomIcons.nepali,
-                    minLeadingWidth: KeyboardMenu.iconSpace,
-                    title: const Text('Nepali'),
-                    onTap: () {
-                      model.chooseKeyboard(
-                        keyboardId: CustomKeyboardId.nepali,
-                      );
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const Divider(),
-                ],
-              );
-            }),
+            child: ListBody(
+              children: <Widget>[
+                Menu.buildHeader(context, title: 'Keyboard Menu'),
+                const Divider(),
+                ListTile(
+                  leading: CustomIcons.malayalam,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Malayalam'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(context, listen: false)
+                        .chooseKeyboard(keyboardId: CustomKeyboardId.malayalam);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: CustomIcons.nepali,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Nepali'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(context, listen: false)
+                        .chooseKeyboard(keyboardId: CustomKeyboardId.nepali);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Divider(),
+              ],
+            ),
           ),
         );
       },
