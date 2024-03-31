@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/utilities/menu.dart';
+import 'package:app/src/widgets/nwp_predictions_slider.dart';
 
 class SettingsMenu extends Menu {
   const SettingsMenu(BuildContext context)
@@ -25,31 +26,30 @@ class SettingsMenu extends Menu {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                const Divider(),
                 ListTile(
-                  leading: const Icon(Icons.input),
-                  title: const Text('Option 1'),
-                  onTap: () => {},
+                  leading: const Icon(Icons.design_services),
+                  title: const Text('Toggle Text Toolbar'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    // TODO: Toggle Text Toolbar (settings)
+                  },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.verified_user),
-                  title: const Text('Option 2'),
-                  onTap: () => {Navigator.of(context).pop()},
+                  leading: const Icon(Icons.flashlight_on),
+                  title: const Text('Toggle Keyboard Light'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    // TODO: Toggle Keyboard Light (settings)
+                  },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Option 3'),
-                  onTap: () => {Navigator.of(context).pop()},
+                const Divider(),
+                const ListTile(
+                  title: Text('Number of NWP Predictions'),
+                  onTap: null,
                 ),
-                ListTile(
-                  leading: const Icon(Icons.border_color),
-                  title: const Text('Option 4'),
-                  onTap: () => {Navigator.of(context).pop()},
-                ),
-                ListTile(
-                  leading: const Icon(Icons.exit_to_app),
-                  title: const Text('Option 5'),
-                  onTap: () => {Navigator.of(context).pop()},
-                ),
+                const NwpPredictionsSlider(),
+                const Divider(),
               ],
             ),
           ),
