@@ -3,9 +3,13 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_quill/flutter_quill.dart';
+
+import 'package:app/src/configurations_model.dart';
 
 class TextEditor extends StatefulWidget {
   const TextEditor({super.key});
@@ -21,15 +25,23 @@ class _TextEditorState extends State<TextEditor> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: QuillToolbar.simple(
-            configurations: QuillSimpleToolbarConfigurations(
-              controller: _controller,
-              multiRowsDisplay: true,
-              showFontFamily: false, // until enough Indic fonts are available
-            ),
-          ),
+        Consumer<ConfigurationsModel>(
+          builder: (context, config, child) {
+            if (config.isTextToolbarVisible) {
+              return Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: QuillToolbar.simple(
+                  configurations: QuillSimpleToolbarConfigurations(
+                    controller: _controller,
+                    multiRowsDisplay: true,
+                    // until enough Indic fonts are available:
+                    showFontFamily: false,
+                  ),
+                ),
+              );
+            }
+            return const SizedBox(height: 8.0);
+          },
         ),
         Expanded(
           child: Container(

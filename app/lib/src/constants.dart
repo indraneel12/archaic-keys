@@ -57,6 +57,18 @@ abstract class AppDimensions {
   static const maxHeight = 700.0;
 }
 
+abstract class CustomKeyboardId {
+  static const malayalam = 'Malayalam';
+  static const nepali = 'Nepali';
+  static const all = [malayalam, nepali];
+}
+
+abstract class NwpModelId {
+  // TODO: add NWP Models (potentially plugins)
+  static const dummy = 'NIL';
+  static const all = [dummy];
+}
+
 abstract class CustomIcons {
   static final malayalam = Icon(
     IconData(

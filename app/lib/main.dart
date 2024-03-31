@@ -3,12 +3,21 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:app/src/app.dart';
+import 'src/app.dart';
+import 'src/configurations_model.dart';
 
-export 'package:app/src/app.dart';
+export 'src/app.dart';
+export 'src/configurations_model.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ConfigurationsModel(),
+      child: const App(),
+    ),
+  );
 }
