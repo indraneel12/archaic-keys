@@ -25,6 +25,7 @@ class SettingsMenu extends Menu {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                Menu.buildHeader(context, title: 'Settings Menu'),
                 const Divider(),
                 ListTile(
                   leading: const Icon(Icons.design_services),

@@ -27,6 +27,7 @@ class KeyboardMenu extends Menu {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                Menu.buildHeader(context, title: 'Keyboard Menu'),
                 const Divider(),
                 ListTile(
                   leading: CustomIcons.malayalam,

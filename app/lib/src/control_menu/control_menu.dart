@@ -64,6 +64,7 @@ class ControlMenu extends Menu {
       builder: (BuildContext context) {
         final controls = ControlMenu.buildControls(context);
         var menuItems = <Widget>[];
+        menuItems.add(Menu.buildHeader(context, title: 'Control Menu'));
         menuItems.add(const Divider());
         for (int i = 0; i < 3; i++) {
           menuItems.add(buildListTile(controls[i]));

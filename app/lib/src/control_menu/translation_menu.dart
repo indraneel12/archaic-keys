@@ -25,6 +25,8 @@ class TranslationMenu extends Menu {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                Menu.buildHeader(context, title: 'Translation Menu'),
+                const Divider(),
                 ListTile(
                   leading: const Icon(Icons.input),
                   title: const Text('Option 1'),
@@ -50,6 +52,7 @@ class TranslationMenu extends Menu {
                   title: const Text('Option 5'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
+                const Divider(),
               ],
             ),
           ),
