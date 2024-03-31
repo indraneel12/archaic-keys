@@ -27,10 +27,9 @@ class _TextEditorState extends State<TextEditor> {
       children: <Widget>[
         Consumer<TextToolbarModel>(
           builder: (context, model, child) {
-            if (model.isTextToolbarVisible) {
-              return child!;
-            }
-            return const SizedBox(height: 8.0);
+            return model.isTextToolbarVisible
+                ? child!
+                : const SizedBox(height: 8.0);
           },
           child: Padding(
             padding: const EdgeInsets.all(4.0),
@@ -38,8 +37,7 @@ class _TextEditorState extends State<TextEditor> {
               configurations: QuillSimpleToolbarConfigurations(
                 controller: _controller,
                 multiRowsDisplay: true,
-                // until enough Indic fonts are available:
-                showFontFamily: false,
+                showFontFamily: false, // currently, less Indic fonts
               ),
             ),
           ),
