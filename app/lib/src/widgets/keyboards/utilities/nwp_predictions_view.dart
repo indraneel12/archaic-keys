@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 class NwpPredictionsView extends StatelessWidget {
   static const tooltip = 'Choose NWP Prediction';
+  static const minWidth = 32.0;
+  static const minHeight = 32.0;
 
   const NwpPredictionsView({super.key});
 
@@ -21,26 +23,47 @@ class NwpPredictionsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: NwpPredictionsView.tooltip,
-      child: Center(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              for (final prediction in placeholderPredictions)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: GestureDetector(
-                    child: Text(prediction),
-                    onTap: () {
-                      // TODO: NWP Prediction (on tap)
-                      debugPrint('test: $prediction');
-                    },
+    return Center(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Tooltip(
+          message: NwpPredictionsView.tooltip,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).colorScheme.secondary,
+                width: 0.5,
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                for (final prediction in placeholderPredictions)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: ClipRect(
+                      child: SizedBox(
+                        height: NwpPredictionsView.minHeight,
+                        child: InkWell(
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(16.0),
+                          ),
+                          child: FittedBox(
+                            fit: BoxFit.fill,
+                            child: Text(prediction),
+                          ),
+                          onTap: () {
+                            // TODO: NWP Prediction (on tap)
+                            debugPrint('test: $prediction');
+                          },
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

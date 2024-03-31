@@ -11,9 +11,7 @@ import 'utilities/key_button.dart';
 import 'utilities/keyboard_control_bar.dart';
 
 class CustomKeyboard extends StatefulWidget {
-  const CustomKeyboard({super.key, this.padding = 0.0});
-
-  final double padding;
+  const CustomKeyboard({super.key});
 
   double get minWidth => AppDimensions.minWidth * 0.90;
   double get minHeight => AppDimensions.minHeight * 0.50;
