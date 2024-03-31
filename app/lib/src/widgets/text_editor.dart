@@ -28,20 +28,21 @@ class _TextEditorState extends State<TextEditor> {
         Consumer<TextToolbarModel>(
           builder: (context, model, child) {
             if (model.isTextToolbarVisible) {
-              return Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: QuillToolbar.simple(
-                  configurations: QuillSimpleToolbarConfigurations(
-                    controller: _controller,
-                    multiRowsDisplay: true,
-                    // until enough Indic fonts are available:
-                    showFontFamily: false,
-                  ),
-                ),
-              );
+              return child!;
             }
             return const SizedBox(height: 8.0);
           },
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: QuillToolbar.simple(
+              configurations: QuillSimpleToolbarConfigurations(
+                controller: _controller,
+                multiRowsDisplay: true,
+                // until enough Indic fonts are available:
+                showFontFamily: false,
+              ),
+            ),
+          ),
         ),
         Expanded(
           child: Container(
