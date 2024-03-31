@@ -3,11 +3,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
 
-import 'package:app/src/models/models.dart';
 import 'package:app/src/widgets/control_menu/control_menu_header.dart';
 import 'package:app/src/widgets/text_editor.dart';
 import 'package:app/src/widgets/keyboards/custom_keyboard.dart';
@@ -31,7 +28,7 @@ class _HomePageState extends State<HomePage> {
             child: const ControlMenuHeader(),
           ),
         ),
-        Expanded(
+        const Expanded(
           flex: 9,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -39,13 +36,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Expanded(
                 flex: 3,
-                child: TextEditor(
-                  textTracker:
-                      Provider.of<NwpPredictionsModel>(context, listen: false),
-                ),
+                child: TextEditor(),
               ),
-              const SizedBox(height: 8.0),
-              const Expanded(
+              SizedBox(height: 8.0),
+              Expanded(
                 flex: 4,
                 child: CustomKeyboard(),
               ),
