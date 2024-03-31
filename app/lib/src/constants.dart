@@ -45,6 +45,11 @@ abstract class AppMeta {
   static const repositoryURL = 'https://github.com/indraneel12/archaic-keys';
 }
 
+abstract class ImplementationConstraints {
+  static const minNwpPredictions = 3;
+  static const maxNwpPredictions = 9;
+}
+
 abstract class AppDimensions {
   static const minWidth = 500.0;
   static const minHeight = 500.0;
