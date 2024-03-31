@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 
 import 'key_button.dart';

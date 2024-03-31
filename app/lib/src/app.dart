@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 import 'package:app/src/pages/home_page.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
 

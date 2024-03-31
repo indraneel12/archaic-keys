@@ -5,10 +5,10 @@
 
 import 'package:flutter/foundation.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 
 class NwpPredictionsModel extends ChangeNotifier {
-  var _nwpPredictionsCount = ImplementationConstraints.minNwpPredictions;
+  var _nwpPredictionsCount = FeatureConstraints.minNwpPredictions;
   var _chosenNwpPrediction = '';
   var _currentText = '';
 
@@ -29,8 +29,8 @@ class NwpPredictionsModel extends ChangeNotifier {
   }
 
   void updateNwpPredictionsCount(int value) {
-    if (value < ImplementationConstraints.minNwpPredictions) return;
-    if (value > ImplementationConstraints.maxNwpPredictions) return;
+    if (value < FeatureConstraints.minNwpPredictions) return;
+    if (value > FeatureConstraints.maxNwpPredictions) return;
     _nwpPredictionsCount = value;
     notifyListeners();
   }

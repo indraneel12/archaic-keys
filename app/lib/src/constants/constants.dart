@@ -3,7 +3,13 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
+export 'app_dimensions.dart';
+export 'app_meta.dart';
+export 'custom_fonts.dart';
+export 'custom_icons.dart';
+export 'custom_keyboard_id.dart';
+export 'feature_constraints.dart';
+export 'nwp_model_id.dart';
 
 const copyright = '''BSD 3-Clause License
 
@@ -36,63 +42,3 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ''';
-
-abstract class AppMeta {
-  static const name = 'Archaic Keys';
-  static const version = '1.0.0+1';
-  static const icon = Icons.diversity_2;
-  static const authorsImagePath = 'assets/images/authors.jpg';
-  static const repositoryURL = 'https://github.com/indraneel12/archaic-keys';
-}
-
-abstract class ImplementationConstraints {
-  static const minNwpPredictions = 3;
-  static const maxNwpPredictions = 9;
-}
-
-abstract class AppDimensions {
-  static const minWidth = 500.0;
-  static const minHeight = 500.0;
-  static const maxWidth = 1500.0;
-  static const maxHeight = 700.0;
-}
-
-abstract class CustomKeyboardId {
-  static const malayalam = 'Malayalam';
-  static const nepali = 'Nepali';
-  static const all = [malayalam, nepali];
-}
-
-abstract class NwpModelId {
-  // TODO: add NWP Models (potentially plugins)
-  static const dummy = 'NIL';
-  static const all = [dummy];
-}
-
-abstract class CustomIcons {
-  static final malayalam = Icon(
-    IconData(
-      'അ'.codeUnitAt(0),
-      fontFamily: MalayalamFonts.notoSansMalayalam,
-    ),
-  );
-  static final nepali = Icon(
-    IconData(
-      '𑐀'.codeUnitAt(0),
-      fontFamily: NepaliFonts.notoSansNewa,
-    ),
-  );
-}
-
-abstract class CustomFonts {
-  static const chivoMono = 'ChivoMono';
-  static const sixtyfour = 'Sixtyfour';
-}
-
-abstract class MalayalamFonts {
-  static const notoSansMalayalam = 'NotoSansMalayalam';
-}
-
-abstract class NepaliFonts {
-  static const notoSansNewa = 'NotoSansNewa';
-}

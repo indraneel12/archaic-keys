@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 import 'package:app/src/widgets/control_menu/control_menu.dart';
 
 class AppSticker extends StatelessWidget {

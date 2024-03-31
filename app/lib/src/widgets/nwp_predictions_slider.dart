@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 
 class NwpPredictionsSlider extends StatefulWidget {
@@ -18,8 +18,8 @@ class NwpPredictionsSlider extends StatefulWidget {
 }
 
 class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
-  static const minValue = ImplementationConstraints.minNwpPredictions;
-  static const maxValue = ImplementationConstraints.maxNwpPredictions;
+  static const minValue = FeatureConstraints.minNwpPredictions;
+  static const maxValue = FeatureConstraints.maxNwpPredictions;
 
   final List<int> values = [for (int i = minValue; i <= maxValue; i++) i];
 

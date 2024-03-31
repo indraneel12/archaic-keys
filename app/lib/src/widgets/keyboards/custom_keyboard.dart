@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 
 import 'utilities/key_button.dart';
 import 'utilities/keyboard_control_bar.dart';
@@ -53,12 +53,12 @@ class CustomKeyboard extends StatefulWidget {
               ),
               KeyButton(
                 label: 'അ',
-                fontFamily: MalayalamFonts.notoSansMalayalam,
+                fontFamily: CustomFonts.notoSansMalayalam,
                 onPressed: () => {},
               ),
               KeyButton(
                 label: '𑐀',
-                fontFamily: NepaliFonts.notoSansNewa,
+                fontFamily: CustomFonts.notoSansNewa,
                 onPressed: () => {},
               ),
             ],

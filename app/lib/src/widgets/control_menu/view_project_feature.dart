@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:app/src/constants.dart';
+import 'package:app/src/constants/constants.dart';
 import 'package:app/src/utilities/app_feature.dart';
 
 class ViewProjectFeature extends AppFeature {
