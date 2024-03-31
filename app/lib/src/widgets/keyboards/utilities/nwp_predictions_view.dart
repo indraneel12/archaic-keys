@@ -16,16 +16,6 @@ class NwpPredictionsView extends StatelessWidget {
 
   const NwpPredictionsView({super.key});
 
-  // TODO: obtain NWP predictions
-  static const placeholderPredictions = [
-    'Apple',
-    'Mango',
-    'Watermelon',
-    'Lemon',
-    'Strawberry',
-    'Pineapple',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -43,34 +33,34 @@ class NwpPredictionsView extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                for (final prediction in placeholderPredictions)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: ClipRect(
-                      child: SizedBox(
-                        height: NwpPredictionsView.minHeight,
-                        child: InkWell(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(16.0),
+            child: Consumer<NwpPredictionsModel>(
+              builder: (context, model, child) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    for (final prediction in model.nwpPredictions)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: ClipRect(
+                          child: SizedBox(
+                            height: NwpPredictionsView.minHeight,
+                            child: InkWell(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              child: FittedBox(
+                                fit: BoxFit.fill,
+                                child: Text(prediction),
+                              ),
+                              onTap: () =>
+                                  model.chooseNwpPrediction(prediction),
+                            ),
                           ),
-                          child: FittedBox(
-                            fit: BoxFit.fill,
-                            child: Text(prediction),
-                          ),
-                          onTap: () {
-                            Provider.of<NwpPredictionsModel>(
-                              context,
-                              listen: false,
-                            ).chooseNwpPrediction(prediction);
-                          },
                         ),
                       ),
-                    ),
-                  ),
-              ],
+                  ],
+                );
+              },
             ),
           ),
         ),
