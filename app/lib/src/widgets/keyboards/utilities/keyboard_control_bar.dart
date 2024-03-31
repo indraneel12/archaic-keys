@@ -9,6 +9,7 @@ import 'package:app/src/constants.dart';
 import 'package:app/src/utilities/double_scrollview.dart';
 
 import 'key_button.dart';
+import 'unicode_text_field.dart';
 
 class KeyboardControlBar extends StatelessWidget {
   static const minWidth = AppDimensions.maxWidth * 0.60;
@@ -67,8 +68,12 @@ class KeyboardControlBar extends StatelessWidget {
             ),
           ),
           const Expanded(
-            flex: 10,
+            flex: 8,
             child: Center(),
+          ),
+          Expanded(
+            flex: 2,
+            child: UnicodeTextField(),
           ),
         ],
       ),
