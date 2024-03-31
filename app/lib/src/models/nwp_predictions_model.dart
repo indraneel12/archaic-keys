@@ -14,6 +14,7 @@ class NwpPredictionsModel extends ChangeNotifier {
 
   int get nwpPredictionsCount => _nwpPredictionsCount;
   String get chosenNwpPrediction => _chosenNwpPrediction;
+  String get currentText => _currentText;
 
   List<String> get nwpPredictions {
     // TODO: implement NWP algorithm

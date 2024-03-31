@@ -12,7 +12,9 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:app/src/models/models.dart';
 
 class TextEditor extends StatefulWidget {
-  const TextEditor({super.key});
+  const TextEditor({super.key, required this.textTracker});
+
+  final NwpPredictionsModel textTracker;
 
   @override
   State<TextEditor> createState() => _TextEditorState();
@@ -20,6 +22,16 @@ class TextEditor extends StatefulWidget {
 
 class _TextEditorState extends State<TextEditor> {
   final _controller = QuillController.basic();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_onEditorTextChanged);
+  }
+
+  void _onEditorTextChanged() {
+    widget.textTracker.updateCurrentText(_controller.document.toPlainText());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +49,7 @@ class _TextEditorState extends State<TextEditor> {
               configurations: QuillSimpleToolbarConfigurations(
                 controller: _controller,
                 multiRowsDisplay: true,
-                showFontFamily: false, // currently, less Indic fonts
+                showFontFamily: false, // currently, due to less Indic fonts
               ),
             ),
           ),
@@ -64,5 +76,11 @@ class _TextEditorState extends State<TextEditor> {
         )
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onEditorTextChanged);
+    super.dispose();
   }
 }
