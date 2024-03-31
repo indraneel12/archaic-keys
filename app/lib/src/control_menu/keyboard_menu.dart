@@ -5,9 +5,12 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:app/src/constants.dart';
 import 'package:app/src/utilities/menu.dart';
 
 class KeyboardMenu extends Menu {
+  static const iconSpace = 40.0;
+
   const KeyboardMenu(BuildContext context)
       : super(
           context: context,
@@ -17,7 +20,6 @@ class KeyboardMenu extends Menu {
 
   @override
   void show() {
-    // TODO: implement KeyboardLanguageMenu->show
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -25,31 +27,26 @@ class KeyboardMenu extends Menu {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
+                const Divider(),
                 ListTile(
-                  leading: const Icon(Icons.input),
-                  title: const Text('Option 1'),
-                  onTap: () => {},
+                  leading: CustomIcons.malayalam,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Malayalam'),
+                  onTap: () {
+                    // TODO: load Malayalam keyboard
+                    Navigator.of(context).pop();
+                  },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.verified_user),
-                  title: const Text('Option 2'),
-                  onTap: () => {Navigator.of(context).pop()},
+                  leading: CustomIcons.nepali,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Nepali'),
+                  onTap: () {
+                    // TODO: load Nepali keyboard
+                    Navigator.of(context).pop();
+                  },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Option 3'),
-                  onTap: () => {Navigator.of(context).pop()},
-                ),
-                ListTile(
-                  leading: const Icon(Icons.border_color),
-                  title: const Text('Option 4'),
-                  onTap: () => {Navigator.of(context).pop()},
-                ),
-                ListTile(
-                  leading: const Icon(Icons.exit_to_app),
-                  title: const Text('Option 5'),
-                  onTap: () => {Navigator.of(context).pop()},
-                ),
+                const Divider(),
               ],
             ),
           ),

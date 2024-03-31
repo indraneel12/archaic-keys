@@ -58,8 +58,18 @@ abstract class AppDimensions {
 }
 
 abstract class CustomIcons {
-  static final malayalam = Icon(IconData('അ'.codeUnitAt(0)));
-  static final nepali = Icon(IconData('𑐀'.codeUnitAt(0)));
+  static final malayalam = Icon(
+    IconData(
+      'അ'.codeUnitAt(0),
+      fontFamily: MalayalamFonts.notoSansMalayalam,
+    ),
+  );
+  static final nepali = Icon(
+    IconData(
+      '𑐀'.codeUnitAt(0),
+      fontFamily: NepaliFonts.notoSansNewa,
+    ),
+  );
 }
 
 abstract class CustomFonts {
