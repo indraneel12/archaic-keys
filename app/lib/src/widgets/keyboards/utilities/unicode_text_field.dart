@@ -17,6 +17,12 @@ class UnicodeTextField extends StatelessWidget {
 
   final _controller = TextEditingController();
 
+  void submit(BuildContext context, String text) {
+    Provider.of<UnicodeTextFieldModel>(context, listen: false)
+        .submitUnicode(text);
+    _controller.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Tooltip(
@@ -34,11 +40,12 @@ class UnicodeTextField extends StatelessWidget {
           hintText: UnicodeTextField.hint,
           border: OutlineInputBorder(),
         ),
-        onSubmitted: (String text) {
-          Provider.of<UnicodeTextFieldModel>(context, listen: false)
-              .submitUnicode(text);
-          _controller.clear();
+        onChanged: (String text) {
+          if (text.endsWith('\n')) {
+            submit(context, text);
+          }
         },
+        onSubmitted: (String text) => submit(context, text),
       ),
     );
   }
