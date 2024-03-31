@@ -27,6 +27,7 @@ class NwpPredictionsView extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Tooltip(
+          preferBelow: false,
           message: NwpPredictionsView.tooltip,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
