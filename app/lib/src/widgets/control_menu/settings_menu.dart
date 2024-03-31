@@ -34,9 +34,18 @@ class SettingsMenu extends Menu {
                   leading: const Icon(Icons.design_services),
                   title: const Text('Toggle Text Toolbar'),
                   onTap: () {
-                    Navigator.of(context).pop();
                     Provider.of<TextToolbarModel>(context, listen: false)
                         .toggleToolbarVisibility();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.mediation),
+                  title: const Text('Toggle Unicode Option'),
+                  onTap: () {
+                    Provider.of<UnicodeTextFieldModel>(context, listen: false)
+                        .toggleUnicodeTextFieldVisibility();
+                    Navigator.of(context).pop();
                   },
                 ),
                 ListTile(

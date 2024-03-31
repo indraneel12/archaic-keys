@@ -77,14 +77,38 @@ class KeyboardControlBar extends StatelessWidget {
           ),
         ),
         const Expanded(flex: 1, child: Center()),
-        const Expanded(
-          flex: 52,
-          child: NwpPredictionsView(),
+        Consumer<UnicodeTextFieldModel>(
+          builder: (context, model, child) {
+            if (model.isUnicodeTextFieldVisible) {
+              return const Expanded(
+                flex: 52,
+                child: NwpPredictionsView(),
+              );
+            }
+            return const Spacer();
+          },
         ),
-        const Expanded(flex: 2, child: Center()),
-        Expanded(
-          flex: 20,
-          child: UnicodeTextField(),
+        Consumer<UnicodeTextFieldModel>(
+          builder: (context, model, child) {
+            if (model.isUnicodeTextFieldVisible) {
+              return const Expanded(flex: 2, child: Center());
+            }
+            return const Expanded(
+              flex: 74,
+              child: NwpPredictionsView(alignment: Alignment.centerRight),
+            );
+          },
+        ),
+        Consumer<UnicodeTextFieldModel>(
+          builder: (context, model, child) {
+            if (model.isUnicodeTextFieldVisible) {
+              return Expanded(
+                flex: 20,
+                child: UnicodeTextField(),
+              );
+            }
+            return const Center();
+          },
         ),
       ],
     );

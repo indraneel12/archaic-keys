@@ -14,11 +14,17 @@ class NwpPredictionsView extends StatelessWidget {
   static const minWidth = 32.0;
   static const minHeight = 32.0;
 
-  const NwpPredictionsView({super.key});
+  const NwpPredictionsView({
+    super.key,
+    this.alignment = Alignment.center,
+  });
+
+  final Alignment alignment;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Align(
+      alignment: alignment,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Tooltip(
@@ -36,7 +42,6 @@ class NwpPredictionsView extends StatelessWidget {
             child: Consumer<NwpPredictionsModel>(
               builder: (context, model, child) {
                 return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     for (final prediction in model.nwpPredictions)
                       Padding(
