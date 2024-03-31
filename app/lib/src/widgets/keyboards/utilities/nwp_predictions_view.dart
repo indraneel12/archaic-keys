@@ -64,7 +64,7 @@ class NwpPredictionsView extends StatelessWidget {
                             Provider.of<NwpPredictionsModel>(
                               context,
                               listen: false,
-                            ).updateNwpPrediction(prediction);
+                            ).chooseNwpPrediction(prediction);
                           },
                         ),
                       ),

@@ -9,10 +9,10 @@ import 'package:app/src/constants.dart';
 
 class NwpPredictionsModel extends ChangeNotifier {
   var _nwpPredictionsCount = ImplementationConstraints.minNwpPredictions;
-  var _currentNwpPrediction = '';
+  var _chosenNwpPrediction = '';
 
   int get nwpPredictionsCount => _nwpPredictionsCount;
-  String get currentNwpPrediction => _currentNwpPrediction;
+  String get chosenNwpPrediction => _chosenNwpPrediction;
 
   void updateNwpPredictionsCount(int value) {
     if (value < ImplementationConstraints.minNwpPredictions) return;
@@ -21,8 +21,8 @@ class NwpPredictionsModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateNwpPrediction(String value) {
-    _currentNwpPrediction = value;
+  void chooseNwpPrediction(String value) {
+    _chosenNwpPrediction = value;
     notifyListeners();
   }
 }
