@@ -3,7 +3,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
+
+import 'package:app/src/models/models.dart';
 
 class NwpPredictionsView extends StatelessWidget {
   static const tooltip = 'Choose NWP Prediction';
@@ -12,6 +16,7 @@ class NwpPredictionsView extends StatelessWidget {
 
   const NwpPredictionsView({super.key});
 
+  // TODO: obtain NWP predictions
   static const placeholderPredictions = [
     'Apple',
     'Mango',
@@ -56,8 +61,10 @@ class NwpPredictionsView extends StatelessWidget {
                             child: Text(prediction),
                           ),
                           onTap: () {
-                            // TODO: NWP Prediction (on tap)
-                            debugPrint('test: $prediction');
+                            Provider.of<NwpPredictionsModel>(
+                              context,
+                              listen: false,
+                            ).updateNwpPrediction(prediction);
                           },
                         ),
                       ),
