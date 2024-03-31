@@ -18,7 +18,6 @@ class SettingsMenu extends Menu {
 
   @override
   void show() {
-    // TODO: implement SettingsMenu->show
     showDialog(
       context: context,
       builder: (BuildContext context) {

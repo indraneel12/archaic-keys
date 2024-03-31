@@ -20,21 +20,21 @@ class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
 
   final List<int> values = [for (int i = minValue; i <= maxValue; i++) i];
 
-  var selectedIndex = 0;
+  var _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Slider(
-      value: selectedIndex.toDouble(),
+      value: _selectedIndex.toDouble(),
       min: 0,
       max: values.length - 1,
       divisions: values.length - 1,
-      label: values[selectedIndex].toString(),
+      label: values[_selectedIndex].toString(),
       onChanged: (double value) {
-        // TODO: use value from NwpPredictionsSlider
         setState(() {
-          selectedIndex = value.toInt();
+          _selectedIndex = value.toInt();
         });
+        // TODO: use value from NwpPredictionsSlider
       },
     );
   }
