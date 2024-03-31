@@ -6,77 +6,81 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
-import 'package:app/src/utilities/double_scrollview.dart';
 
 import 'key_button.dart';
 import 'unicode_text_field.dart';
 
 class KeyboardControlBar extends StatelessWidget {
-  static const minWidth = AppDimensions.maxWidth * 0.60;
-  static const minHeight = AppDimensions.minHeight * 0.03;
-  static const maxWidth = AppDimensions.maxWidth * 1.00;
-  static const maxHeight = AppDimensions.maxHeight * 1.00;
+  static const minHeight = 16.0;
+  static const maxHeight = double.infinity;
 
   const KeyboardControlBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DoubleScrollview(
-      minWidth: KeyboardControlBar.minWidth,
-      minHeight: KeyboardControlBar.minHeight,
-      maxWidth: KeyboardControlBar.maxWidth,
-      maxHeight: KeyboardControlBar.maxHeight,
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: KeyButton(
-                label: 'Ctrl ',
-                fontFamily: CustomFonts.chivoMono,
-                isToggle: true,
-                activeColor: Colors.blue,
-                onPressed: () => {}, // TODO: Ctrl action (Key)
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 25,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: KeyButton(
+                    label: 'Shift',
+                    fontFamily: CustomFonts.chivoMono,
+                    isToggle: true,
+                    activeColor: Colors.blue,
+                    onPressed: () => {}, // TODO: Shift action (Key)
+                  ),
+                ),
               ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: KeyButton(
+                    label: ' Alt ',
+                    fontFamily: CustomFonts.chivoMono,
+                    isToggle: true,
+                    activeColor: Colors.blue,
+                    onPressed: () => {}, // TODO: Alt action (Key)
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: KeyButton(
+                    label: 'Ctrl ',
+                    fontFamily: CustomFonts.chivoMono,
+                    isToggle: true,
+                    activeColor: Colors.blue,
+                    onPressed: () => {}, // TODO: Ctrl action (Key)
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const Expanded(flex: 1, child: Center()),
+        const Expanded(
+          flex: 52,
+          child: Placeholder(
+            child: Center(
+              child: Text('NWP Predictions'),
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: KeyButton(
-                label: 'Shift',
-                fontFamily: CustomFonts.chivoMono,
-                isToggle: true,
-                activeColor: Colors.blue,
-                onPressed: () => {}, // TODO: Shift action (Key)
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: KeyButton(
-                label: ' Alt ',
-                fontFamily: CustomFonts.chivoMono,
-                isToggle: true,
-                activeColor: Colors.blue,
-                onPressed: () => {}, // TODO: Alt action (Key)
-              ),
-            ),
-          ),
-          const Expanded(
-            flex: 8,
-            child: Center(),
-          ),
-          Expanded(
-            flex: 2,
-            child: UnicodeTextField(),
-          ),
-        ],
-      ),
+        ),
+        const Expanded(flex: 2, child: Center()),
+        Expanded(
+          flex: 20,
+          child: UnicodeTextField(),
+        ),
+      ],
     );
   }
 }

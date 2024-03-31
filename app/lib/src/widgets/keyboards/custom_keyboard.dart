@@ -6,7 +6,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
-import 'package:app/src/utilities/double_scrollview.dart';
 
 import 'utilities/key_button.dart';
 import 'utilities/keyboard_control_bar.dart';
@@ -73,25 +72,21 @@ class CustomKeyboard extends StatefulWidget {
 class _CustomKeyboardState extends State<CustomKeyboard> {
   @override
   Widget build(BuildContext context) {
-    return DoubleScrollview(
-      minWidth: widget.minWidth,
-      minHeight: widget.minHeight,
-      maxWidth: widget.maxWidth,
-      maxHeight: widget.maxHeight,
-      padding: widget.padding,
-      body: Column(
-        children: [
-          const Expanded(
-            flex: 1,
+    return Column(
+      children: [
+        const Expanded(
+          flex: 1,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: KeyboardControlBar(),
           ),
-          const SizedBox(height: 8.0),
-          Expanded(
-            flex: 11,
-            child: widget.renderBody(context),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 8.0),
+        Expanded(
+          flex: 11,
+          child: widget.renderBody(context),
+        ),
+      ],
     );
   }
 }

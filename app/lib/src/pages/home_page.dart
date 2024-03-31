@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
                 flex: 3,
                 child: TextEditor(),
               ),
+              SizedBox(height: 8.0),
               Expanded(
                 flex: 4,
                 child: CustomKeyboard(padding: 8.0),
