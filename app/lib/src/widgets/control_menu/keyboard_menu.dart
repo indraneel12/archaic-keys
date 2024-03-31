@@ -3,9 +3,12 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
 
 class KeyboardMenu extends Menu {
@@ -25,31 +28,37 @@ class KeyboardMenu extends Menu {
       builder: (BuildContext context) {
         return AlertDialog(
           content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Menu.buildHeader(context, title: 'Keyboard Menu'),
-                const Divider(),
-                ListTile(
-                  leading: CustomIcons.malayalam,
-                  minLeadingWidth: KeyboardMenu.iconSpace,
-                  title: const Text('Malayalam'),
-                  onTap: () {
-                    // TODO: load Malayalam keyboard
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  leading: CustomIcons.nepali,
-                  minLeadingWidth: KeyboardMenu.iconSpace,
-                  title: const Text('Nepali'),
-                  onTap: () {
-                    // TODO: load Nepali keyboard
-                    Navigator.of(context).pop();
-                  },
-                ),
-                const Divider(),
-              ],
-            ),
+            child: Consumer<KeyboardModel>(builder: (context, model, child) {
+              return ListBody(
+                children: <Widget>[
+                  Menu.buildHeader(context, title: 'Keyboard Menu'),
+                  const Divider(),
+                  ListTile(
+                    leading: CustomIcons.malayalam,
+                    minLeadingWidth: KeyboardMenu.iconSpace,
+                    title: const Text('Malayalam'),
+                    onTap: () {
+                      model.chooseKeyboard(
+                        keyboardId: CustomKeyboardId.malayalam,
+                      );
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    leading: CustomIcons.nepali,
+                    minLeadingWidth: KeyboardMenu.iconSpace,
+                    title: const Text('Nepali'),
+                    onTap: () {
+                      model.chooseKeyboard(
+                        keyboardId: CustomKeyboardId.nepali,
+                      );
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  const Divider(),
+                ],
+              );
+            }),
           ),
         );
       },
