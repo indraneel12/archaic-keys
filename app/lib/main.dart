@@ -8,15 +8,26 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app.dart';
-import 'src/configurations_model.dart';
+import 'src/models/models.dart';
 
 export 'src/app.dart';
-export 'src/configurations_model.dart';
+export 'src/models/models.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ConfigurationsModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AltKeyModel()),
+        ChangeNotifierProvider(create: (context) => CtrlKeyModel()),
+        ChangeNotifierProvider(create: (context) => KeyboardLightModel()),
+        ChangeNotifierProvider(create: (context) => KeyboardModel()),
+        ChangeNotifierProvider(create: (context) => NwpModel()),
+        ChangeNotifierProvider(create: (context) => NwpPredictionsModel()),
+        ChangeNotifierProvider(create: (context) => ShiftKeyModel()),
+        ChangeNotifierProvider(create: (context) => TextToolbarModel()),
+        ChangeNotifierProvider(create: (context) => UnicodeTextFieldModel()),
+        ChangeNotifierProvider(create: (context) => VoiceTypingModel()),
+      ],
       child: const App(),
     ),
   );

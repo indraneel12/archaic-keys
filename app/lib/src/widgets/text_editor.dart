@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_quill/flutter_quill.dart';
 
-import 'package:app/src/configurations_model.dart';
+import 'package:app/src/models/models.dart';
 
 class TextEditor extends StatefulWidget {
   const TextEditor({super.key});
@@ -25,9 +25,9 @@ class _TextEditorState extends State<TextEditor> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Consumer<ConfigurationsModel>(
-          builder: (context, config, child) {
-            if (config.isTextToolbarVisible) {
+        Consumer<TextToolbarModel>(
+          builder: (context, model, child) {
+            if (model.isTextToolbarVisible) {
               return Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: QuillToolbar.simple(
