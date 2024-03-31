@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:app/src/constants.dart';
 
 import 'key_button.dart';
+import 'nwp_predictions_view.dart';
 import 'unicode_text_field.dart';
 
 class KeyboardControlBar extends StatelessWidget {
@@ -69,11 +70,7 @@ class KeyboardControlBar extends StatelessWidget {
         const Expanded(flex: 1, child: Center()),
         const Expanded(
           flex: 52,
-          child: Placeholder(
-            child: Center(
-              child: Text('NWP Predictions'),
-            ),
-          ),
+          child: NwpPredictionsView(),
         ),
         const Expanded(flex: 2, child: Center()),
         Expanded(
