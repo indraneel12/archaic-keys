@@ -6,13 +6,43 @@
 import 'package:flutter/material.dart';
 
 class NwpPredictionsView extends StatelessWidget {
+  static const tooltip = 'Choose NWP Prediction';
+
   const NwpPredictionsView({super.key});
+
+  static const placeholderPredictions = [
+    'Apple',
+    'Mango',
+    'Watermelon',
+    'Lemon',
+    'Strawberry',
+    'Pineapple',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(
+    return Tooltip(
+      message: NwpPredictionsView.tooltip,
       child: Center(
-        child: Text('NWP Predictions View'),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              for (final prediction in placeholderPredictions)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: GestureDetector(
+                    child: Text(prediction),
+                    onTap: () {
+                      // TODO: NWP Prediction (on tap)
+                      debugPrint('test: $prediction');
+                    },
+                  ),
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }
