@@ -11,6 +11,7 @@ class VoiceTypingModel extends ChangeNotifier {
   bool get isVoiceTypingOn => _isVoiceTypingOn;
 
   void toggleVoiceTyping() {
+    // TODO: Voice Typing algorithm
     _isVoiceTypingOn = !_isVoiceTypingOn;
     notifyListeners();
   }

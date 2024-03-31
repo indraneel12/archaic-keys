@@ -10,7 +10,6 @@ import 'package:app/src/utilities/menu.dart';
 import 'settings_menu.dart';
 import 'keyboard_menu.dart';
 import 'nwp_model_menu.dart';
-import 'voice_typing_feature.dart';
 import 'translation_menu.dart';
 import 'save_text_feature.dart';
 import 'about_app_menu.dart';
@@ -21,7 +20,6 @@ export 'package:app/src/utilities/menu.dart';
 export 'settings_menu.dart';
 export 'keyboard_menu.dart';
 export 'nwp_model_menu.dart';
-export 'voice_typing_feature.dart';
 export 'translation_menu.dart';
 export 'save_text_feature.dart';
 export 'about_app_menu.dart';
@@ -39,7 +37,6 @@ class ControlMenu extends Menu {
         SettingsMenu(context),
         KeyboardMenu(context),
         NwpModelMenu(context),
-        VoiceTypingFeature(context),
         TranslationMenu(context),
         SaveTextFeature(context),
         AboutAppMenu(context),
@@ -70,11 +67,11 @@ class ControlMenu extends Menu {
           menuItems.add(buildListTile(controls[i]));
         }
         menuItems.add(const Divider());
-        for (int i = 3; i < 6; i++) {
+        for (int i = 3; i < 5; i++) {
           menuItems.add(buildListTile(controls[i]));
         }
         menuItems.add(const Divider());
-        for (int i = 6; i < 8; i++) {
+        for (int i = 5; i < 7; i++) {
           menuItems.add(buildListTile(controls[i]));
         }
         menuItems.add(const Divider());

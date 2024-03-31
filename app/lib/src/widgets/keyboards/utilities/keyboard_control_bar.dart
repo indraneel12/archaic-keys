@@ -25,9 +25,24 @@ class KeyboardControlBar extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
-          flex: 25,
+          flex: 30,
           child: Row(
             children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: KeyButton(
+                    label: 'Toggle Voice Typing',
+                    thumbnail: const Icon(Icons.keyboard_voice),
+                    isToggle: true,
+                    activeColor: Colors.blue,
+                    onPressed: () =>
+                        Provider.of<VoiceTypingModel>(context, listen: false)
+                            .toggleVoiceTyping(),
+                  ),
+                ),
+              ),
               Expanded(
                 flex: 1,
                 child: Padding(
@@ -81,7 +96,7 @@ class KeyboardControlBar extends StatelessWidget {
           builder: (context, model, child) {
             if (model.isUnicodeTextFieldVisible) {
               return const Expanded(
-                flex: 52,
+                flex: 46,
                 child: NwpPredictionsView(),
               );
             }
@@ -94,7 +109,7 @@ class KeyboardControlBar extends StatelessWidget {
               return const Expanded(flex: 2, child: Center());
             }
             return const Expanded(
-              flex: 74,
+              flex: 68,
               child: NwpPredictionsView(alignment: Alignment.centerRight),
             );
           },
@@ -103,7 +118,7 @@ class KeyboardControlBar extends StatelessWidget {
           builder: (context, model, child) {
             if (model.isUnicodeTextFieldVisible) {
               return Expanded(
-                flex: 20,
+                flex: 21,
                 child: UnicodeTextField(),
               );
             }
