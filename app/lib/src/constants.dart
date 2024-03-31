@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart' show Icons;
+import 'package:flutter/material.dart';
 
 const copyright = '''BSD 3-Clause License
 
@@ -57,11 +57,20 @@ abstract class AppDimensions {
   static const maxHeight = 700.0;
 }
 
+abstract class CustomIcons {
+  static final malayalam = Icon(IconData('അ'.codeUnitAt(0)));
+  static final nepali = Icon(IconData('𑐀'.codeUnitAt(0)));
+}
+
 abstract class CustomFonts {
   static const chivoMono = 'ChivoMono';
   static const sixtyfour = 'Sixtyfour';
 }
 
 abstract class MalayalamFonts {
-  static const notoSerifMalayalam = 'NotoSerifMalayalam';
+  static const notoSansMalayalam = 'NotoSansMalayalam';
+}
+
+abstract class NepaliFonts {
+  static const notoSansNewa = 'NotoSansNewa';
 }

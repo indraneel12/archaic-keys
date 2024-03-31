@@ -53,7 +53,12 @@ class CustomKeyboard extends StatefulWidget {
               ),
               KeyButton(
                 label: 'അ',
-                fontFamily: MalayalamFonts.notoSerifMalayalam,
+                fontFamily: MalayalamFonts.notoSansMalayalam,
+                onPressed: () => {},
+              ),
+              KeyButton(
+                label: '𑐀',
+                fontFamily: NepaliFonts.notoSansNewa,
                 onPressed: () => {},
               ),
             ],
