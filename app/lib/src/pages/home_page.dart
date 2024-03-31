@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/control_menu/control_menu_header.dart';
+import 'package:app/src/widgets/control_menu/control_menu_header.dart';
 import 'package:app/src/widgets/text_editor.dart';
 import 'package:app/src/widgets/keyboards/custom_keyboard.dart';
 
