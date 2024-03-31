@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:app/src/constants.dart';
 import 'package:app/src/widgets/app_sticker.dart';
 import 'package:app/src/control_menu/control_menu.dart';
 
@@ -13,11 +14,11 @@ class ControlMenuHeader extends StatelessWidget {
 
   static bool isSpacious({required double width, required double height}) {
     // debugPrint([width, height, width / height].toString());
-    // return (width > 650.0 && (width / height) > 2.0) ||
-    //     ((width / height) > 1.35 &&
-    //         width > AppDimensions.minWidth &&
-    //         height > AppDimensions.minHeight);
-    return (width / height) > 1.33;
+    // TODO: better Control Menu Header layout (spaciousness)
+    return (width > 650.0 && (width / height) > 2.0) ||
+        ((width / height) > 1.35 &&
+            width > AppDimensions.minWidth &&
+            height > AppDimensions.minHeight);
   }
 
   @override
