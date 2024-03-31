@@ -30,28 +30,22 @@ class SettingsMenu extends Menu {
               children: <Widget>[
                 Menu.buildHeader(context, title: 'Settings Menu'),
                 const Divider(),
-                Consumer<TextToolbarModel>(
-                  builder: (context, model, child) {
-                    return ListTile(
-                      leading: const Icon(Icons.design_services),
-                      title: const Text('Toggle Text Toolbar'),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        model.toggleToolbarVisibility();
-                      },
-                    );
+                ListTile(
+                  leading: const Icon(Icons.design_services),
+                  title: const Text('Toggle Text Toolbar'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Provider.of<TextToolbarModel>(context, listen: false)
+                        .toggleToolbarVisibility();
                   },
                 ),
-                Consumer<KeyboardLightModel>(
-                  builder: (context, model, child) {
-                    return ListTile(
-                      leading: const Icon(Icons.flashlight_on),
-                      title: const Text('Toggle Keyboard Light'),
-                      onTap: () {
-                        model.toggleKeyboardLightVisibility();
-                        Navigator.of(context).pop();
-                      },
-                    );
+                ListTile(
+                  leading: const Icon(Icons.flashlight_on),
+                  title: const Text('Toggle Keyboard Light'),
+                  onTap: () {
+                    Provider.of<KeyboardLightModel>(context, listen: false)
+                        .toggleKeyboardLightVisibility();
+                    Navigator.of(context).pop();
                   },
                 ),
                 const Divider(),
