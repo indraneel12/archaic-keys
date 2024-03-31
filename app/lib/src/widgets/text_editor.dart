@@ -27,6 +27,7 @@ class _TextEditorState extends State<TextEditor> {
             configurations: QuillSimpleToolbarConfigurations(
               controller: _controller,
               multiRowsDisplay: true,
+              showFontFamily: false, // until enough Indic fonts are available
             ),
           ),
         ),
