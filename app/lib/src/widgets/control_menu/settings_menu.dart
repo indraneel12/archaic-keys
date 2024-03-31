@@ -42,12 +42,16 @@ class SettingsMenu extends Menu {
                     );
                   },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.flashlight_on),
-                  title: const Text('Toggle Keyboard Light'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    // TODO: Toggle Keyboard Light (settings)
+                Consumer<KeyboardLightModel>(
+                  builder: (context, model, child) {
+                    return ListTile(
+                      leading: const Icon(Icons.flashlight_on),
+                      title: const Text('Toggle Keyboard Light'),
+                      onTap: () {
+                        model.toggleKeyboardLightVisibility();
+                        Navigator.of(context).pop();
+                      },
+                    );
                   },
                 ),
                 const Divider(),
