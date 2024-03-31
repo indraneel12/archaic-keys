@@ -3,8 +3,10 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-abstract class NwpModelId {
+class NwpModelId {
   // TODO: add NWP Models (potentially plugins)
-  static const dummy = 'NIL';
-  static const all = [dummy];
+  static const dummy = NwpModelId._(0);
+
+  const NwpModelId._(this.id);
+  final int id;
 }

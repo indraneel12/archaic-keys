@@ -11,11 +11,10 @@ class NwpModel extends ChangeNotifier {
   // TODO: initial NWP model
   var _currentNwpModelId = NwpModelId.dummy;
 
-  String get currentNwpModelId => _currentNwpModelId;
+  NwpModelId get currentNwpModelId => _currentNwpModelId;
 
-  void chooseNwpModel({required String nwpModelId}) {
-    if (!NwpModelId.all.contains(nwpModelId)) return;
-    _currentNwpModelId = nwpModelId;
+  void chooseNwpModel({required NwpModelId id}) {
+    _currentNwpModelId = id;
     notifyListeners();
   }
 }
