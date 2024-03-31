@@ -3,7 +3,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
+
+import 'package:app/src/models/models.dart';
 
 class UnicodeTextField extends StatelessWidget {
   static const tooltip = 'Invoke any Unicode character';
@@ -31,7 +35,8 @@ class UnicodeTextField extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
         onSubmitted: (String text) {
-          // TODO: Unicode action (Text Field)
+          Provider.of<UnicodeTextFieldModel>(context, listen: false)
+              .submitUnicode(text);
           _controller.clear();
         },
       ),
