@@ -3,9 +3,12 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/models/models.dart';
 
 class NwpPredictionsSlider extends StatefulWidget {
   const NwpPredictionsSlider({super.key});
@@ -31,10 +34,12 @@ class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
       divisions: values.length - 1,
       label: values[_selectedIndex].toString(),
       onChanged: (double value) {
+        final updatedCount = value.toInt();
         setState(() {
-          _selectedIndex = value.toInt();
+          _selectedIndex = updatedCount;
         });
-        // TODO: use value from NwpPredictionsSlider
+        Provider.of<NwpPredictionsModel>(context, listen: false)
+            .updateNwpPredictionsCount(updatedCount);
       },
     );
   }
