@@ -10,11 +10,10 @@ import 'package:app/src/constants/constants.dart';
 class KeyboardModel extends ChangeNotifier {
   var _currentKeyboardId = CustomKeyboardId.malayalam;
 
-  String get currentKeyboardId => _currentKeyboardId;
+  CustomKeyboardId get currentKeyboardId => _currentKeyboardId;
 
-  void chooseKeyboard({required String keyboardId}) {
-    if (!CustomKeyboardId.all.contains(keyboardId)) return;
-    _currentKeyboardId = keyboardId;
+  void chooseKeyboard({required CustomKeyboardId id}) {
+    _currentKeyboardId = id;
     notifyListeners();
   }
 }

@@ -38,7 +38,7 @@ class KeyboardMenu extends Menu {
                   title: const Text('Malayalam'),
                   onTap: () {
                     Provider.of<KeyboardModel>(context, listen: false)
-                        .chooseKeyboard(keyboardId: CustomKeyboardId.malayalam);
+                        .chooseKeyboard(id: CustomKeyboardId.malayalam);
                     Navigator.of(context).pop();
                   },
                 ),
@@ -48,7 +48,7 @@ class KeyboardMenu extends Menu {
                   title: const Text('Nepali'),
                   onTap: () {
                     Provider.of<KeyboardModel>(context, listen: false)
-                        .chooseKeyboard(keyboardId: CustomKeyboardId.nepali);
+                        .chooseKeyboard(id: CustomKeyboardId.nepali);
                     Navigator.of(context).pop();
                   },
                 ),
