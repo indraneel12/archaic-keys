@@ -3,9 +3,12 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants.dart';
+import 'package:app/src/models/models.dart';
 
 import 'key_button.dart';
 import 'nwp_predictions_view.dart';
@@ -34,7 +37,9 @@ class KeyboardControlBar extends StatelessWidget {
                     fontFamily: CustomFonts.chivoMono,
                     isToggle: true,
                     activeColor: Colors.blue,
-                    onPressed: () => {}, // TODO: Shift action (Key)
+                    onPressed: () =>
+                        Provider.of<ShiftKeyModel>(context, listen: false)
+                            .toggleVirtualShiftKey(),
                   ),
                 ),
               ),
@@ -47,7 +52,9 @@ class KeyboardControlBar extends StatelessWidget {
                     fontFamily: CustomFonts.chivoMono,
                     isToggle: true,
                     activeColor: Colors.blue,
-                    onPressed: () => {}, // TODO: Alt action (Key)
+                    onPressed: () =>
+                        Provider.of<AltKeyModel>(context, listen: false)
+                            .toggleVirtualAltKey(),
                   ),
                 ),
               ),
@@ -60,7 +67,9 @@ class KeyboardControlBar extends StatelessWidget {
                     fontFamily: CustomFonts.chivoMono,
                     isToggle: true,
                     activeColor: Colors.blue,
-                    onPressed: () => {}, // TODO: Ctrl action (Key)
+                    onPressed: () =>
+                        Provider.of<CtrlKeyModel>(context, listen: false)
+                            .toggleVirtualCtrlKey(),
                   ),
                 ),
               ),
