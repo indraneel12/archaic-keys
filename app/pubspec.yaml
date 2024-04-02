@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.2.5
   flutter_quill: ^9.3.5
   provider: ^6.1.2
+  speech_to_text: ^6.6.1
 
 dev_dependencies:
   flutter_test:
