@@ -2,8 +2,7 @@
 // Copyright (c) 2024, Deepen Shrestha
 //
 // SPDX-License-Identifier: BSD-3-Clause
-
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_recognition_error.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:speech_to_text/speech_recognition_result.dart';
@@ -47,5 +46,27 @@ class VoiceTypingModel extends ChangeNotifier {
 
   void stopListening(stt.SpeechToText speech) {
     speech.stop();
+  }
+
+  void showListeningPopup(stt.SpeechToText speech, BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Listening...'),
+          content: Text('Please start speaking.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                toggleVoiceTyping();
+                stopListening(speech);
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

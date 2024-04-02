@@ -40,7 +40,7 @@ class KeyboardControlBar extends StatelessWidget {
                     label: 'Toggle Voice Typing',
                     thumbnail: const Icon(Icons.keyboard_voice),
                     isToggle: true,
-                    activeColor: Colors.blue,
+                    // activeColor: Colors.blue,
                     onPressed: () {
                       final voiceModel =
                           Provider.of<VoiceTypingModel>(context, listen: false);
@@ -48,6 +48,7 @@ class KeyboardControlBar extends StatelessWidget {
                       if (voiceModel.isVoiceTypingOn) {
                         // 'ml_IN', Specify Malayalam locale for Indian Malayalam
                         // 'ne_NP', for nepali language
+                        voiceModel.showListeningPopup(speech,context);
                         voiceModel.startListening(speech, voiceModel, 'ne_NP');
                       } else {
                         voiceModel.stopListening(speech);
