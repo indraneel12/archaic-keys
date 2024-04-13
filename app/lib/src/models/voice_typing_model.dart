@@ -27,10 +27,10 @@ class VoiceTypingModel extends ChangeNotifier {
   ) async {
     await speech.initialize(
       onStatus: (String status) {
-        print('Speech recognition status: $status');
+        debugPrint('Speech recognition status: $status');
       },
       onError: (SpeechRecognitionError error) {
-        print('Speech recognition error: ${error.errorMsg}');
+        debugPrint('Speech recognition error: ${error.errorMsg}');
       },
       // listenFor: Duration(minutes: 2), // Listen for up to 2 minutes
     ); // Initialize the SpeechToText instance
@@ -40,7 +40,7 @@ class VoiceTypingModel extends ChangeNotifier {
           // Check if the result is final
           if (result.finalResult) {
             final text = result.recognizedWords;
-            print('Transcribed text: $text');
+            debugPrint('Transcribed text: $text');
             // Do something with the transcribed text, e.g., send it to the model
           }
         },
