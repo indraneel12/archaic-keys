@@ -58,8 +58,8 @@ class VoiceTypingModel extends ChangeNotifier {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Listening...'),
-          content: Text('Please start speaking.'),
+          title: const Text('Listening...'),
+          content: const Text('Please start speaking.'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -67,7 +67,7 @@ class VoiceTypingModel extends ChangeNotifier {
                 stopListening(speech);
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
           ],
         );
