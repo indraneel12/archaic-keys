@@ -2,10 +2,12 @@
 // Copyright (c) 2024, Deepen Shrestha
 //
 // SPDX-License-Identifier: BSD-3-Clause
-import 'package:flutter/material.dart';
-import 'package:speech_to_text/speech_recognition_error.dart';
+
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:speech_to_text/speech_recognition_error.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
+
+import 'package:flutter/material.dart';
 
 class VoiceTypingModel extends ChangeNotifier {
   var _isVoiceTypingOn = false;
@@ -18,7 +20,11 @@ class VoiceTypingModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void startListening(stt.SpeechToText speech, VoiceTypingModel voiceModel, String localeLanguage) async {
+  void startListening(
+    stt.SpeechToText speech,
+    VoiceTypingModel voiceModel,
+    String localeLanguage,
+  ) async {
     await speech.initialize(
       onStatus: (String status) {
         print('Speech recognition status: $status');
@@ -38,9 +44,8 @@ class VoiceTypingModel extends ChangeNotifier {
             // Do something with the transcribed text, e.g., send it to the model
           }
         },
-        
         localeId: localeLanguage,
-        );
+      );
     }
   }
 
