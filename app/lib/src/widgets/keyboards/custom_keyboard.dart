@@ -12,6 +12,8 @@ import 'utilities/key_button.dart';
 import 'utilities/keyboard_control_bar.dart';
 import 'utilities/rgb_border_animator.dart';
 
+import 'malayalam/malayalam_keyboard.dart';
+
 class CustomKeyboard extends StatefulWidget {
   const CustomKeyboard({super.key});
 
@@ -60,12 +62,10 @@ class CustomKeyboard extends StatefulWidget {
                     onPressed: () => {},
                   ),
                 ),
-                RgbBorderAnimator(
-                  child: KeyButton(
-                    label: 'അ',
-                    fontFamily: CustomFonts.notoSansMalayalam,
-                    onPressed: () => {},
-                  ),
+                const MalayalamKey(
+                  value: 'അ',
+                  devanagariLabel: 'अ',
+                  iso15919Label: 'a',
                 ),
                 KeyButton(
                   label: '𑐀',
