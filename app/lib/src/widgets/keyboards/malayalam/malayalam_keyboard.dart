@@ -409,6 +409,24 @@ class MalayalamKeyboard extends StatelessWidget {
         ).withGridPlacement(rowStart: 6, columnStart: 7),
 
         // ------------------------Chillus------------------------
+        const MalayalamKey(value: 'ൿ')
+            .withGridPlacement(rowStart: 3, columnStart: 9),
+        const MalayalamKey(value: 'ൺ')
+            .withGridPlacement(rowStart: 3, columnStart: 10),
+        const MalayalamKey(value: 'ൻ')
+            .withGridPlacement(rowStart: 3, columnStart: 11),
+        const MalayalamKey(value: 'ൔ')
+            .withGridPlacement(rowStart: 3, columnStart: 12),
+        const MalayalamKey(value: 'ൕ')
+            .withGridPlacement(rowStart: 3, columnStart: 13),
+        const MalayalamKey(value: 'ൽ')
+            .withGridPlacement(rowStart: 3, columnStart: 14),
+        const MalayalamKey(value: 'ൾ')
+            .withGridPlacement(rowStart: 3, columnStart: 15),
+        const MalayalamKey(value: 'ൖ')
+            .withGridPlacement(rowStart: 3, columnStart: 16),
+        const MalayalamKey(value: 'ർ')
+            .withGridPlacement(rowStart: 3, columnStart: 17),
 
         // ------------------------Archaic-Symbols------------------------
 
