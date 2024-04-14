@@ -65,7 +65,7 @@ class TextModel extends ChangeNotifier {
     final initialCharacterIndex = initialCursorPosition - 1;
     separatePre = separatePre &&
         (initialCharacterIndex >= 0) &&
-        (currentText[initialCharacterIndex] != '\n');
+        (!(RegExp(r'\s').hasMatch(currentText[initialCharacterIndex])));
     separatePost =
         separatePost && (initialCursorPosition != currentText.length);
     if (separatePre && separatePost) {
