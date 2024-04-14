@@ -13,11 +13,7 @@ class TextModel extends ChangeNotifier {
   late final _controller = QuillController.basic();
 
   TextModel() {
-    debugPrint('${_controller.document.toPlainText().codeUnitAt(0)}');
-    _controller.document.replace(0, _controller.document.length, '');
-    debugPrint('${_controller.document.toPlainText().codeUnitAt(0)}');
     _controller.addListener(() => notifyListeners());
-    _controller.replaceText(0, currentText.length, '', null);
   }
 
   var _nwpPredictionsCount = FeatureConstraints.minNwpPredictions;
