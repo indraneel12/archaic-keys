@@ -20,8 +20,8 @@ import 'malayalam/malayalam_keyboard.dart';
 class CustomKeyboard extends StatelessWidget {
   const CustomKeyboard({super.key});
 
-  static const minWidth = AppDimensions.maxWidth * 0.90;
-  static const minHeight = AppDimensions.minHeight * 0.90;
+  static const minWidth = AppDimensions.maxWidth * 0.70;
+  static const minHeight = AppDimensions.minHeight * 0.70;
   static const maxWidth = AppDimensions.maxWidth * 1.00;
   static const maxHeight = AppDimensions.maxHeight * 1.00;
 
