@@ -94,10 +94,14 @@ class CustomKeyboard extends StatelessWidget {
                   onPressed: () => {},
                 ),
               ),
-              const MalayalamKey(
-                value: 'അ',
-                devanagariLabel: 'अ',
-                iso15919Label: 'a',
+              const SizedBox(
+                width: 64.0,
+                height: 64.0,
+                child: MalayalamKey(
+                  value: 'അ',
+                  devanagariLabel: 'अ',
+                  iso15919Label: 'a',
+                ),
               ),
               KeyButton(
                 label: '𑐀',

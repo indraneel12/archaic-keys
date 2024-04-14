@@ -61,6 +61,8 @@ class MalayalamKey extends StatelessWidget {
         final keyButton = KeyButton(
           label: label,
           fontFamily: fontFamily,
+          minWidth: double.infinity,
+          minHeight: double.infinity,
           onPressed: onPressed ??
               () => Provider.of<TextModel>(context, listen: false)
                   .insertText(value),

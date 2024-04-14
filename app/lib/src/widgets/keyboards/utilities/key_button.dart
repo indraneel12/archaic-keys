@@ -6,9 +6,6 @@
 import 'package:flutter/material.dart';
 
 class KeyButton extends StatefulWidget {
-  static const minWidth = 32.0;
-  static const minHeight = 32.0;
-
   const KeyButton({
     super.key,
     required this.label,
@@ -18,6 +15,8 @@ class KeyButton extends StatefulWidget {
     this.backgroundColor,
     this.activeColor,
     this.thumbnail,
+    this.minWidth = 32.0,
+    this.minHeight = 32.0,
     required this.onPressed,
   });
 
@@ -28,6 +27,8 @@ class KeyButton extends StatefulWidget {
   final Color? backgroundColor;
   final Color? activeColor;
   final Icon? thumbnail;
+  final double? minWidth;
+  final double? minHeight;
   final void Function() onPressed;
 
   @override
@@ -39,21 +40,22 @@ class _KeyButtonState extends State<KeyButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: widget.tooltip ?? (widget.thumbnail != null ? widget.label : ''),
-      child: ClipRect(
-        child: SizedBox(
-          width: KeyButton.minWidth,
-          height: KeyButton.minHeight,
-          child: InkWell(
-            onTap: () {
-              widget.onPressed();
-              setState(() {
-                if (widget.isToggle) {
-                  _isPressed = !_isPressed;
-                }
-              });
-            },
+    return ClipRect(
+      child: SizedBox(
+        width: widget.minWidth,
+        height: widget.minHeight,
+        child: InkWell(
+          onTap: () {
+            widget.onPressed();
+            setState(() {
+              if (widget.isToggle) {
+                _isPressed = !_isPressed;
+              }
+            });
+          },
+          child: Tooltip(
+            message: widget.tooltip ??
+                (widget.thumbnail != null ? widget.label : ''),
             child: FittedBox(
               fit: BoxFit.fill,
               child: Container(
