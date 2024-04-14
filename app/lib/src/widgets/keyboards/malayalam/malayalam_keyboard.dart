@@ -408,6 +408,62 @@ class MalayalamKeyboard extends StatelessWidget {
           iso15919Label: 'ṉ',
         ).withGridPlacement(rowStart: 6, columnStart: 7),
 
+        // ------------------------Numpad------------------------
+        const MalayalamKey(
+          value: '൧',
+          devanagariLabel: '१',
+          iso15919Label: '1',
+        ).withGridPlacement(rowStart: 6, columnStart: 9),
+        const MalayalamKey(
+          value: '൨',
+          devanagariLabel: '२',
+          iso15919Label: '2',
+        ).withGridPlacement(rowStart: 6, columnStart: 10),
+        const MalayalamKey(
+          value: '൩',
+          devanagariLabel: '३',
+          iso15919Label: '3',
+        ).withGridPlacement(rowStart: 6, columnStart: 11),
+        const MalayalamKey(
+          value: '൪',
+          devanagariLabel: '४',
+          iso15919Label: '4',
+        ).withGridPlacement(rowStart: 5, columnStart: 9),
+        const MalayalamKey(
+          value: '൫',
+          devanagariLabel: '५',
+          iso15919Label: '5',
+        ).withGridPlacement(rowStart: 5, columnStart: 10),
+        const MalayalamKey(
+          value: '൬',
+          devanagariLabel: '६',
+          iso15919Label: '6',
+        ).withGridPlacement(rowStart: 5, columnStart: 11),
+        const MalayalamKey(
+          value: '൭',
+          devanagariLabel: '७',
+          iso15919Label: '7',
+        ).withGridPlacement(rowStart: 4, columnStart: 9),
+        const MalayalamKey(
+          value: '൮',
+          devanagariLabel: '८',
+          iso15919Label: '8',
+        ).withGridPlacement(rowStart: 4, columnStart: 10),
+        const MalayalamKey(
+          value: '൯',
+          devanagariLabel: '९',
+          iso15919Label: '9',
+        ).withGridPlacement(rowStart: 4, columnStart: 11),
+        const MalayalamKey(
+          value: '൦',
+          devanagariLabel: '०',
+          iso15919Label: '0',
+        ).withGridPlacement(rowStart: 7, columnStart: 10),
+        const MalayalamKey(value: '൏')
+            .withGridPlacement(rowStart: 7, columnStart: 9),
+        const MalayalamKey(value: '൹')
+            .withGridPlacement(rowStart: 7, columnStart: 11),
+
         // ------------------------Chillus------------------------
         const MalayalamKey(value: 'ൿ')
             .withGridPlacement(rowStart: 3, columnStart: 9),
@@ -441,8 +497,6 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 7, columnStart: 7),
         const MalayalamKey(value: 'ഁ')
             .withGridPlacement(rowStart: 7, columnStart: 8),
-
-        // ------------------------Numpad------------------------
 
         // ------------------------Punctuators------------------------
 
