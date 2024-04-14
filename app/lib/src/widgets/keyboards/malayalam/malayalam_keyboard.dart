@@ -16,7 +16,6 @@ class MalayalamKeyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement Malayalam Keyboard layout
     return LayoutGrid(
       rowSizes: [for (int i = 0; i < 8; i++) 1.fr],
       columnSizes: [for (int i = 0; i < 18; i++) 1.fr],
@@ -116,7 +115,6 @@ class MalayalamKeyboard extends StatelessWidget {
         ).withGridPlacement(rowStart: 0, columnStart: 17),
 
         // ------------------------Matras------------------------
-        // TODO: halant
         const MalayalamKey(
           value: '്',
           devanagariLabel: '्',
@@ -207,6 +205,22 @@ class MalayalamKeyboard extends StatelessWidget {
           devanagariLabel: 'ः',
           iso15919Label: '◌aḥ',
         ).withGridPlacement(rowStart: 1, columnStart: 17),
+
+        // ------------------------Basic-Consonants------------------------
+
+        // ------------------------Other-Consonants------------------------
+
+        // ------------------------Chillus------------------------
+
+        // ------------------------Common-Ligatures------------------------
+
+        // ------------------------Archaic-Symbols------------------------
+
+        // ------------------------Numpad------------------------
+
+        // ------------------------Punctuators------------------------
+
+        // ------------------------Fractions------------------------
       ],
     );
   }
