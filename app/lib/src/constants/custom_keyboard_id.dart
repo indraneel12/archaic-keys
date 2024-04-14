@@ -4,8 +4,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 class CustomKeyboardId {
-  static const malayalam = CustomKeyboardId._(1);
-  static const nepali = CustomKeyboardId._(2);
+  static const malayalamOriginal = CustomKeyboardId._(1);
+  static const malayalamDevanagari = CustomKeyboardId._(2);
+  static const malayalamISO15919 = CustomKeyboardId._(3);
+  static const nepali = CustomKeyboardId._(11);
 
   const CustomKeyboardId._(this.id);
   final int id;

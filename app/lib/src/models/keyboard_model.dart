@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:app/src/constants/constants.dart';
 
 class KeyboardModel extends ChangeNotifier {
-  var _currentKeyboardId = CustomKeyboardId.malayalam;
+  var _currentKeyboardId = CustomKeyboardId.malayalamOriginal;
 
   CustomKeyboardId get currentKeyboardId => _currentKeyboardId;
 

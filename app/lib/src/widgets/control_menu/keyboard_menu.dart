@@ -11,6 +11,8 @@ import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
 
+import 'package:app/src/widgets/keyboards/malayalam/malayalam_key.dart';
+
 class KeyboardMenu extends Menu {
   static const iconSpace = 40.0;
 
@@ -33,17 +35,49 @@ class KeyboardMenu extends Menu {
                 Menu.buildHeader(context, title: 'Keyboard Menu'),
                 const Divider(),
                 ListTile(
-                  leading: CustomIcons.malayalam,
+                  leading: MalayalamKey.iconMalayalamOriginal,
                   minLeadingWidth: KeyboardMenu.iconSpace,
                   title: const Text('Malayalam'),
                   onTap: () {
-                    Provider.of<KeyboardModel>(context, listen: false)
-                        .chooseKeyboard(id: CustomKeyboardId.malayalam);
+                    Provider.of<KeyboardModel>(
+                      context,
+                      listen: false,
+                    ).chooseKeyboard(id: CustomKeyboardId.malayalamOriginal);
                     Navigator.of(context).pop();
                   },
                 ),
                 ListTile(
-                  leading: CustomIcons.nepali,
+                  leading: MalayalamKey.iconMalayalamDevanagari,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Malayalam (Devanagari)'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(
+                      context,
+                      listen: false,
+                    ).chooseKeyboard(id: CustomKeyboardId.malayalamDevanagari);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: MalayalamKey.iconMalayalamISO15919,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Malayalam (ISO 15919)'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(
+                      context,
+                      listen: false,
+                    ).chooseKeyboard(id: CustomKeyboardId.malayalamISO15919);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  leading: Icon(
+                    IconData(
+                      '𑐀'.codeUnitAt(0),
+                      fontFamily: CustomFonts.notoSansNewa,
+                    ),
+                  ),
                   minLeadingWidth: KeyboardMenu.iconSpace,
                   title: const Text('Nepali'),
                   onTap: () {
