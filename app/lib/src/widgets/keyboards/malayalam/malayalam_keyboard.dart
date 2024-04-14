@@ -511,6 +511,38 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 7, columnStart: 13),
 
         // ------------------------Fractions------------------------
+        const MalayalamKey(value: '൘')
+            .withGridPlacement(rowStart: 4, columnStart: 14),
+        const MalayalamKey(value: '൙')
+            .withGridPlacement(rowStart: 4, columnStart: 15),
+        const MalayalamKey(value: '൚')
+            .withGridPlacement(rowStart: 4, columnStart: 16),
+        const MalayalamKey(value: '൛')
+            .withGridPlacement(rowStart: 4, columnStart: 17),
+        const MalayalamKey(value: '൶')
+            .withGridPlacement(rowStart: 5, columnStart: 14),
+        const MalayalamKey(value: '൜')
+            .withGridPlacement(rowStart: 5, columnStart: 15),
+        const MalayalamKey(value: '൷')
+            .withGridPlacement(rowStart: 5, columnStart: 16),
+        const MalayalamKey(value: '൝')
+            .withGridPlacement(rowStart: 5, columnStart: 17),
+        const MalayalamKey(value: '൸')
+            .withGridPlacement(rowStart: 6, columnStart: 14),
+        const MalayalamKey(value: '൞')
+            .withGridPlacement(rowStart: 6, columnStart: 15),
+        const MalayalamKey(value: '൳')
+            .withGridPlacement(rowStart: 6, columnStart: 16),
+        const MalayalamKey(value: '൴')
+            .withGridPlacement(rowStart: 6, columnStart: 17),
+        const MalayalamKey(value: '൵')
+            .withGridPlacement(rowStart: 7, columnStart: 14),
+        const MalayalamKey(value: '൰')
+            .withGridPlacement(rowStart: 7, columnStart: 15),
+        const MalayalamKey(value: '൱')
+            .withGridPlacement(rowStart: 7, columnStart: 16),
+        const MalayalamKey(value: '൲')
+            .withGridPlacement(rowStart: 7, columnStart: 17),
 
         // ------------------------Common-Ligatures------------------------
       ],
