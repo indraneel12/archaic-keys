@@ -38,7 +38,7 @@ class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
         setState(() {
           _selectedIndex = updatedCount;
         });
-        Provider.of<NwpPredictionsModel>(context, listen: false)
+        Provider.of<TextModel>(context, listen: false)
             .updateNwpPredictionsCount(updatedCount);
       },
     );

@@ -39,7 +39,7 @@ class NwpPredictionsView extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Consumer<NwpPredictionsModel>(
+            child: Consumer<TextModel>(
               builder: (context, model, child) {
                 return Row(
                   children: <Widget>[
@@ -57,8 +57,9 @@ class NwpPredictionsView extends StatelessWidget {
                                 fit: BoxFit.fill,
                                 child: Text(prediction),
                               ),
-                              onTap: () =>
-                                  model.chooseNwpPrediction(prediction),
+                              onTap: () {
+                                model.chooseNwpPrediction(prediction);
+                              },
                             ),
                           ),
                         ),

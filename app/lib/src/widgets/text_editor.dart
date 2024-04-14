@@ -16,8 +16,8 @@ class TextEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<NwpPredictionsModel>(context, listen: false)
-        .textEditorController;
+    final textEditorController =
+        Provider.of<TextModel>(context, listen: false).controller;
     return Column(
       children: <Widget>[
         Consumer<TextToolbarModel>(
@@ -30,7 +30,7 @@ class TextEditor extends StatelessWidget {
             padding: const EdgeInsets.all(4.0),
             child: QuillToolbar.simple(
               configurations: QuillSimpleToolbarConfigurations(
-                controller: controller,
+                controller: textEditorController,
                 multiRowsDisplay: true,
                 showFontFamily: false, // currently, due to less Indic fonts
               ),
@@ -49,7 +49,7 @@ class TextEditor extends StatelessWidget {
             ),
             child: QuillEditor.basic(
               configurations: QuillEditorConfigurations(
-                controller: controller,
+                controller: textEditorController,
                 readOnly: false,
                 autoFocus: true,
                 scrollable: true,
