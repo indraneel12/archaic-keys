@@ -334,6 +334,79 @@ class MalayalamKeyboard extends StatelessWidget {
         ).withGridPlacement(rowStart: 7, columnStart: 4),
 
         // ------------------------Other-Consonants------------------------
+        const MalayalamKey(
+          value: 'യ',
+          devanagariLabel: 'य',
+          iso15919Label: 'y',
+        ).withGridPlacement(rowStart: 3, columnStart: 5),
+        const MalayalamKey(
+          value: 'ര',
+          devanagariLabel: 'र',
+          iso15919Label: 'r',
+        ).withGridPlacement(rowStart: 3, columnStart: 6),
+        const MalayalamKey(
+          value: 'ല',
+          devanagariLabel: 'ल',
+          iso15919Label: 'l',
+        ).withGridPlacement(rowStart: 3, columnStart: 7),
+        const MalayalamKey(
+          value: 'വ',
+          devanagariLabel: 'व',
+          iso15919Label: 'v',
+        ).withGridPlacement(rowStart: 3, columnStart: 8),
+        const MalayalamKey(
+          value: 'ശ',
+          devanagariLabel: 'श',
+          iso15919Label: 'ś',
+        ).withGridPlacement(rowStart: 4, columnStart: 5),
+        const MalayalamKey(
+          value: 'ഷ',
+          devanagariLabel: 'ष',
+          iso15919Label: 'ṣ',
+        ).withGridPlacement(rowStart: 4, columnStart: 6),
+        const MalayalamKey(
+          value: 'സ',
+          devanagariLabel: 'स',
+          iso15919Label: 's',
+        ).withGridPlacement(rowStart: 4, columnStart: 7),
+        const MalayalamKey(
+          value: 'ഹ',
+          devanagariLabel: 'ह',
+          iso15919Label: 'h',
+        ).withGridPlacement(rowStart: 4, columnStart: 8),
+        LayoutGrid(
+          rowSizes: [1.fr],
+          columnSizes: [for (int i = 0; i < 16; i++) 1.fr],
+          rowGap: 0.0,
+          columnGap: 0.0,
+          children: <Widget>[
+            const MalayalamKey(
+              value: 'ള',
+              devanagariLabel: 'ळ',
+              iso15919Label: 'ḷ',
+            ).withGridPlacement(rowStart: 0, columnStart: 1, columnSpan: 4),
+            const MalayalamKey(
+              value: 'ഴ',
+              devanagariLabel: 'ऴ',
+              iso15919Label: 'ḻ',
+            ).withGridPlacement(rowStart: 0, columnStart: 6, columnSpan: 4),
+            const MalayalamKey(
+              value: 'റ',
+              devanagariLabel: 'ऱ',
+              iso15919Label: 'ṟ',
+            ).withGridPlacement(rowStart: 0, columnStart: 11, columnSpan: 4),
+          ],
+        ).withGridPlacement(rowStart: 5, columnStart: 5, columnSpan: 4),
+        const MalayalamKey(
+          value: 'ഺ',
+          devanagariLabel: 'ट़',
+          iso15919Label: 'ṯ',
+        ).withGridPlacement(rowStart: 6, columnStart: 6),
+        const MalayalamKey(
+          value: 'ഩ',
+          devanagariLabel: 'ऩ',
+          iso15919Label: 'ṉ',
+        ).withGridPlacement(rowStart: 6, columnStart: 7),
 
         // ------------------------Chillus------------------------
 
