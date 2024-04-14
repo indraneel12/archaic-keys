@@ -63,8 +63,11 @@ class TextModel extends ChangeNotifier {
   }) {
     final initialCursorPosition = currentCursorPosition;
     final initialCharacterIndex = initialCursorPosition - 1;
-    separatePre = separatePre && initialCharacterIndex >= 0;
-    separatePost = separatePost && initialCursorPosition != currentText.length;
+    separatePre = separatePre &&
+        (initialCharacterIndex >= 0) &&
+        (currentText[initialCharacterIndex] != '\n');
+    separatePost =
+        separatePost && (initialCursorPosition != currentText.length);
     if (separatePre && separatePost) {
       value = ' $value ';
     } else {
