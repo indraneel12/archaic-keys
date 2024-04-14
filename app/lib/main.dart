@@ -22,6 +22,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => KeyboardLightModel()),
         ChangeNotifierProvider(create: (context) => KeyboardModel()),
         ChangeNotifierProvider(create: (context) => NwpModel()),
+        ChangeNotifierProvider(create: (context) => RecorderModel()),
         ChangeNotifierProvider(create: (context) => ShiftKeyModel()),
         ChangeNotifierProvider(create: (context) => TextModel()),
         ChangeNotifierProvider(create: (context) => TextToolbarModel()),

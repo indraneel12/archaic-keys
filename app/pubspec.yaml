@@ -39,6 +39,8 @@ dependencies:
   flutter_quill: ^9.3.5
   provider: ^6.1.2
   speech_to_text: ^6.6.1
+  quill_html_converter: ^9.3.6
+  flutter_widget_from_html_core: ^0.14.11
 
 dev_dependencies:
   flutter_test:
