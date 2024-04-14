@@ -41,6 +41,7 @@ dependencies:
   speech_to_text: ^6.6.1
   quill_html_converter: ^9.3.6
   flutter_widget_from_html_core: ^0.14.11
+  glowy_borders: ^1.0.2
 
 dev_dependencies:
   flutter_test:

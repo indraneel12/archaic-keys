@@ -9,6 +9,7 @@ import 'package:app/src/constants/constants.dart';
 
 import 'utilities/key_button.dart';
 import 'utilities/keyboard_control_bar.dart';
+import 'utilities/rgb_border_animator.dart';
 
 class CustomKeyboard extends StatefulWidget {
   const CustomKeyboard({super.key});
@@ -45,16 +46,20 @@ class CustomKeyboard extends StatefulWidget {
                   'Global Height = ${MediaQuery.sizeOf(context).height}',
                 ),
               ),
-              KeyButton(
-                label: 'Ctrl',
-                isToggle: true,
-                activeColor: Colors.blue,
-                onPressed: () => {},
+              RgbBorderAnimator(
+                child: KeyButton(
+                  label: 'Ctrl',
+                  isToggle: true,
+                  activeColor: Colors.blue,
+                  onPressed: () => {},
+                ),
               ),
-              KeyButton(
-                label: 'അ',
-                fontFamily: CustomFonts.notoSansMalayalam,
-                onPressed: () => {},
+              RgbBorderAnimator(
+                child: KeyButton(
+                  label: 'അ',
+                  fontFamily: CustomFonts.notoSansMalayalam,
+                  onPressed: () => {},
+                ),
               ),
               KeyButton(
                 label: '𑐀',
