@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_quill/flutter_quill.dart';
 
+import 'package:app/src/constants/app_dimensions.dart';
 import 'package:app/src/models/models.dart';
 
 class TextEditor extends StatelessWidget {
@@ -18,6 +19,8 @@ class TextEditor extends StatelessWidget {
   Widget build(BuildContext context) {
     final textEditorController =
         Provider.of<TextModel>(context, listen: false).controller;
+    final hasEnoughHeight =
+        MediaQuery.sizeOf(context).height - 100.0 >= AppDimensions.minHeight;
     return Column(
       children: <Widget>[
         Consumer<TextToolbarModel>(
@@ -31,12 +34,16 @@ class TextEditor extends StatelessWidget {
             child: QuillToolbar.simple(
               configurations: QuillSimpleToolbarConfigurations(
                 controller: textEditorController,
-                multiRowsDisplay: true,
+                multiRowsDisplay: hasEnoughHeight,
                 showFontFamily: false, // currently, due to less Indic fonts
               ),
             ),
           ),
         ),
+        if (!hasEnoughHeight &&
+            Provider.of<TextToolbarModel>(context, listen: false)
+                .isTextToolbarVisible)
+          const SizedBox(height: 8.0),
         Expanded(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 8.0),

@@ -71,8 +71,11 @@ class MalayalamKey extends StatelessWidget {
             ? RgbBorderAnimator(child: keyButton)
             : Container(
                 decoration: BoxDecoration(
-                  border: Border.all(width: 2.0),
-                  color: Theme.of(context).colorScheme.secondaryContainer.withAlpha(128),
+                  border: Border.all(width: 1.5),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .secondaryContainer
+                      .withAlpha(128),
                 ),
                 child: keyButton,
               );
