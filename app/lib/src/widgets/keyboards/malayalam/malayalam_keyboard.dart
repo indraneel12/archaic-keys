@@ -16,19 +16,15 @@ class MalayalamKeyboard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement Malayalam Keyboard layout
     return LayoutGrid(
-      areas: '''
-    red green blue
-    red green blue
-     .   .  blue
-  ''',
-      // Note that the number of columns and rows matches the grid above (3x3)
       rowSizes: [1.fr, 1.fr, 1.fr],
       columnSizes: [1.fr, 1.fr, 1.fr],
       children: [
-        // Alternatively, an extension method on Widget is available
-        Container(color: Colors.red).inGridArea('red'),
-        Container(color: Colors.blue).inGridArea('blue'),
-        Container(color: Colors.green).inGridArea('green'),
+        Container(color: Colors.red).withGridPlacement(
+            columnStart: 1, columnSpan: 2, rowStart: 0, rowSpan: 1),
+        Container(color: Colors.green).withGridPlacement(
+            columnStart: 0, columnSpan: 2, rowStart: 1, rowSpan: 2),
+        Container(color: Colors.blue).withGridPlacement(
+            columnStart: 2, columnSpan: 1, rowStart: 2, rowSpan: 1),
       ],
     );
   }
