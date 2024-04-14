@@ -52,7 +52,7 @@ class SettingsMenu extends Menu {
                   leading: const Icon(Icons.flashlight_on),
                   title: const Text('Toggle Keyboard Light'),
                   onTap: () {
-                    Provider.of<KeyboardLightModel>(context, listen: false)
+                    Provider.of<KeyboardModel>(context, listen: false)
                         .toggleKeyboardLightVisibility();
                     Navigator.of(context).pop();
                   },
