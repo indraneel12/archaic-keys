@@ -498,7 +498,17 @@ class MalayalamKeyboard extends StatelessWidget {
         const MalayalamKey(value: 'ഁ')
             .withGridPlacement(rowStart: 7, columnStart: 8),
 
-        // ------------------------Punctuators------------------------
+        // ------------------------Misc-Symbols------------------------
+        const MalayalamKey(value: '഻')
+            .withGridPlacement(rowStart: 4, columnStart: 12, columnSpan: 2),
+        const MalayalamKey(value: '഼')
+            .withGridPlacement(rowStart: 5, columnStart: 12, columnSpan: 2),
+        const MalayalamKey(value: 'ഽ')
+            .withGridPlacement(rowStart: 6, columnStart: 12, columnSpan: 2),
+        const MalayalamKey(value: '।')
+            .withGridPlacement(rowStart: 7, columnStart: 12),
+        const MalayalamKey(value: '॥')
+            .withGridPlacement(rowStart: 7, columnStart: 13),
 
         // ------------------------Fractions------------------------
 
