@@ -69,7 +69,13 @@ class MalayalamKey extends StatelessWidget {
         );
         return model.isKeyboardLightOn
             ? RgbBorderAnimator(child: keyButton)
-            : keyButton;
+            : Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2.0),
+                  color: Theme.of(context).colorScheme.secondaryContainer.withAlpha(128),
+                ),
+                child: keyButton,
+              );
       },
     );
   }
