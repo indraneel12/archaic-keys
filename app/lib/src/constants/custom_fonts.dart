@@ -6,6 +6,7 @@
 abstract class CustomFonts {
   static const chivoMono = 'ChivoMono';
   static const sixtyfour = 'Sixtyfour';
+  static const notoSansDevanagari = 'NotoSansDevanagari';
   static const notoSansMalayalam = 'NotoSansMalayalam';
   static const notoSansNewa = 'NotoSansNewa';
 }

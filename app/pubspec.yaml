@@ -103,6 +103,9 @@ flutter:
     - family: Sixtyfour
       fonts:
         - asset: assets/fonts/Sixtyfour/static/Sixtyfour-Regular.ttf
+    - family: NotoSansDevanagari
+      fonts:
+        - asset: assets/fonts/Noto_Sans_Devanagari/static/NotoSansDevanagari_Condensed-Regular.ttf
     - family: NotoSansMalayalam
       fonts:
         - asset: assets/fonts/Noto_Sans_Malayalam/static/NotoSansMalayalam_Condensed-Regular.ttf
