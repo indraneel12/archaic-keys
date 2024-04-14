@@ -36,6 +36,20 @@ class TextModel extends ChangeNotifier {
     ];
   }
 
+  void load(String html) {
+    try {
+      if (html == '') {
+        _controller.clear();
+      } else {
+        _controller.document = Document.fromHtml(html);
+        _controller.moveCursorToEnd();
+      }
+    } catch (e) {
+      // UX: retain the existing content
+      rethrow;
+    }
+  }
+
   void updateNwpPredictionsCount(int value) {
     if (value < FeatureConstraints.minNwpPredictions) return;
     if (value > FeatureConstraints.maxNwpPredictions) return;

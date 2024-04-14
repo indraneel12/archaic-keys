@@ -23,7 +23,6 @@ class SaveTextFeature extends AppFeature {
 
   @override
   void Function() get action {
-    // TODO: implement action (SaveTextFeature)
     return () {
       final html = Provider.of<TextModel>(context, listen: false)
           .controller

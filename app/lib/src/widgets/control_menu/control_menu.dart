@@ -12,6 +12,7 @@ import 'keyboard_menu.dart';
 import 'nwp_model_menu.dart';
 import 'translation_menu.dart';
 import 'save_text_feature.dart';
+import 'load_text_feature.dart';
 import 'about_app_menu.dart';
 import 'view_project_feature.dart';
 
@@ -22,6 +23,7 @@ export 'keyboard_menu.dart';
 export 'nwp_model_menu.dart';
 export 'translation_menu.dart';
 export 'save_text_feature.dart';
+export 'load_text_feature.dart';
 export 'about_app_menu.dart';
 export 'view_project_feature.dart';
 
@@ -39,6 +41,7 @@ class ControlMenu extends Menu {
         NwpModelMenu(context),
         TranslationMenu(context),
         SaveTextFeature(context),
+        LoadTextFeature(context),
         AboutAppMenu(context),
         ViewProjectFeature(context),
       ];
@@ -63,17 +66,16 @@ class ControlMenu extends Menu {
         var menuItems = <Widget>[];
         menuItems.add(Menu.buildHeader(context, title: 'Control Menu'));
         menuItems.add(const Divider());
-        for (int i = 0; i < 3; i++) {
-          menuItems.add(buildListTile(controls[i]));
-        }
+        menuItems.add(buildListTile(controls[0]));
+        menuItems.add(buildListTile(controls[1]));
+        menuItems.add(buildListTile(controls[2]));
         menuItems.add(const Divider());
-        for (int i = 3; i < 5; i++) {
-          menuItems.add(buildListTile(controls[i]));
-        }
+        menuItems.add(buildListTile(controls[3]));
+        menuItems.add(buildListTile(controls[4]));
+        menuItems.add(buildListTile(controls[5]));
         menuItems.add(const Divider());
-        for (int i = 5; i < 7; i++) {
-          menuItems.add(buildListTile(controls[i]));
-        }
+        menuItems.add(buildListTile(controls[6]));
+        menuItems.add(buildListTile(controls[7]));
         menuItems.add(const Divider());
         return AlertDialog(
           content: SingleChildScrollView(
