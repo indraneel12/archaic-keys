@@ -32,16 +32,16 @@ class MalayalamKey extends StatelessWidget {
   const MalayalamKey({
     super.key,
     required this.value,
-    required this.devanagariLabel,
-    required this.iso15919Label,
     this.originalLabel,
+    this.devanagariLabel,
+    this.iso15919Label,
     this.onPressed,
   });
 
   final String value;
   final String? originalLabel;
-  final String devanagariLabel;
-  final String iso15919Label;
+  final String? devanagariLabel;
+  final String? iso15919Label;
   final void Function()? onPressed;
 
   @override
@@ -49,14 +49,14 @@ class MalayalamKey extends StatelessWidget {
     return Consumer<KeyboardModel>(
       builder: (context, model, child) {
         String? fontFamily;
-        var label = iso15919Label;
+        var label = value;
         if (model.currentKeyboardId == CustomKeyboardId.malayalamOriginal) {
           fontFamily = CustomFonts.notoSansMalayalam;
           label = originalLabel ?? value;
         }
         if (model.currentKeyboardId == CustomKeyboardId.malayalamDevanagari) {
           fontFamily = CustomFonts.notoSansDevanagari;
-          label = devanagariLabel;
+          label = devanagariLabel ?? value;
         }
         final keyButton = KeyButton(
           label: label,
