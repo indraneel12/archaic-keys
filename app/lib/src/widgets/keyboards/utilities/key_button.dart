@@ -57,7 +57,7 @@ class _KeyButtonState extends State<KeyButton> {
             message: widget.tooltip ??
                 (widget.thumbnail != null ? widget.label : ''),
             child: FittedBox(
-              fit: BoxFit.fill,
+              fit: BoxFit.fitHeight,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 color: _isPressed ? widget.activeColor : widget.backgroundColor,
