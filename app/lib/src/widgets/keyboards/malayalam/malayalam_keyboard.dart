@@ -114,6 +114,99 @@ class MalayalamKeyboard extends StatelessWidget {
           devanagariLabel: 'अः',
           iso15919Label: 'aḥ',
         ).withGridPlacement(rowStart: 0, columnStart: 17),
+
+        // ------------------------Matras------------------------
+        // TODO: halant
+        const MalayalamKey(
+          value: '്',
+          devanagariLabel: '्',
+          iso15919Label: '◌ɯ̽',
+        ).withGridPlacement(rowStart: 1, columnStart: 0),
+        const MalayalamKey(
+          value: 'ാ',
+          devanagariLabel: 'ा',
+          iso15919Label: '◌ā	',
+        ).withGridPlacement(rowStart: 1, columnStart: 1),
+        const MalayalamKey(
+          value: 'ി',
+          devanagariLabel: 'ि',
+          iso15919Label: '◌i',
+        ).withGridPlacement(rowStart: 1, columnStart: 2),
+        const MalayalamKey(
+          value: 'ീ',
+          devanagariLabel: 'ी',
+          iso15919Label: '◌ī',
+        ).withGridPlacement(rowStart: 1, columnStart: 3),
+        const MalayalamKey(
+          value: 'ു',
+          devanagariLabel: 'ु',
+          iso15919Label: '◌u',
+        ).withGridPlacement(rowStart: 1, columnStart: 4),
+        const MalayalamKey(
+          value: 'ൂ',
+          devanagariLabel: 'ू',
+          iso15919Label: '◌ū',
+        ).withGridPlacement(rowStart: 1, columnStart: 5),
+        const MalayalamKey(
+          value: 'ൃ',
+          devanagariLabel: 'ृ',
+          iso15919Label: '◌r̥',
+        ).withGridPlacement(rowStart: 1, columnStart: 6),
+        const MalayalamKey(
+          value: 'ൄ',
+          devanagariLabel: 'ॄ',
+          iso15919Label: '◌r̥̄',
+        ).withGridPlacement(rowStart: 1, columnStart: 7),
+        const MalayalamKey(
+          value: 'ൢ',
+          devanagariLabel: 'ॢ',
+          iso15919Label: '◌l̥',
+        ).withGridPlacement(rowStart: 1, columnStart: 8),
+        const MalayalamKey(
+          value: 'ൣ',
+          devanagariLabel: 'ॣ',
+          iso15919Label: '◌l̥̄',
+        ).withGridPlacement(rowStart: 1, columnStart: 9),
+        const MalayalamKey(
+          value: 'െ',
+          devanagariLabel: 'ॆ',
+          iso15919Label: '◌e',
+        ).withGridPlacement(rowStart: 1, columnStart: 10),
+        const MalayalamKey(
+          value: 'േ',
+          devanagariLabel: 'े',
+          iso15919Label: '◌ē',
+        ).withGridPlacement(rowStart: 1, columnStart: 11),
+        const MalayalamKey(
+          value: 'ൈ',
+          devanagariLabel: 'ै',
+          iso15919Label: '◌ai',
+        ).withGridPlacement(rowStart: 1, columnStart: 12),
+        const MalayalamKey(
+          value: 'ൊ',
+          devanagariLabel: 'ॊ',
+          iso15919Label: '◌o',
+        ).withGridPlacement(rowStart: 1, columnStart: 13),
+        const MalayalamKey(
+          value: 'ോ',
+          devanagariLabel: 'ो',
+          iso15919Label: '◌ō',
+        ).withGridPlacement(rowStart: 1, columnStart: 14),
+        const MalayalamKey(
+          value: 'ൗ',
+          devanagariLabel: 'ौ',
+          iso15919Label: '◌au',
+        ).withGridPlacement(rowStart: 1, columnStart: 15),
+        const MalayalamKey(
+          value: 'ം',
+          devanagariLabel: 'ं',
+          iso15919Label: '◌aṁ',
+        ).withGridPlacement(rowStart: 1, columnStart: 16),
+        const MalayalamKey(
+          value: 'ഃ',
+          devanagariLabel: 'ः',
+          iso15919Label: '◌aḥ',
+        ).withGridPlacement(rowStart: 1, columnStart: 17),
       ],
     );
   }
