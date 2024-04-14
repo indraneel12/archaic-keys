@@ -19,7 +19,7 @@ class UnicodeTextField extends StatelessWidget {
 
   void submit(BuildContext context, String text) {
     Provider.of<UnicodeTextFieldModel>(context, listen: false)
-        .submitUnicode(text);
+        .submitUnicode(context, text);
     _controller.clear();
   }
 
@@ -41,7 +41,7 @@ class UnicodeTextField extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
         onChanged: (String text) {
-          if (text.endsWith('\n')) {
+          if (text.contains('\n')) {
             submit(context, text);
           }
         },
