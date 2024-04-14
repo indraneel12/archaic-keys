@@ -429,6 +429,18 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 3, columnStart: 17),
 
         // ------------------------Archaic-Symbols------------------------
+        const MalayalamKey(value: 'ൌ')
+            .withGridPlacement(rowStart: 6, columnStart: 5),
+        const MalayalamKey(value: 'ഀ')
+            .withGridPlacement(rowStart: 6, columnStart: 8),
+        const MalayalamKey(value: 'ൎ')
+            .withGridPlacement(rowStart: 7, columnStart: 5),
+        const MalayalamKey(value: 'ൟ')
+            .withGridPlacement(rowStart: 7, columnStart: 6),
+        const MalayalamKey(value: 'ഄ')
+            .withGridPlacement(rowStart: 7, columnStart: 7),
+        const MalayalamKey(value: 'ഁ')
+            .withGridPlacement(rowStart: 7, columnStart: 8),
 
         // ------------------------Numpad------------------------
 
