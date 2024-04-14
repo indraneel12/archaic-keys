@@ -6,7 +6,7 @@
 import 'package:flutter/foundation.dart';
 
 class RecorderModel extends ChangeNotifier {
-  var _isSaveAsHtmlOn = false;
+  var _isSaveAsHtmlOn = true;
 
   bool get isSaveAsHtmlOn => _isSaveAsHtmlOn;
 
