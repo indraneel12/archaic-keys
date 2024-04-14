@@ -48,15 +48,15 @@ class MalayalamKey extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<KeyboardModel>(
       builder: (context, model, child) {
-        String? fontFamily;
-        var label = value;
-        if (model.currentKeyboardId == CustomKeyboardId.malayalamOriginal) {
-          fontFamily = CustomFonts.notoSansMalayalam;
-          label = originalLabel ?? value;
-        }
+        String? fontFamily = CustomFonts.notoSansMalayalam;
+        String label = originalLabel ?? value;
         if (model.currentKeyboardId == CustomKeyboardId.malayalamDevanagari) {
           fontFamily = CustomFonts.notoSansDevanagari;
           label = devanagariLabel ?? value;
+        }
+        if (model.currentKeyboardId == CustomKeyboardId.malayalamISO15919) {
+          fontFamily = null;
+          label = iso15919Label ?? value;
         }
         final keyButton = KeyButton(
           label: label,
