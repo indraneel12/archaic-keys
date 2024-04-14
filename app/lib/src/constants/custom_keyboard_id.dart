@@ -11,4 +11,7 @@ class CustomKeyboardId {
 
   const CustomKeyboardId._(this.id);
   final int id;
+
+  bool get isMalayalam => 01 <= id && id <= 10;
+  bool get isNepali => 11 <= id && id <= 20;
 }

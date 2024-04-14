@@ -5,8 +5,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'malayalam_key.dart';
-
 export 'malayalam_key.dart';
 
 class MalayalamKeyboard extends StatelessWidget {
@@ -14,6 +12,7 @@ class MalayalamKeyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement Malayalam Keyboard layout
     return const Placeholder();
   }
 }
