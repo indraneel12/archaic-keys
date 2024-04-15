@@ -545,6 +545,12 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 7, columnStart: 17),
 
         // ------------------------Common-Ligatures------------------------
+        // TODO: implement common ligatures
+        const Placeholder(
+          child: SizedBox.expand(
+            child: Center(child: Text('TODO: Ligature Section')),
+          ),
+        ).withGridPlacement(rowStart: 2, columnStart: 0, columnSpan: 18),
       ],
     );
   }
