@@ -9,7 +9,7 @@ import 'package:app/src/constants/constants.dart';
 
 class KeyboardModel extends ChangeNotifier {
   var _currentKeyboardId = CustomKeyboardId.malayalamOriginal;
-  var _isKeyboardLightOn = true;
+  var _isKeyboardLightOn = false;
 
   CustomKeyboardId get currentKeyboardId => _currentKeyboardId;
   bool get isKeyboardLightOn => _isKeyboardLightOn;
