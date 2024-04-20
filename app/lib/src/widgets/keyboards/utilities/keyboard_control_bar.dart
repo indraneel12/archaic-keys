@@ -46,9 +46,7 @@ class KeyboardControlBar extends StatelessWidget {
                           Provider.of<VoiceTypingModel>(context, listen: false);
                       voiceModel.toggleVoiceTyping();
                       if (voiceModel.isVoiceTypingOn) {
-                        // 'ml_IN', Specify Malayalam locale for Indian Malayalam
-                        // 'ne_NP', for nepali language
-                        voiceModel.startListening(speech, voiceModel, 'ne_NP');
+                        voiceModel.startListening(speech, voiceModel);
                       } else {
                         voiceModel.stopListening(speech);
                       }
