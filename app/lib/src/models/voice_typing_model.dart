@@ -52,26 +52,4 @@ class VoiceTypingModel extends ChangeNotifier {
   void stopListening(stt.SpeechToText speech) {
     speech.stop();
   }
-
-  void showListeningPopup(stt.SpeechToText speech, BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Listening...'),
-          content: const Text('Please start speaking.'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                toggleVoiceTyping();
-                stopListening(speech);
-                Navigator.of(context).pop();
-              },
-              child: const Text('Cancel'),
-            ),
-          ],
-        );
-      },
-    );
-  }
 }
