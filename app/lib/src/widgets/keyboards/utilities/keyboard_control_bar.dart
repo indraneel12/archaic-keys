@@ -14,8 +14,6 @@ import 'key_button.dart';
 import 'nwp_predictions_view.dart';
 import 'unicode_text_field.dart';
 
-import 'package:speech_to_text/speech_to_text.dart' as stt;
-
 class KeyboardControlBar extends StatelessWidget {
   static const minHeight = 16.0;
   static const maxHeight = double.infinity;
@@ -24,8 +22,6 @@ class KeyboardControlBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stt.SpeechToText speech = stt.SpeechToText();
-
     return Row(
       children: <Widget>[
         Expanded(
@@ -41,16 +37,9 @@ class KeyboardControlBar extends StatelessWidget {
                     thumbnail: const Icon(Icons.keyboard_voice),
                     isToggle: true,
                     activeColor: Colors.blue,
-                    onPressed: () {
-                      final voiceModel =
-                          Provider.of<VoiceTypingModel>(context, listen: false);
-                      voiceModel.toggleVoiceTyping();
-                      if (voiceModel.isVoiceTypingOn) {
-                        voiceModel.startListening(speech, voiceModel);
-                      } else {
-                        voiceModel.stopListening(speech);
-                      }
-                    },
+                    onPressed: () =>
+                        Provider.of<VoiceTypingModel>(context, listen: false)
+                            .toggleVoiceTyping(),
                   ),
                 ),
               ),
