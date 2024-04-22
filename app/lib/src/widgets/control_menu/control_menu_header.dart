@@ -5,35 +5,28 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants/constants.dart';
 import 'package:app/src/widgets/app_sticker.dart';
 import 'package:app/src/widgets/control_menu/control_menu.dart';
 
 class ControlMenuHeader extends StatelessWidget {
   const ControlMenuHeader({super.key});
 
-  static bool isSpacious({required double width, required double height}) {
-    // debugPrint([width, height, width / height].toString());
-    // TODO: better Control Menu Header layout (spaciousness)
-    return (width > 650.0 && (width / height) > 2.0) ||
-        ((width / height) > 1.35 &&
-            width > AppDimensions.minWidth &&
-            height > AppDimensions.minHeight);
-  }
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final spacious = ControlMenuHeader.isSpacious(
-          width: MediaQuery.sizeOf(context).width,
-          height: MediaQuery.sizeOf(context).height,
-        );
+        final spacious = MediaQuery.sizeOf(context).width > 700.0;
         return Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(constraints.maxHeight * 0.20),
-              child: const FittedBox(child: AppSticker()),
+              padding: EdgeInsets.symmetric(
+                horizontal: 8.0,
+                vertical: constraints.maxHeight * 0.20,
+              ),
+              child: const FittedBox(
+                alignment: Alignment.centerLeft,
+                child: AppSticker(),
+              ),
             ),
             const Spacer(),
             if (spacious)

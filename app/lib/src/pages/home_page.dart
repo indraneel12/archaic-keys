@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'package:app/src/widgets/control_menu/control_menu_header.dart';
@@ -19,34 +21,40 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(
-            color: Theme.of(context).colorScheme.inversePrimary,
-            child: const ControlMenuHeader(),
-          ),
-        ),
-        const Expanded(
-          flex: 11,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 2,
-                child: TextEditor(),
+    return Builder(
+      builder: (context) {
+        return Column(
+          children: <Widget>[
+            SizedBox(
+              height: min(
+                48.0,
+                MediaQuery.sizeOf(context).height * 0.1,
               ),
-              SizedBox(height: 8.0),
-              Expanded(
-                flex: 3,
-                child: CustomKeyboard(),
+              child: Container(
+                color: Theme.of(context).colorScheme.inversePrimary,
+                child: const ControlMenuHeader(),
               ),
-            ],
-          ),
-        )
-      ],
+            ),
+            const Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: TextEditor(),
+                  ),
+                  SizedBox(height: 8.0),
+                  Expanded(
+                    flex: 3,
+                    child: CustomKeyboard(),
+                  ),
+                ],
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }
