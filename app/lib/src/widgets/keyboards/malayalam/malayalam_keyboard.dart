@@ -3,9 +3,13 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+
+import 'package:app/src/models/text_model.dart';
 
 import 'malayalam_key.dart';
 
@@ -13,6 +17,24 @@ export 'malayalam_key.dart';
 
 class MalayalamKeyboard extends StatelessWidget {
   const MalayalamKeyboard({super.key});
+
+  static final zwnj = String.fromCharCode(8204);
+
+  static void performDoublyLigature(TextModel model, {bool join = true}) {
+    final ch = model.characterBehindCursor;
+    final cursorPosition = model.currentCursorPosition;
+    if (ch == null || !isConsonant(ch)) {
+      return model.insertText('');
+    }
+    final doubleCh = '$ch്${join ? '' : zwnj}$ch';
+    model.replaceCharacter(cursorPosition - 1, doubleCh);
+  }
+
+  static bool isConsonant(String ch) {
+    // Reference: https://en.wikipedia.org/wiki/Malayalam_(Unicode_block)
+    final unicode = ch.codeUnitAt(0);
+    return 3349 <= unicode && unicode <= 3386;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -545,12 +567,28 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 7, columnStart: 17),
 
         // ------------------------Common-Ligatures------------------------
-        // TODO: implement common ligatures
-        const Placeholder(
-          child: SizedBox.expand(
-            child: Center(child: Text('TODO: Ligature Section')),
+        // // TODO: implement common ligatures
+        // const Placeholder(
+        //   child: SizedBox.expand(
+        //     child: Center(child: Text('TODO: Ligature Section')),
+        //   ),
+        // ).withGridPlacement(rowStart: 2, columnStart: 0, columnSpan: 18),
+        const MalayalamKey(value: '◌')
+            .withGridPlacement(rowStart: 2, columnStart: 0),
+        MalayalamKey(
+          value: '×2',
+          onPressed: () => MalayalamKeyboard.performDoublyLigature(
+            Provider.of<TextModel>(context, listen: false),
+            join: false,
           ),
-        ).withGridPlacement(rowStart: 2, columnStart: 0, columnSpan: 18),
+        ).withGridPlacement(rowStart: 2, columnStart: 1),
+        MalayalamKey(
+          value: '×2*',
+          onPressed: () => MalayalamKeyboard.performDoublyLigature(
+            Provider.of<TextModel>(context, listen: false),
+            join: true,
+          ),
+        ).withGridPlacement(rowStart: 2, columnStart: 2),
       ],
     );
   }

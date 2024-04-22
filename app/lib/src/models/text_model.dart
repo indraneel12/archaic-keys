@@ -22,6 +22,9 @@ class TextModel extends ChangeNotifier {
   QuillController get controller => _controller;
   String get currentText => _controller.document.toPlainText();
   int get currentCursorPosition => _controller.selection.end;
+  String? get characterBehindCursor =>
+      currentCursorPosition > 0 ? currentText[currentCursorPosition - 1] : null;
+
   int get transliterationPredictionsCount => _transliterationPredictionsCount;
 
   List<String> get transliterationPredictions {
@@ -61,6 +64,11 @@ class TextModel extends ChangeNotifier {
   void chooseTransliterationPrediction(String value) {
     // appendText(value, separatePre: true, separatePost: false)
     // TODO: Choose Transliteration Prediction (modify text)
+  }
+
+  void replaceCharacter(int index, String target) {
+    _controller.document.replace(index, 1, target);
+    _controller.moveCursorToPosition(index + target.length);
   }
 
   void appendText(
