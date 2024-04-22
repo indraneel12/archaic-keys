@@ -7,14 +7,13 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 
-class VoiceTypingModel extends ChangeNotifier {
-  var _isVoiceTypingOn = false;
+class TransliterationModel extends ChangeNotifier {
+  var _isTransliterationOn = false;
 
-  bool get isVoiceTypingOn => _isVoiceTypingOn;
+  bool get isTransliterationOn => _isTransliterationOn;
 
-  void toggleVoiceTyping() {
-    // TODO: Voice Typing algorithm
-    _isVoiceTypingOn = !_isVoiceTypingOn;
+  void toggleTransliteration() {
+    _isTransliterationOn = !_isTransliterationOn;
     notifyListeners();
   }
 }

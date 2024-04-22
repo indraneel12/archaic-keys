@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 
 import 'key_button.dart';
@@ -23,105 +22,33 @@ class KeyboardControlBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: <Widget>[
-        Expanded(
-          flex: 30,
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: KeyButton(
-                    label: 'Toggle Voice Typing',
-                    thumbnail: const Icon(Icons.keyboard_voice),
-                    isToggle: true,
-                    activeColor: Colors.blue,
-                    onPressed: () =>
-                        Provider.of<VoiceTypingModel>(context, listen: false)
-                            .toggleVoiceTyping(),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: KeyButton(
-                    label: 'Shift',
-                    fontFamily: CustomFonts.chivoMono,
-                    isToggle: true,
-                    activeColor: Colors.blue,
-                    onPressed: () =>
-                        Provider.of<ShiftKeyModel>(context, listen: false)
-                            .toggleVirtualShiftKey(),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: KeyButton(
-                    label: ' Alt ',
-                    fontFamily: CustomFonts.chivoMono,
-                    isToggle: true,
-                    activeColor: Colors.blue,
-                    onPressed: () =>
-                        Provider.of<AltKeyModel>(context, listen: false)
-                            .toggleVirtualAltKey(),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: KeyButton(
-                    label: 'Ctrl ',
-                    fontFamily: CustomFonts.chivoMono,
-                    isToggle: true,
-                    activeColor: Colors.blue,
-                    onPressed: () =>
-                        Provider.of<CtrlKeyModel>(context, listen: false)
-                            .toggleVirtualCtrlKey(),
-                  ),
-                ),
-              ),
-            ],
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 16.0),
+          child: KeyButton(
+            label: 'Toggle Transliteration',
+            thumbnail: const Icon(Icons.translate),
+            isToggle: true,
+            activeColor: Colors.blue,
+            onPressed: () =>
+                Provider.of<TransliterationModel>(context, listen: false)
+                    .toggleTransliteration(),
           ),
         ),
-        const Expanded(flex: 1, child: Center()),
-        Consumer<UnicodeTextFieldModel>(
-          builder: (context, model, child) {
-            if (model.isUnicodeTextFieldVisible) {
-              return const Expanded(
-                flex: 46,
-                child: TransliterationPredictionsView(),
-              );
-            }
-            return const Spacer();
-          },
+        const Expanded(
+          child: TransliterationPredictionsView(
+            alignment: Alignment.center,
+          ),
         ),
         Consumer<UnicodeTextFieldModel>(
           builder: (context, model, child) {
             if (model.isUnicodeTextFieldVisible) {
-              return const Expanded(flex: 2, child: Center());
-            }
-            return const Expanded(
-              flex: 68,
-              child: TransliterationPredictionsView(
-                alignment: Alignment.centerRight,
-              ),
-            );
-          },
-        ),
-        Consumer<UnicodeTextFieldModel>(
-          builder: (context, model, child) {
-            if (model.isUnicodeTextFieldVisible) {
-              return Expanded(
-                flex: 21,
-                child: UnicodeTextField(),
+              return Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: SizedBox(
+                  width: 128.0,
+                  child: UnicodeTextField(),
+                ),
               );
             }
             return const Center();

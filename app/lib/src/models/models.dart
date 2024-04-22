@@ -10,5 +10,5 @@ export 'recorder_model.dart';
 export 'shift_key_model.dart';
 export 'text_model.dart';
 export 'text_toolbar_model.dart';
+export 'transliteration_model.dart';
 export 'unicode_text_field_model.dart';
-export 'voice_typing_model.dart';

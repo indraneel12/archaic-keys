@@ -16,29 +16,29 @@ class TransliterationPredictionsView extends StatelessWidget {
 
   const TransliterationPredictionsView({
     super.key,
-    this.alignment = Alignment.center,
+    this.alignment = Alignment.centerLeft,
   });
 
   final Alignment alignment;
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: alignment,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Tooltip(
-          preferBelow: false,
-          message: TransliterationPredictionsView.tooltip,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).colorScheme.secondary,
-                width: 0.5,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
+    return Tooltip(
+      preferBelow: false,
+      message: TransliterationPredictionsView.tooltip,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Theme.of(context).colorScheme.secondary,
+            width: 0.5,
+          ),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Align(
+          alignment: alignment,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
             child: Consumer<TextModel>(
               builder: (context, model, child) {
                 return Row(
