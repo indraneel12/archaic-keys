@@ -21,40 +21,39 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return Column(
-          children: <Widget>[
-            SizedBox(
-              height: min(
-                48.0,
-                MediaQuery.sizeOf(context).height * 0.1,
-              ),
-              child: Container(
-                color: Theme.of(context).colorScheme.inversePrimary,
-                child: const ControlMenuHeader(),
-              ),
+    return Column(
+      children: <Widget>[
+        SizedBox(
+          height: max(
+            30.0,
+            min(
+              50.0,
+              MediaQuery.sizeOf(context).height * 0.1,
             ),
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: TextEditor(),
-                  ),
-                  SizedBox(height: 8.0),
-                  Expanded(
-                    flex: 3,
-                    child: CustomKeyboard(),
-                  ),
-                ],
+          ),
+          child: Container(
+            color: Theme.of(context).colorScheme.inversePrimary,
+            child: const ControlMenuHeader(),
+          ),
+        ),
+        const Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 2,
+                child: TextEditor(),
               ),
-            )
-          ],
-        );
-      },
+              SizedBox(height: 8.0),
+              Expanded(
+                flex: 3,
+                child: CustomKeyboard(),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

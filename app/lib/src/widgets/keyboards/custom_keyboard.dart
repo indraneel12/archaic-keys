@@ -20,10 +20,8 @@ import 'malayalam/malayalam_keyboard.dart';
 class CustomKeyboard extends StatelessWidget {
   const CustomKeyboard({super.key});
 
-  static const minWidth = AppDimensions.maxWidth * 0.60;
-  static const minHeight = AppDimensions.maxHeight * 0.40;
-  static const maxWidth = AppDimensions.maxWidth * 1.00;
-  static const maxHeight = AppDimensions.maxHeight * 1.00;
+  static const minWidth = 900.0;
+  static const minHeight = 200.0;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +40,8 @@ class CustomKeyboard extends StatelessWidget {
           child: DoubleScrollview(
             minWidth: CustomKeyboard.minWidth,
             minHeight: CustomKeyboard.minHeight,
-            maxWidth: CustomKeyboard.maxWidth,
-            maxHeight: CustomKeyboard.maxHeight,
+            maxWidth: MediaQuery.sizeOf(context).width,
+            maxHeight: MediaQuery.sizeOf(context).height,
             body: Consumer<KeyboardModel>(
               builder: (context, model, child) {
                 if (model.currentKeyboardId.isMalayalam) {

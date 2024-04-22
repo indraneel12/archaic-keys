@@ -25,8 +25,8 @@ class App extends StatelessWidget {
             child: DoubleScrollview(
               minWidth: AppDimensions.minWidth,
               minHeight: AppDimensions.minHeight,
-              maxWidth: AppDimensions.maxWidth,
-              maxHeight: AppDimensions.maxHeight,
+              maxWidth: MediaQuery.sizeOf(context).width,
+              maxHeight: MediaQuery.sizeOf(context).height,
               padding: 16.0,
               decoration: BoxDecoration(
                 border: Border.all(
