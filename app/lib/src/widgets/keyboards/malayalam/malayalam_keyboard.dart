@@ -672,6 +672,20 @@ class MalayalamKeyboard extends StatelessWidget {
             .withGridPlacement(rowStart: 2, columnStart: 12),
         const MalayalamKey(value: 'മ്പ')
             .withGridPlacement(rowStart: 2, columnStart: 13),
+        MalayalamKey(
+          value: 'ൻ്റ',
+          originalLabel: 'ന${'$chandrakala$zwnj'}റ',
+        ).withGridPlacement(rowStart: 2, columnStart: 14),
+        const MalayalamKey(
+          value: 'ൻ്റ',
+          originalLabel: 'ൻറ',
+        ).withGridPlacement(rowStart: 2, columnStart: 15),
+        const MalayalamKey(
+          value: 'റ്റ',
+          originalLabel: 'റ്‌റ',
+        ).withGridPlacement(rowStart: 2, columnStart: 16),
+        const MalayalamKey(value: 'റ്റ')
+            .withGridPlacement(rowStart: 2, columnStart: 17),
       ],
     );
   }
