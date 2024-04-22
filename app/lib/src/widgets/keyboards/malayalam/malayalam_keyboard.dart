@@ -18,22 +18,61 @@ export 'malayalam_key.dart';
 class MalayalamKeyboard extends StatelessWidget {
   const MalayalamKeyboard({super.key});
 
+  static final chandrakala = String.fromCharCode(3405);
   static final zwnj = String.fromCharCode(8204);
 
   static void performDoublyLigature(TextModel model, {bool join = true}) {
     final ch = model.characterBehindCursor;
     final cursorPosition = model.currentCursorPosition;
     if (ch == null || !isConsonant(ch)) {
-      return model.insertText('');
+      return refocusText(model);
     }
-    final doubleCh = '$ch്${join ? '' : zwnj}$ch';
-    model.replaceCharacter(cursorPosition - 1, doubleCh);
+    final doubleCh = '$ch$chandrakala${join ? '' : zwnj}$ch';
+    model.replaceSequence(
+      index: cursorPosition - 1,
+      target: doubleCh,
+    );
+  }
+
+  static void performGeneralLigature(TextModel model) {
+    final text = model.currentText;
+    final cursorPosition = model.currentCursorPosition;
+    var targetCh = <String>[];
+    for (var i = text.length - 2; i >= 0; i--) {
+      final ch = text[i];
+      if (!isConsonant(ch) &&
+          ch != MalayalamKeyboard.zwnj &&
+          ch != MalayalamKeyboard.chandrakala) {
+        break;
+      }
+      targetCh.add(ch);
+    }
+    if (targetCh.isEmpty || !isConsonant(targetCh.last)) {
+      return refocusText(model);
+    }
+    var ligatedSegment = '';
+    for (var i = targetCh.length - 1; i >= 0; i--) {
+      final ch = targetCh[i];
+      if (ch == zwnj) {
+        continue;
+      }
+      ligatedSegment += ch;
+    }
+    model.replaceSequence(
+      index: cursorPosition - targetCh.length,
+      target: ligatedSegment,
+      length: targetCh.length,
+    );
   }
 
   static bool isConsonant(String ch) {
     // Reference: https://en.wikipedia.org/wiki/Malayalam_(Unicode_block)
     final unicode = ch.codeUnitAt(0);
     return 3349 <= unicode && unicode <= 3386;
+  }
+
+  static void refocusText(TextModel model) {
+    model.insertText('');
   }
 
   @override
@@ -137,8 +176,8 @@ class MalayalamKeyboard extends StatelessWidget {
         ).withGridPlacement(rowStart: 0, columnStart: 17),
 
         // ------------------------Matras------------------------
-        const MalayalamKey(
-          value: '്',
+        MalayalamKey(
+          value: '$chandrakala$zwnj',
           devanagariLabel: '्',
           iso15919Label: '◌ɯ̽',
         ).withGridPlacement(rowStart: 1, columnStart: 0),
@@ -583,12 +622,18 @@ class MalayalamKeyboard extends StatelessWidget {
           ),
         ).withGridPlacement(rowStart: 2, columnStart: 1),
         MalayalamKey(
+          value: '്+്+…+◌',
+          onPressed: () => MalayalamKeyboard.performGeneralLigature(
+            Provider.of<TextModel>(context, listen: false),
+          ),
+        ).withGridPlacement(rowStart: 2, columnStart: 2, columnSpan: 2),
+        MalayalamKey(
           value: '×2*',
           onPressed: () => MalayalamKeyboard.performDoublyLigature(
             Provider.of<TextModel>(context, listen: false),
             join: true,
           ),
-        ).withGridPlacement(rowStart: 2, columnStart: 2),
+        ).withGridPlacement(rowStart: 2, columnStart: 4),
       ],
     );
   }

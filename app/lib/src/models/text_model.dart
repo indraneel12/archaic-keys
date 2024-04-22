@@ -66,8 +66,12 @@ class TextModel extends ChangeNotifier {
     // TODO: Choose Transliteration Prediction (modify text)
   }
 
-  void replaceCharacter(int index, String target) {
-    _controller.document.replace(index, 1, target);
+  void replaceSequence({
+    required int index,
+    required String target,
+    int length = 1,
+  }) {
+    _controller.document.replace(index, length, target);
     _controller.moveCursorToPosition(index + target.length);
   }
 
