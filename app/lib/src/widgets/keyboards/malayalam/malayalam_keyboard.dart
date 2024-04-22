@@ -21,6 +21,13 @@ class MalayalamKeyboard extends StatelessWidget {
   static final chandrakala = String.fromCharCode(3405);
   static final zwnj = String.fromCharCode(8204);
 
+  static final ligatureMatras = {
+    'ya': '‍്യ',
+    'ra': '്ര',
+    'la': '്ല',
+    'va': '‍്വ',
+  };
+
   static void performDoublyLigature(TextModel model, {bool join = true}) {
     final ch = model.characterBehindCursor;
     final cursorPosition = model.currentCursorPosition;
@@ -38,7 +45,12 @@ class MalayalamKeyboard extends StatelessWidget {
     final text = model.currentText;
     final cursorPosition = model.currentCursorPosition;
     var targetCh = <String>[];
-    for (var i = text.length - 2; i >= 0; i--) {
+    var end = text.length - 2;
+    if (end >= 0 && isMatra(text[end])) {
+      targetCh.add(text[end]);
+      end = end - 1;
+    }
+    for (var i = end; i >= 0; i--) {
       final ch = text[i];
       if (!isConsonant(ch) &&
           ch != MalayalamKeyboard.zwnj &&
@@ -69,6 +81,14 @@ class MalayalamKeyboard extends StatelessWidget {
     // Reference: https://en.wikipedia.org/wiki/Malayalam_(Unicode_block)
     final unicode = ch.codeUnitAt(0);
     return 3349 <= unicode && unicode <= 3386;
+  }
+
+  static bool isMatra(String ch) {
+    // Reference: https://en.wikipedia.org/wiki/Malayalam_(Unicode_block)
+    final unicode = ch.codeUnitAt(0);
+    return (3390 <= unicode && unicode <= 3405) ||
+        (3328 <= unicode && unicode <= 3332) ||
+        (ch == 'ൢ' || ch == 'ൣ' || ch == 'ൗ');
   }
 
   static void refocusText(TextModel model) {
@@ -634,6 +654,14 @@ class MalayalamKeyboard extends StatelessWidget {
             join: true,
           ),
         ).withGridPlacement(rowStart: 2, columnStart: 4),
+        MalayalamKey(value: ligatureMatras['ya']!)
+            .withGridPlacement(rowStart: 2, columnStart: 5),
+        MalayalamKey(value: ligatureMatras['ra']!)
+            .withGridPlacement(rowStart: 2, columnStart: 6),
+        MalayalamKey(value: ligatureMatras['la']!)
+            .withGridPlacement(rowStart: 2, columnStart: 7),
+        MalayalamKey(value: ligatureMatras['va']!)
+            .withGridPlacement(rowStart: 2, columnStart: 8),
       ],
     );
   }
