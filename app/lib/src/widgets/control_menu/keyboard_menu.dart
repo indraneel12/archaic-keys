@@ -12,6 +12,7 @@ import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
 
 import 'package:app/src/widgets/keyboards/malayalam/malayalam_key.dart';
+import 'package:app/src/widgets/keyboards/nepali/nepali_key.dart';
 
 class KeyboardMenu extends Menu {
   static const iconSpace = 40.0;
@@ -72,17 +73,36 @@ class KeyboardMenu extends Menu {
                 ),
                 const Divider(),
                 ListTile(
-                  leading: Icon(
-                    IconData(
-                      '𑐀'.codeUnitAt(0),
-                      fontFamily: CustomFonts.notoSansNewa,
-                    ),
-                  ),
+                  leading: NepaliKey.iconNepaliOriginal,
                   minLeadingWidth: KeyboardMenu.iconSpace,
                   title: const Text('Nepali'),
                   onTap: () {
                     Provider.of<KeyboardModel>(context, listen: false)
-                        .chooseKeyboard(id: CustomKeyboardId.nepali);
+                        .chooseKeyboard(id: CustomKeyboardId.nepaliOriginal);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: NepaliKey.iconNepaliDevanagari,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Nepali (Devanagari)'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(
+                      context,
+                      listen: false,
+                    ).chooseKeyboard(id: CustomKeyboardId.nepaliDevanagari);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: NepaliKey.iconNepaliRoman,
+                  minLeadingWidth: KeyboardMenu.iconSpace,
+                  title: const Text('Nepali (Roman)'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(
+                      context,
+                      listen: false,
+                    ).chooseKeyboard(id: CustomKeyboardId.nepaliRoman);
                     Navigator.of(context).pop();
                   },
                 ),

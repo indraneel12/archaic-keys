@@ -16,6 +16,7 @@ import 'utilities/keyboard_control_bar.dart';
 import 'utilities/rgb_border_animator.dart';
 
 import 'malayalam/malayalam_keyboard.dart';
+import 'nepali/nepali_keyboard.dart';
 
 class CustomKeyboard extends StatelessWidget {
   const CustomKeyboard({super.key});
@@ -47,7 +48,9 @@ class CustomKeyboard extends StatelessWidget {
                 if (model.currentKeyboardId.isMalayalam) {
                   return const MalayalamKeyboard();
                 }
-                // TODO: add Nepali Keyboard
+                if (model.currentKeyboardId.isNepali) {
+                  return const NepaliKeyboard();
+                }
                 return unimplementedKeyboard(context);
               },
             ),
