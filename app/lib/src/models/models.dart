@@ -6,7 +6,6 @@
 export 'alt_key_model.dart';
 export 'ctrl_key_model.dart';
 export 'keyboard_model.dart';
-export 'nwp_model.dart';
 export 'recorder_model.dart';
 export 'shift_key_model.dart';
 export 'text_model.dart';

@@ -4,6 +4,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 abstract class FeatureConstraints {
-  static const minNwpPredictions = 3;
-  static const maxNwpPredictions = 9;
+  static const minTransliterationPredictions = 3;
+  static const maxTransliterationPredictions = 9;
 }

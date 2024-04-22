@@ -3,9 +3,10 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiService {
   static Future<List<String>> submitQuery(
@@ -13,17 +14,17 @@ class ApiService {
     int predictionCount,
   ) async {
     // var url1 = dotenv.env['API_URL']!;
-    // print(url1);
-    var url = Uri.parse('http://localhost:8080/predict_next_word'); // for NWP
-    // var url = Uri.parse('http://localhost:8080/transliterate'); // for Transliteration
+    // debugPrint(url1);
+    var url = Uri.parse('http://localhost:8080/transliterate');
     try {
       var response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
-          'context': word,
+          'word': word,
           'prediction-count': predictionCount,
-          'language': 'Nepali',
+          'source-script': 'Nepali',
+          'target-script': 'Nepali',
         }),
       );
 
@@ -44,5 +45,5 @@ class ApiService {
 // // Example:
 // void handlePress() async {
 //   List<String>result = await ApiService.submitData("शीघ्र स्वास्थ्य लाभको", 5);
-//   print(result);
+//   debugPrint(result);
 // }

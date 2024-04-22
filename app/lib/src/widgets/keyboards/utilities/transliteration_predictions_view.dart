@@ -9,12 +9,12 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/models/models.dart';
 
-class NwpPredictionsView extends StatelessWidget {
-  static const tooltip = 'Choose NWP Prediction';
+class TransliterationPredictionsView extends StatelessWidget {
+  static const tooltip = 'Choose Transliteration Prediction';
   static const minWidth = 32.0;
   static const minHeight = 32.0;
 
-  const NwpPredictionsView({
+  const TransliterationPredictionsView({
     super.key,
     this.alignment = Alignment.center,
   });
@@ -29,7 +29,7 @@ class NwpPredictionsView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Tooltip(
           preferBelow: false,
-          message: NwpPredictionsView.tooltip,
+          message: TransliterationPredictionsView.tooltip,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             decoration: BoxDecoration(
@@ -43,12 +43,12 @@ class NwpPredictionsView extends StatelessWidget {
               builder: (context, model, child) {
                 return Row(
                   children: <Widget>[
-                    for (final prediction in model.nwpPredictions)
+                    for (final prediction in model.transliterationPredictions)
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: ClipRect(
                           child: SizedBox(
-                            height: NwpPredictionsView.minHeight,
+                            height: TransliterationPredictionsView.minHeight,
                             child: InkWell(
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(16.0),
@@ -58,7 +58,9 @@ class NwpPredictionsView extends StatelessWidget {
                                 child: Text(prediction),
                               ),
                               onTap: () {
-                                model.chooseNwpPrediction(prediction);
+                                model.chooseTransliterationPrediction(
+                                  prediction,
+                                );
                               },
                             ),
                           ),

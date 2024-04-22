@@ -11,7 +11,7 @@ import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 
 import 'key_button.dart';
-import 'nwp_predictions_view.dart';
+import 'transliteration_predictions_view.dart';
 import 'unicode_text_field.dart';
 
 class KeyboardControlBar extends StatelessWidget {
@@ -97,7 +97,7 @@ class KeyboardControlBar extends StatelessWidget {
             if (model.isUnicodeTextFieldVisible) {
               return const Expanded(
                 flex: 46,
-                child: NwpPredictionsView(),
+                child: TransliterationPredictionsView(),
               );
             }
             return const Spacer();
@@ -110,7 +110,9 @@ class KeyboardControlBar extends StatelessWidget {
             }
             return const Expanded(
               flex: 68,
-              child: NwpPredictionsView(alignment: Alignment.centerRight),
+              child: TransliterationPredictionsView(
+                alignment: Alignment.centerRight,
+              ),
             );
           },
         ),

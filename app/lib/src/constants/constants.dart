@@ -8,7 +8,6 @@ export 'app_meta.dart';
 export 'custom_fonts.dart';
 export 'custom_keyboard_id.dart';
 export 'feature_constraints.dart';
-export 'nwp_model_id.dart';
 
 const copyright = '''BSD 3-Clause License
 

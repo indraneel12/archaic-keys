@@ -16,15 +16,16 @@ class TextModel extends ChangeNotifier {
     _controller.addListener(() => notifyListeners());
   }
 
-  var _nwpPredictionsCount = FeatureConstraints.minNwpPredictions;
+  var _transliterationPredictionsCount =
+      FeatureConstraints.minTransliterationPredictions;
 
   QuillController get controller => _controller;
   String get currentText => _controller.document.toPlainText();
   int get currentCursorPosition => _controller.selection.end;
-  int get nwpPredictionsCount => _nwpPredictionsCount;
+  int get transliterationPredictionsCount => _transliterationPredictionsCount;
 
-  List<String> get nwpPredictions {
-    // TODO: implement NWP algorithm
+  List<String> get transliterationPredictions {
+    // TODO: implement Transliteration algorithm
     return [
       'Apple',
       'Mango',
@@ -50,15 +51,16 @@ class TextModel extends ChangeNotifier {
     }
   }
 
-  void updateNwpPredictionsCount(int value) {
-    if (value < FeatureConstraints.minNwpPredictions) return;
-    if (value > FeatureConstraints.maxNwpPredictions) return;
-    _nwpPredictionsCount = value;
+  void updateTransliterationPredictionsCount(int value) {
+    if (value < FeatureConstraints.minTransliterationPredictions) return;
+    if (value > FeatureConstraints.maxTransliterationPredictions) return;
+    _transliterationPredictionsCount = value;
     notifyListeners();
   }
 
-  void chooseNwpPrediction(String value) {
-    appendText(value, separatePre: true, separatePost: false);
+  void chooseTransliterationPrediction(String value) {
+    // appendText(value, separatePre: true, separatePost: false)
+    // TODO: Choose Transliteration Prediction (modify text)
   }
 
   void appendText(

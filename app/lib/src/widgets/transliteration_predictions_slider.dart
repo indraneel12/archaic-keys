@@ -10,16 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:app/src/constants/constants.dart';
 import 'package:app/src/models/models.dart';
 
-class NwpPredictionsSlider extends StatefulWidget {
-  const NwpPredictionsSlider({super.key});
+class TransliterationPredictionsSlider extends StatefulWidget {
+  const TransliterationPredictionsSlider({super.key});
 
   @override
-  State<NwpPredictionsSlider> createState() => _NwpPredictionsSliderState();
+  State<TransliterationPredictionsSlider> createState() =>
+      _TransliterationPredictionsSliderState();
 }
 
-class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
-  static const minValue = FeatureConstraints.minNwpPredictions;
-  static const maxValue = FeatureConstraints.maxNwpPredictions;
+class _TransliterationPredictionsSliderState
+    extends State<TransliterationPredictionsSlider> {
+  static const minValue = FeatureConstraints.minTransliterationPredictions;
+  static const maxValue = FeatureConstraints.maxTransliterationPredictions;
 
   final List<int> values = [for (int i = minValue; i <= maxValue; i++) i];
 
@@ -39,7 +41,7 @@ class _NwpPredictionsSliderState extends State<NwpPredictionsSlider> {
           _selectedIndex = updatedCount;
         });
         Provider.of<TextModel>(context, listen: false)
-            .updateNwpPredictionsCount(updatedCount);
+            .updateTransliterationPredictionsCount(updatedCount);
       },
     );
   }

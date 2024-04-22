@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
-import 'package:app/src/widgets/nwp_predictions_slider.dart';
+import 'package:app/src/widgets/transliteration_predictions_slider.dart';
 
 class SettingsMenu extends Menu {
   const SettingsMenu(BuildContext context)
@@ -59,10 +59,10 @@ class SettingsMenu extends Menu {
                 ),
                 const Divider(),
                 const ListTile(
-                  title: Text('Number of NWP Predictions'),
+                  title: Text('Number of Transliteration Predictions'),
                   onTap: null,
                 ),
-                const NwpPredictionsSlider(),
+                const TransliterationPredictionsSlider(),
                 const Divider(),
               ],
             ),

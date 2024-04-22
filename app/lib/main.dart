@@ -20,7 +20,6 @@ void main() {
         ChangeNotifierProvider(create: (context) => AltKeyModel()),
         ChangeNotifierProvider(create: (context) => CtrlKeyModel()),
         ChangeNotifierProvider(create: (context) => KeyboardModel()),
-        ChangeNotifierProvider(create: (context) => NwpModel()),
         ChangeNotifierProvider(create: (context) => RecorderModel()),
         ChangeNotifierProvider(create: (context) => ShiftKeyModel()),
         ChangeNotifierProvider(create: (context) => TextModel()),
