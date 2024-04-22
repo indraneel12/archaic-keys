@@ -8,8 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:app/src/constants/constants.dart';
 
 class KeyboardModel extends ChangeNotifier {
-  var _currentKeyboardId =
-      CustomKeyboardId.malayalamOriginal; // TODO: testing Malayalam ligatures
+  var _currentKeyboardId = CustomKeyboardId.malayalamOriginal;
   var _isKeyboardLightOn = false;
 
   CustomKeyboardId get currentKeyboardId => _currentKeyboardId;

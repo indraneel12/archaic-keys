@@ -625,13 +625,45 @@ class MalayalamKeyboard extends StatelessWidget {
         const MalayalamKey(value: '൲')
             .withGridPlacement(rowStart: 7, columnStart: 17),
 
-        // ------------------------Common-Ligatures------------------------
-        // // TODO: implement common ligatures
-        // const Placeholder(
-        //   child: SizedBox.expand(
-        //     child: Center(child: Text('TODO: Ligature Section')),
-        //   ),
-        // ).withGridPlacement(rowStart: 2, columnStart: 0, columnSpan: 18),
+        // ------------------------Ligature-Matras------------------------
+        MalayalamKey(value: ligatureMatras['ya']!)
+            .withGridPlacement(rowStart: 2, columnStart: 5),
+        MalayalamKey(value: ligatureMatras['ra']!)
+            .withGridPlacement(rowStart: 2, columnStart: 6),
+        MalayalamKey(value: ligatureMatras['la']!)
+            .withGridPlacement(rowStart: 2, columnStart: 7),
+        MalayalamKey(value: ligatureMatras['va']!)
+            .withGridPlacement(rowStart: 2, columnStart: 8),
+
+        // ------------------------Frequent-Ligatures------------------------
+        const MalayalamKey(value: 'ങ്ക')
+            .withGridPlacement(rowStart: 2, columnStart: 9),
+        const MalayalamKey(value: 'ഞ്ച')
+            .withGridPlacement(rowStart: 2, columnStart: 10),
+        const MalayalamKey(value: 'ണ്ട')
+            .withGridPlacement(rowStart: 2, columnStart: 11),
+        const MalayalamKey(value: 'ന്ത')
+            .withGridPlacement(rowStart: 2, columnStart: 12),
+        const MalayalamKey(value: 'മ്പ')
+            .withGridPlacement(rowStart: 2, columnStart: 13),
+
+        // ------------------------rra-Ligatures------------------------
+        MalayalamKey(
+          value: 'ൻ്റ',
+          originalLabel: 'ന${'$chandrakala$zwnj'}റ',
+        ).withGridPlacement(rowStart: 2, columnStart: 14),
+        const MalayalamKey(
+          value: 'ൻ്റ',
+          originalLabel: 'ൻറ',
+        ).withGridPlacement(rowStart: 2, columnStart: 15),
+        const MalayalamKey(
+          value: 'റ്റ',
+          originalLabel: 'റ്‌റ',
+        ).withGridPlacement(rowStart: 2, columnStart: 16),
+        const MalayalamKey(value: 'റ്റ')
+            .withGridPlacement(rowStart: 2, columnStart: 17),
+
+        // ------------------------Ligature-Customizations------------------------
         const MalayalamKey(value: '◌')
             .withGridPlacement(rowStart: 2, columnStart: 0),
         MalayalamKey(
@@ -654,38 +686,6 @@ class MalayalamKeyboard extends StatelessWidget {
             join: true,
           ),
         ).withGridPlacement(rowStart: 2, columnStart: 4),
-        MalayalamKey(value: ligatureMatras['ya']!)
-            .withGridPlacement(rowStart: 2, columnStart: 5),
-        MalayalamKey(value: ligatureMatras['ra']!)
-            .withGridPlacement(rowStart: 2, columnStart: 6),
-        MalayalamKey(value: ligatureMatras['la']!)
-            .withGridPlacement(rowStart: 2, columnStart: 7),
-        MalayalamKey(value: ligatureMatras['va']!)
-            .withGridPlacement(rowStart: 2, columnStart: 8),
-        const MalayalamKey(value: 'ങ്ക')
-            .withGridPlacement(rowStart: 2, columnStart: 9),
-        const MalayalamKey(value: 'ഞ്ച')
-            .withGridPlacement(rowStart: 2, columnStart: 10),
-        const MalayalamKey(value: 'ണ്ട')
-            .withGridPlacement(rowStart: 2, columnStart: 11),
-        const MalayalamKey(value: 'ന്ത')
-            .withGridPlacement(rowStart: 2, columnStart: 12),
-        const MalayalamKey(value: 'മ്പ')
-            .withGridPlacement(rowStart: 2, columnStart: 13),
-        MalayalamKey(
-          value: 'ൻ്റ',
-          originalLabel: 'ന${'$chandrakala$zwnj'}റ',
-        ).withGridPlacement(rowStart: 2, columnStart: 14),
-        const MalayalamKey(
-          value: 'ൻ്റ',
-          originalLabel: 'ൻറ',
-        ).withGridPlacement(rowStart: 2, columnStart: 15),
-        const MalayalamKey(
-          value: 'റ്റ',
-          originalLabel: 'റ്‌റ',
-        ).withGridPlacement(rowStart: 2, columnStart: 16),
-        const MalayalamKey(value: 'റ്റ')
-            .withGridPlacement(rowStart: 2, columnStart: 17),
       ],
     );
   }
