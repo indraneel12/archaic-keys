@@ -9,7 +9,6 @@ import 'package:app/src/utilities/menu.dart';
 
 import 'settings_menu.dart';
 import 'keyboard_menu.dart';
-import 'translation_menu.dart';
 import 'save_text_feature.dart';
 import 'load_text_feature.dart';
 import 'about_app_menu.dart';
@@ -19,7 +18,6 @@ export 'package:app/src/utilities/menu.dart';
 
 export 'settings_menu.dart';
 export 'keyboard_menu.dart';
-export 'translation_menu.dart';
 export 'save_text_feature.dart';
 export 'load_text_feature.dart';
 export 'about_app_menu.dart';
@@ -36,7 +34,6 @@ class ControlMenu extends Menu {
   static List<AppFeature> buildControls(BuildContext context) => [
         SettingsMenu(context),
         KeyboardMenu(context),
-        TranslationMenu(context),
         SaveTextFeature(context),
         LoadTextFeature(context),
         AboutAppMenu(context),
@@ -68,10 +65,9 @@ class ControlMenu extends Menu {
         menuItems.add(const Divider());
         menuItems.add(buildListTile(controls[2]));
         menuItems.add(buildListTile(controls[3]));
-        menuItems.add(buildListTile(controls[4]));
         menuItems.add(const Divider());
+        menuItems.add(buildListTile(controls[4]));
         menuItems.add(buildListTile(controls[5]));
-        menuItems.add(buildListTile(controls[6]));
         menuItems.add(const Divider());
         return AlertDialog(
           content: SingleChildScrollView(

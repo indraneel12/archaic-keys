@@ -29,11 +29,6 @@ class SettingsMenu extends Menu {
               children: <Widget>[
                 Menu.buildHeader(context, title: 'Settings Menu'),
                 const Divider(),
-                const ListTile(
-                  leading: Icon(Icons.auto_fix_high),
-                  title: Text('Toggle Automatic Transliteration'),
-                  onTap: null, // TODO: automatic transliteration
-                ),
                 ListTile(
                   leading: const Icon(Icons.mediation),
                   title: const Text('Toggle Unicode Option'),
@@ -43,7 +38,6 @@ class SettingsMenu extends Menu {
                     Navigator.of(context).pop();
                   },
                 ),
-                const Divider(),
                 ListTile(
                   leading: const Icon(Icons.design_services),
                   title: const Text('Toggle Text Toolbar'),
