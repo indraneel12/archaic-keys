@@ -453,7 +453,7 @@ class MalayalamKeyboard extends StatelessWidget {
         ).withGridPlacement(rowStart: 4, columnStart: 8),
         LayoutGrid(
           rowSizes: [1.fr],
-          columnSizes: [for (int i = 0; i < 16; i++) 1.fr],
+          columnSizes: [for (int i = 0; i < 3; i++) 1.fr],
           rowGap: 0.0,
           columnGap: 0.0,
           children: <Widget>[
@@ -461,17 +461,17 @@ class MalayalamKeyboard extends StatelessWidget {
               value: 'ള',
               devanagariLabel: 'ळ',
               iso15919Label: 'ḷ',
-            ).withGridPlacement(rowStart: 0, columnStart: 1, columnSpan: 4),
+            ).withGridPlacement(rowStart: 0, columnStart: 0),
             const MalayalamKey(
               value: 'ഴ',
               devanagariLabel: 'ऴ',
               iso15919Label: 'ḻ',
-            ).withGridPlacement(rowStart: 0, columnStart: 6, columnSpan: 4),
+            ).withGridPlacement(rowStart: 0, columnStart: 1),
             const MalayalamKey(
               value: 'റ',
               devanagariLabel: 'ऱ',
               iso15919Label: 'ṟ',
-            ).withGridPlacement(rowStart: 0, columnStart: 11, columnSpan: 4),
+            ).withGridPlacement(rowStart: 0, columnStart: 2),
           ],
         ).withGridPlacement(rowStart: 5, columnStart: 5, columnSpan: 4),
         const MalayalamKey(
