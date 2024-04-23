@@ -12,6 +12,7 @@ class KeyButton extends StatefulWidget {
     this.tooltip,
     this.fontFamily,
     this.isToggle = false,
+    this.isActive = false,
     this.backgroundColor,
     this.activeColor,
     this.thumbnail,
@@ -24,6 +25,7 @@ class KeyButton extends StatefulWidget {
   final String? tooltip;
   final String? fontFamily;
   final bool isToggle;
+  final bool isActive;
   final Color? backgroundColor;
   final Color? activeColor;
   final Icon? thumbnail;
@@ -37,6 +39,12 @@ class KeyButton extends StatefulWidget {
 
 class _KeyButtonState extends State<KeyButton> {
   var _isPressed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isPressed = widget.isActive;
+  }
 
   @override
   Widget build(BuildContext context) {

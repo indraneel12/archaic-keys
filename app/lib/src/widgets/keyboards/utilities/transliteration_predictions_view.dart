@@ -8,16 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/src/models/models.dart';
+import 'package:app/src/utilities/transliteration_exception.dart';
 
 class TransliterationPredictionsView extends StatelessWidget {
   static const tooltip = 'Choose Transliteration Prediction';
+  static const defaultMessage = 'Transliteration powered by AI4Bharat';
   static const minWidth = 32.0;
   static const minHeight = 32.0;
-
-  static const defaultMessage =
-      'Transliteration suggestions powered by AI4Bharat';
-  static const errorMessage =
-      'Could not fetch the suggestions from AI4Bharat...';
 
   const TransliterationPredictionsView({
     super.key,
@@ -60,11 +57,14 @@ class TransliterationPredictionsView extends StatelessWidget {
                         AsyncSnapshot<(List<String>, String, int, int)>
                             snapshot,
                       ) {
+                        if (snapshot.hasError) {
+                          if (snapshot.error is TransliterationException) {
+                            return Text(snapshot.error.toString());
+                          }
+                          return const Text(TransliterationModel.errorMessage);
+                        }
                         if (!snapshot.hasData) {
                           return const Text(defaultMessage);
-                        }
-                        if (snapshot.hasError) {
-                          return const Text(errorMessage);
                         }
                         final (p, w, s, e) = snapshot.data!;
                         return Row(

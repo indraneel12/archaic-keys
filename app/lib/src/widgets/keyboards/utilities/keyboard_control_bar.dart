@@ -33,6 +33,9 @@ class KeyboardControlBar extends StatelessWidget {
                   tooltip: 'Toggle Transliteration',
                   label: '    ⚞    ',
                   isToggle: true,
+                  isActive:
+                      Provider.of<TransliterationModel>(context, listen: false)
+                          .isTransliterationOn,
                   activeColor: Colors.blue,
                   onPressed: () =>
                       Provider.of<TransliterationModel>(context, listen: false)

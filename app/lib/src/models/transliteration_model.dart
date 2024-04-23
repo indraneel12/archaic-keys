@@ -12,11 +12,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/src/constants/custom_keyboard_id.dart';
+import 'package:app/src/utilities/transliteration_exception.dart';
 
 class TransliterationModel extends ChangeNotifier {
   static const urlPrefix = 'https://xlit-api.ai4bharat.org/tl';
+  static const errorMessage = 'Could not fetch response from AI4Bharat...';
 
-  var _isTransliterationOn = false;
+  var _isTransliterationOn = true;
 
   bool get isTransliterationOn => _isTransliterationOn;
 
@@ -40,8 +42,8 @@ class TransliterationModel extends ChangeNotifier {
     CustomKeyboardId targetLang,
     String text,
   ) async {
-    if (text.isEmpty || text.allMatches(' ').length > 1) {
-      throw Exception('Invalid text');
+    if (text.isEmpty) {
+      throw TransliterationException('Empty text from the cursor...');
     }
 
     final url = '$urlPrefix/${languageCodeOf(targetLang)}/$text';
@@ -51,7 +53,7 @@ class TransliterationModel extends ChangeNotifier {
       final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       return List<String>.from(jsonResponse['result'] as List);
     } else {
-      throw Exception('Failed to fetch transliteration');
+      throw TransliterationException(errorMessage);
     }
   }
 }
