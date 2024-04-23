@@ -31,7 +31,7 @@ class KeyboardControlBar extends StatelessWidget {
             return SizedBox(
               width: MediaQuery.sizeOf(context).width * 0.08,
               child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(right: 4.0),
                 child: KeyButton(
                   tooltip: 'Toggle Transliteration',
                   label: '    ⚞    ',
@@ -54,7 +54,7 @@ class KeyboardControlBar extends StatelessWidget {
             return SizedBox(
               width: MediaQuery.sizeOf(context).width * 0.08,
               child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 4.0),
                 child: KeyButton(
                   tooltip: 'Toggle Script Mode',
                   label: '    ✍    ',
@@ -73,7 +73,7 @@ class KeyboardControlBar extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: SizedBox(
-                  width: 128.0,
+                  width: MediaQuery.sizeOf(context).width * 0.15,
                   child: UnicodeTextField(),
                 ),
               );
