@@ -4,6 +4,10 @@ In a world increasingly reliant on digital communication, ensuring inclusive lin
 
 <br>
 
+![app](https://github.com/indraneel12/archaic-keys/assets/105813454/e7576133-4adb-4796-ae9b-d905424314dd)
+
+<br>
+
 ---
 
 # Overview
