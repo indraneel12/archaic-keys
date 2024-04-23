@@ -7,7 +7,6 @@ export 'app_dimensions.dart';
 export 'app_meta.dart';
 export 'custom_fonts.dart';
 export 'custom_keyboard_id.dart';
-export 'feature_constraints.dart';
 
 const copyright = '''BSD 3-Clause License
 

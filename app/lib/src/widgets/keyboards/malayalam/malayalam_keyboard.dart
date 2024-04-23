@@ -32,7 +32,7 @@ class MalayalamKeyboard extends StatelessWidget {
     final ch = model.characterBehindCursor;
     final cursorPosition = model.currentCursorPosition;
     if (ch == null || !isConsonant(ch)) {
-      return refocusText(model);
+      return model.refocus();
     }
     final doubleCh = '$ch$chandrakala${join ? '' : zwnj}$ch';
     model.replaceSequence(
@@ -60,7 +60,7 @@ class MalayalamKeyboard extends StatelessWidget {
       targetCh.add(ch);
     }
     if (targetCh.isEmpty || !isConsonant(targetCh.last)) {
-      return refocusText(model);
+      return model.refocus();
     }
     var ligatedSegment = '';
     for (var i = targetCh.length - 1; i >= 0; i--) {
@@ -89,10 +89,6 @@ class MalayalamKeyboard extends StatelessWidget {
     return (3390 <= unicode && unicode <= 3405) ||
         (3328 <= unicode && unicode <= 3332) ||
         (ch == 'ൢ' || ch == 'ൣ' || ch == 'ൗ');
-  }
-
-  static void refocusText(TextModel model) {
-    model.insertText('');
   }
 
   @override

@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
-import 'package:app/src/widgets/transliteration_predictions_slider.dart';
 
 class SettingsMenu extends Menu {
   const SettingsMenu(BuildContext context)
@@ -30,14 +29,10 @@ class SettingsMenu extends Menu {
               children: <Widget>[
                 Menu.buildHeader(context, title: 'Settings Menu'),
                 const Divider(),
-                ListTile(
-                  leading: const Icon(Icons.design_services),
-                  title: const Text('Toggle Text Toolbar'),
-                  onTap: () {
-                    Provider.of<TextToolbarModel>(context, listen: false)
-                        .toggleToolbarVisibility();
-                    Navigator.of(context).pop();
-                  },
+                const ListTile(
+                  leading: Icon(Icons.auto_fix_high),
+                  title: Text('Toggle Automatic Transliteration'),
+                  onTap: null, // TODO: automatic transliteration
                 ),
                 ListTile(
                   leading: const Icon(Icons.mediation),
@@ -45,6 +40,16 @@ class SettingsMenu extends Menu {
                   onTap: () {
                     Provider.of<UnicodeTextFieldModel>(context, listen: false)
                         .toggleUnicodeTextFieldVisibility();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  leading: const Icon(Icons.design_services),
+                  title: const Text('Toggle Text Toolbar'),
+                  onTap: () {
+                    Provider.of<TextToolbarModel>(context, listen: false)
+                        .toggleToolbarVisibility();
                     Navigator.of(context).pop();
                   },
                 ),
@@ -57,12 +62,6 @@ class SettingsMenu extends Menu {
                     Navigator.of(context).pop();
                   },
                 ),
-                const Divider(),
-                const ListTile(
-                  title: Text('Number of Transliteration Predictions'),
-                  onTap: null,
-                ),
-                const TransliterationPredictionsSlider(),
                 const Divider(),
               ],
             ),

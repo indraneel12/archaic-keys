@@ -41,33 +41,57 @@ class TransliterationPredictionsView extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Consumer<TextModel>(
               builder: (context, model, child) {
-                return Row(
-                  children: <Widget>[
-                    for (final prediction in model.transliterationPredictions)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: ClipRect(
-                          child: SizedBox(
-                            height: TransliterationPredictionsView.minHeight,
-                            child: InkWell(
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(16.0),
+                return FutureBuilder<(List<String>, String, int, int)>(
+                    future: model.fetchTransliterationPredictions(
+                      Provider.of<KeyboardModel>(context, listen: false)
+                          .currentKeyboardId,
+                    ),
+                    builder: (
+                      BuildContext context,
+                      AsyncSnapshot<(List<String>, String, int, int)> snapshot,
+                    ) {
+                      if (!snapshot.hasData) {
+                        return const Text(
+                          'Transliteration suggestions powered by AI4Bharat',
+                        );
+                      }
+                      if (snapshot.hasError) {
+                        return const Text(
+                          'Could not fetch the predictions from AI4Bharat...',
+                        );
+                      }
+                      final (p, w, s, e) = snapshot.data!;
+                      return Row(
+                        children: <Widget>[
+                          for (final prediction in p)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: ClipRect(
+                                child: SizedBox(
+                                  height:
+                                      TransliterationPredictionsView.minHeight,
+                                  child: InkWell(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(16.0),
+                                    ),
+                                    child: FittedBox(
+                                      fit: BoxFit.fill,
+                                      child: Text(prediction),
+                                    ),
+                                    onTap: () {
+                                      model.chooseTransliterationPrediction(
+                                        prediction,
+                                        (w, s, e),
+                                      );
+                                    },
+                                  ),
+                                ),
                               ),
-                              child: FittedBox(
-                                fit: BoxFit.fill,
-                                child: Text(prediction),
-                              ),
-                              onTap: () {
-                                model.chooseTransliterationPrediction(
-                                  prediction,
-                                );
-                              },
                             ),
-                          ),
-                        ),
-                      ),
-                  ],
-                );
+                        ],
+                      );
+                    });
               },
             ),
           ),

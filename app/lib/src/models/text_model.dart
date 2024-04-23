@@ -3,21 +3,27 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:app/src/constants/constants.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_quill/flutter_quill.dart';
 
-import 'package:app/src/constants/constants.dart';
+import 'package:app/src/models/models.dart';
 
 class TextModel extends ChangeNotifier {
   late final _controller = QuillController.basic();
 
+  static const errorWord = ('', -1, -1);
+  static final lineFeed = String.fromCharCode(10);
+
+  static bool isWordBoundary(String ch) {
+    return (ch == ' ' || ch == '\n' || ch == lineFeed);
+  }
+
   TextModel() {
     _controller.addListener(() => notifyListeners());
   }
-
-  var _transliterationPredictionsCount =
-      FeatureConstraints.minTransliterationPredictions;
 
   QuillController get controller => _controller;
   String get currentText => _controller.document.toPlainText();
@@ -25,19 +31,52 @@ class TextModel extends ChangeNotifier {
   String? get characterBehindCursor =>
       currentCursorPosition > 0 ? currentText[currentCursorPosition - 1] : null;
 
-  int get transliterationPredictionsCount => _transliterationPredictionsCount;
+  (String, int, int) get wordFromCursor {
+    final text = currentText;
+    var currentIndex = currentCursorPosition;
+    if (currentIndex < 1 || currentIndex >= text.length) {
+      return errorWord;
+    }
+    var startIndex = currentIndex;
+    var endIndex = currentIndex;
+    if (isWordBoundary(text[currentIndex])) {
+      startIndex--;
+    }
+    if (startIndex < 0 ||
+        endIndex < 0 ||
+        startIndex >= text.length ||
+        endIndex >= text.length) {
+      return errorWord;
+    }
+    while (startIndex > 0 && !isWordBoundary(text[startIndex])) {
+      startIndex--;
+    }
+    while (endIndex < text.length && !isWordBoundary(text[endIndex])) {
+      endIndex++;
+    }
+    final res = text.substring(startIndex, endIndex).trim();
+    startIndex = startIndex <= 1 ? 0 : startIndex + 1;
+    return res.isEmpty
+        ? errorWord
+        : (
+            res,
+            startIndex,
+            endIndex,
+          );
+  }
 
-  List<String> get transliterationPredictions {
-    // TODO: implement Transliteration algorithm
-    return [
-      'Apple',
-      'Mango',
-      'Watermelon',
-      '${currentText.length}',
-      'Lemon',
-      'Strawberry',
-      'Pineapple',
-    ];
+  Future<(List<String>, String, int, int)> fetchTransliterationPredictions(
+    CustomKeyboardId currentKeyboard,
+  ) async {
+    final (w, s, e) = wordFromCursor;
+    final predictions =
+        await TransliterationModel.englishTo(currentKeyboard, w);
+    return (
+      predictions,
+      w,
+      s,
+      e,
+    );
   }
 
   void load(String html) {
@@ -54,16 +93,22 @@ class TextModel extends ChangeNotifier {
     }
   }
 
-  void updateTransliterationPredictionsCount(int value) {
-    if (value < FeatureConstraints.minTransliterationPredictions) return;
-    if (value > FeatureConstraints.maxTransliterationPredictions) return;
-    _transliterationPredictionsCount = value;
-    notifyListeners();
-  }
-
-  void chooseTransliterationPrediction(String value) {
-    // appendText(value, separatePre: true, separatePost: false)
-    // TODO: Choose Transliteration Prediction (modify text)
+  void chooseTransliterationPrediction(
+    String value,
+    (String, int, int) source,
+  ) {
+    if (value.isEmpty || value.allMatches(' ').length > 1) {
+      return refocus();
+    }
+    final (w, s, _) = source;
+    if (w.isEmpty) {
+      return refocus();
+    }
+    replaceSequence(
+      index: s,
+      length: w.length,
+      target: value,
+    );
   }
 
   void replaceSequence({
@@ -108,5 +153,9 @@ class TextModel extends ChangeNotifier {
     }
     _controller.document.insert(initialCursorPosition, value);
     _controller.moveCursorToPosition(initialCursorPosition + value.length);
+  }
+
+  void refocus() {
+    insertText('');
   }
 }
