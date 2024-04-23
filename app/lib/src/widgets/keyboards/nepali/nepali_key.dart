@@ -48,6 +48,7 @@ class NepaliKey extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<KeyboardModel>(
       builder: (context, model, child) {
+        var ch = value;
         String? fontFamily = CustomFonts.notoSansNewa;
         String label = originalLabel ?? value;
         if (model.currentKeyboardId == CustomKeyboardId.nepaliDevanagari) {
@@ -58,14 +59,22 @@ class NepaliKey extends StatelessWidget {
           fontFamily = null;
           label = romanLabel ?? value;
         }
+        if (model.isTypeInCurrentScript) {
+          if (model.currentKeyboardId == CustomKeyboardId.nepaliDevanagari) {
+            ch = devanagariLabel ?? value;
+          } else if (model.currentKeyboardId == CustomKeyboardId.nepaliRoman) {
+            ch = romanLabel ?? value;
+          }
+        }
         final keyButton = KeyButton(
           label: label,
           fontFamily: fontFamily,
           minWidth: double.infinity,
           minHeight: double.infinity,
           onPressed: onPressed ??
-              () => Provider.of<TextModel>(context, listen: false)
-                  .insertText(value),
+              () => Provider.of<TextModel>(context, listen: false).insertText(
+                    ch,
+                  ),
         );
         return model.isKeyboardLightOn
             ? RgbBorderAnimator(child: keyButton)

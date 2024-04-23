@@ -23,31 +23,44 @@ class KeyboardControlBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Builder(
-          builder: (context) {
-            return SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.08,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: KeyButton(
-                  tooltip: 'Toggle Transliteration',
-                  label: '    ⚞    ',
-                  isToggle: true,
-                  isActive:
-                      Provider.of<TransliterationModel>(context, listen: false)
-                          .isTransliterationOn,
-                  activeColor: Colors.blue,
-                  onPressed: () =>
-                      Provider.of<TransliterationModel>(context, listen: false)
-                          .toggleTransliteration(),
-                ),
-              ),
-            );
-          },
+        SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.08,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: KeyButton(
+              tooltip: 'Toggle Transliteration',
+              label: '    ⚞    ',
+              isToggle: true,
+              isActive:
+                  Provider.of<TransliterationModel>(context, listen: false)
+                      .isTransliterationOn,
+              activeColor: Colors.blue,
+              onPressed: () =>
+                  Provider.of<TransliterationModel>(context, listen: false)
+                      .toggleTransliteration(),
+            ),
+          ),
         ),
         const Expanded(
           child: TransliterationPredictionsView(
             alignment: Alignment.center,
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.08,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: KeyButton(
+              tooltip: 'Toggle Script Mode',
+              label: '    ⤋    ',
+              isToggle: true,
+              isActive: Provider.of<KeyboardModel>(context, listen: false)
+                  .isTypeInCurrentScript,
+              activeColor: Colors.blue,
+              onPressed: () =>
+                  Provider.of<KeyboardModel>(context, listen: false)
+                      .toggleTypeInCurrentScript(),
+            ),
           ),
         ),
         Consumer<UnicodeTextFieldModel>(
