@@ -18,7 +18,7 @@ class KeyboardControlBar extends StatelessWidget {
   static const maxHeight = double.infinity;
 
   static final transliterationIcon = Icon(IconData('⚞'.codeUnitAt(0)));
-  static final scriptIcon = Icon(IconData('⤋'.codeUnitAt(0)));
+  static final scriptIcon = Icon(IconData('✍'.codeUnitAt(0)));
 
   const KeyboardControlBar({super.key});
 
@@ -57,7 +57,7 @@ class KeyboardControlBar extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: KeyButton(
                   tooltip: 'Toggle Script Mode',
-                  label: '    ⤋    ',
+                  label: '    ✍    ',
                   isToggle: true,
                   isActive: model.isTypeInCurrentScript,
                   activeColor: Colors.blue,
