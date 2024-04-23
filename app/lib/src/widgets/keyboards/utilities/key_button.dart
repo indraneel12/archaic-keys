@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-class KeyButton extends StatefulWidget {
+class KeyButton extends StatelessWidget {
   const KeyButton({
     super.key,
     required this.label,
@@ -34,45 +34,24 @@ class KeyButton extends StatefulWidget {
   final void Function() onPressed;
 
   @override
-  State<KeyButton> createState() => _KeyButtonState();
-}
-
-class _KeyButtonState extends State<KeyButton> {
-  var _isPressed = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _isPressed = widget.isActive;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return ClipRect(
       child: SizedBox(
-        width: widget.minWidth,
-        height: widget.minHeight,
+        width: minWidth,
+        height: minHeight,
         child: InkWell(
-          onTap: () {
-            widget.onPressed();
-            setState(() {
-              if (widget.isToggle) {
-                _isPressed = !_isPressed;
-              }
-            });
-          },
+          onTap: onPressed,
           child: Tooltip(
-            message: widget.tooltip ??
-                (widget.thumbnail != null ? widget.label : ''),
+            message: tooltip ?? (thumbnail != null ? label : ''),
             child: FittedBox(
               fit: BoxFit.fitHeight,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                color: _isPressed ? widget.activeColor : widget.backgroundColor,
-                child: widget.thumbnail ??
+                color: isActive ? activeColor : backgroundColor,
+                child: thumbnail ??
                     Text(
-                      widget.label,
-                      style: TextStyle(fontFamily: widget.fontFamily),
+                      label,
+                      style: TextStyle(fontFamily: fontFamily),
                     ),
               ),
             ),

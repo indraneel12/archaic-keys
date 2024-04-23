@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:app/src/models/models.dart';
 import 'package:app/src/utilities/menu.dart';
+import 'package:app/src/widgets/keyboards/utilities/keyboard_control_bar.dart';
 
 class SettingsMenu extends Menu {
   const SettingsMenu(BuildContext context)
@@ -53,6 +54,25 @@ class SettingsMenu extends Menu {
                   onTap: () {
                     Provider.of<KeyboardModel>(context, listen: false)
                         .toggleKeyboardLightVisibility();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  leading: KeyboardControlBar.transliterationIcon,
+                  title: const Text('Toggle Transliteration'),
+                  onTap: () {
+                    Provider.of<TransliterationModel>(context, listen: false)
+                        .toggleTransliteration();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  leading: KeyboardControlBar.scriptIcon,
+                  title: const Text('Toggle Script Mode'),
+                  onTap: () {
+                    Provider.of<KeyboardModel>(context, listen: false)
+                        .toggleTypeInCurrentScript();
                     Navigator.of(context).pop();
                   },
                 ),

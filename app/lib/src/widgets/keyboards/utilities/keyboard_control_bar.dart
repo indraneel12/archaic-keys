@@ -17,51 +17,55 @@ class KeyboardControlBar extends StatelessWidget {
   static const minHeight = 16.0;
   static const maxHeight = double.infinity;
 
+  static final transliterationIcon = Icon(IconData('⚞'.codeUnitAt(0)));
+  static final scriptIcon = Icon(IconData('⤋'.codeUnitAt(0)));
+
   const KeyboardControlBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.08,
-          child: Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: KeyButton(
-              tooltip: 'Toggle Transliteration',
-              label: '    ⚞    ',
-              isToggle: true,
-              isActive:
-                  Provider.of<TransliterationModel>(context, listen: false)
-                      .isTransliterationOn,
-              activeColor: Colors.blue,
-              onPressed: () =>
-                  Provider.of<TransliterationModel>(context, listen: false)
-                      .toggleTransliteration(),
-            ),
-          ),
+        Consumer<TransliterationModel>(
+          builder: (context, model, child) {
+            return SizedBox(
+              width: MediaQuery.sizeOf(context).width * 0.08,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: KeyButton(
+                  tooltip: 'Toggle Transliteration',
+                  label: '    ⚞    ',
+                  isToggle: true,
+                  isActive: model.isTransliterationOn,
+                  activeColor: Colors.blue,
+                  onPressed: () => model.toggleTransliteration(),
+                ),
+              ),
+            );
+          },
         ),
         const Expanded(
           child: TransliterationPredictionsView(
             alignment: Alignment.center,
           ),
         ),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.08,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: KeyButton(
-              tooltip: 'Toggle Script Mode',
-              label: '    ⤋    ',
-              isToggle: true,
-              isActive: Provider.of<KeyboardModel>(context, listen: false)
-                  .isTypeInCurrentScript,
-              activeColor: Colors.blue,
-              onPressed: () =>
-                  Provider.of<KeyboardModel>(context, listen: false)
-                      .toggleTypeInCurrentScript(),
-            ),
-          ),
+        Consumer<KeyboardModel>(
+          builder: (context, model, child) {
+            return SizedBox(
+              width: MediaQuery.sizeOf(context).width * 0.08,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: KeyButton(
+                  tooltip: 'Toggle Script Mode',
+                  label: '    ⤋    ',
+                  isToggle: true,
+                  isActive: model.isTypeInCurrentScript,
+                  activeColor: Colors.blue,
+                  onPressed: () => model.toggleTypeInCurrentScript(),
+                ),
+              ),
+            );
+          },
         ),
         Consumer<UnicodeTextFieldModel>(
           builder: (context, model, child) {
